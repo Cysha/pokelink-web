@@ -10,14 +10,6 @@
         /*background-color: #ccc !important;*/
     }
 
-    .party {
-/*        position: absolute;
-        left: 25%;
-        top: 50%;
-        -webkit-transform: translate(-25%, -50%);
-              transform: translate(-25%, -50%);
-*/    }
-
     @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/fonts/Pokemon%20GB.ttf")}
 
     .pokemon__slot {
@@ -26,16 +18,27 @@
         height: 100vh;
         min-height: 100vh;
         margin-left: 1.5vw;
-        background: url('https://www.freeiconspng.com/uploads/pokeball-pokemon-ball-png-images-4.png') no-repeat;
+        background: url('/assets/pokeball.png') no-repeat;
         background-position: center;
         background-size: 150vh;
         color: black;
-        padding: 5px;
         border: 10px solid #000000;
+    }
+
+    .pokemon__slot.type_border {
+        border: 10px solid transparent;
     }
 
     .pokemon__empty {
         filter: grayscale(0);
+    }
+
+    .pokemon__info {
+        background-color: rgba(0,0,0,0.3);
+        padding: 10px;
+        position: absolute;
+        bottom: 10px;
+        width: 14.2vw;
     }
 
     .pokemon__image {
@@ -79,20 +82,10 @@
     .pokemon__status {
     }
 
-    .pokemon__status img {
-        transform: scale(3);
-        box-shadow: 0 0 3px 1px rgba(0,0,0,0.4);
-        border-radius: 2px;
-        border: 0px transparent;
-    }
-
     .pokemon__hp {
         text-align: right;
     }
 
-    .pokemon__gender {
-        font-weight: bold;
-    }
 
     .pokemon__dead-label {
         text-align: center;
@@ -103,12 +96,32 @@
         margin-bottom: 0;
     }
 
-    .pokemon__gender {
+    .progress-bar.grey { background: #646464; }
+    .progress-bar.green { background: #61df8f; }
+    .progress-bar.yellow { background: #d9bc19; }
+    .progress-bar.red { background: #c02020; }
+
+    .pokemon__bar {
+        padding: 10px;
+        position: relative;
+        top: 10px;
+        min-height: 20px;
+        margin: 0 0 -10px 0;
+        transform: scale(1.5);
+        left: 80px;
+    }
+
+    .pokemon__bar > span {
         color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 3px 3px rgba(0,0,0,0.4);
+        text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+        border-radius: 4px;
+        box-shadow: 0 1px 0 1px rgba(0,0,0,0.4);
         padding: 5px 10px;
-        margin-right: 30px;
+        margin-right: 5px;
+    }
+
+    .pokemon__gender {
+        -webkit-font-smoothing: antialiased;
     }
     .pokemon__gender-female {
         /*background-color: red;*/
@@ -118,18 +131,4 @@
         /*background-color: blue;*/
         background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
     }
-
-    .pokemon__bar {
-        position: relative;
-        left: 0.5vw;
-        top: 1.5vh;
-        min-height: 20px;
-        margin: 0 0 -10px 0;
-    }
-
-    .progress-bar.grey { background: #646464; }
-    .progress-bar.green { background: #61df8f; }
-    .progress-bar.yellow { background: #d9bc19; }
-    .progress-bar.red { background: #c02020; }
-
 

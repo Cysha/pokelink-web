@@ -10,62 +10,13 @@ new Vue({
   mounted: function () {
     var vm = this;
     client.setup(settings.port, settings.currentUser+'-browser', settings.server, (username, party) => {
-        console.log(settings);
         vm.players[username] = party.map(function (pokemonWrapper) {
             let mon = pokemonWrapper.pokemon;
             if (mon == null) {
                 return false;
             }
 
-            // handle shinies
-            var url = settings.imgPaths.normal;
-            if (settings.pokeImg.ignoreShinies === false && mon.isShiny == 1) {
-              url = settings.imgPaths.shiny;
-            }
-
-            // figure out which version of the filename we wanna use
-            var filename = settings.pokeImg.useDexNumbers
-              ? mon.species
-              : mon.speciesName.toLowerCase();
-
-            // handle forms
-            if (settings.pokeImg.ignoreForms !== false) {
-              if (mon.alternateForm != '') {
-                filename = settings.pokemonForms[mon.speciesName.toLowerCase()][mon.alternateForm];
-
-                if (settings.pokeImg.useDexNumbers) {
-                  filename = filename.replace(mon.speciesName, mon.species);
-                }
-              }
-              if (mon.isFemale == true && settings.pokemonForms['female'].indexOf(mon.speciesName) !== -1) {
-                form = '-f';
-              }
-            }
-
-            mon.img = url+filename+'.'+settings.pokeImg.fileType;
-            if (!settings.pokeImg.determineEggs && mon.isEgg === true) {
-              mon.img = settings.pokeImg.imgPaths.egg;
-              mon.nickname = 'Egg';
-            }
-
-
-            if (mon.nickname == '') {
-              mon.nickname = mon.speciesName;
-            } else {
-              mon.nickname = mon.nickname.replace(/\\u\{ffff\}.*$/, '')
-            }
-
-            if (typeof mon.status == 'undefined') {
-              mon.status = 0;
-            }
-            if (mon.dead == true) {
-              mon.status = 'fnt';
-            }
-            mon.status = 0;
-
-            mon.statusImg = '/sprites/status/'+mon.status+'.png';
-
-            return mon;
+            return transformPokemon(mon);
         });
 
         if (username == client.currentUser) {
@@ -78,6 +29,37 @@ new Vue({
     var vm = this;
   },
   methods: {
+    styleBorder(mon) {
+      var borderColor = settings.pokeImg.borderColor;
+      if (borderColor === false || mon.locationMet === 0) {
+        return { 'border-color': 'black' };
+      }
+
+      borderColor = borderColor.toLowerCase();
+      if (borderColor === 'route') {
+        return { 'border-color': this.stringToColour(mon.locationMet.toString()) };
+      }
+
+      if (borderColor === 'color') {
+        return { 'border-color': mon.color };
+      }
+
+      if (borderColor === 'types') {
+        var count = mon.types.length;
+        var type1 = this.getTypeColor(mon.types[0].label);
+
+        if (count === 2) {
+          var type2 = this.getTypeColor(mon.types[1].label);
+          return {
+            'background': 'linear-gradient(to right, '+type1+' 50%, '+type2+' 50%)',
+            'border-color': 'black',
+          };
+        }
+        return { 'background': type1, 'border-color': 'black', };
+      }
+
+      return { 'border-color': 'black' };
+    },
     healthBarPercent: function (pokemon) {
       if (pokemon.maxHp === pokemon.currentHp) {
         return 100;
@@ -100,11 +82,15 @@ new Vue({
 
         return 'progress-bar green';
     },
+    isBorderColorType: function() {
+      return settings.pokeImg.borderColor === 'types';
+    },
+    getTypeColor: function(type) {
+      return settings.typeColors[type.toLowerCase()];
+    },
     stringToColour: function(str) {
       var colorHash = new ColorHash({lightness: 0.5});
       return colorHash.hex(str);
     }
-  },
-  computed: {
   }
 });

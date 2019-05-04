@@ -2,6 +2,10 @@ var defaultSettings = {
   game: {
     // only 3 4 and 5 supported atm
     generation: null,
+
+    // supported values are:
+    // firered, leafgreen, soulsilver, heartgold, diamond, pearl, platinum, black, white, black2, white2
+    game: null,
   },
 
   pokeImg: {
@@ -13,7 +17,7 @@ var defaultSettings = {
     ignoreForms: true,
     determineEggs: true,
 
-    // valid values: false, routeno, pkmncolor
+    // valid values: false, route, color, types
     borderColor: 'routeno',
   },
 
@@ -23,6 +27,23 @@ var defaultSettings = {
       party: 'https://pokelink.cybershade.org/assets/sprites/party/',
       egg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
       unknown: 'https://pokelink.cybershade.org/assets/sprites/',
+      status: 'https://pokelink.cybershade.org/assets/sprites/status/',
+      types: 'https://pokelink.cybershade.org/assets/sprites/types/',
+  },
+
+  typeColors: {
+    'bug': '#a8b820', 'dark': '#c02020', 'dragon': '#7038f8',
+    'electric': '#f8d030', 'fairy': '#ee99ac', 'fighting': '#c03028',
+    'fire': '#f08030', 'flying': '#a890f0', 'ghost': '#705898',
+    'grass': '#78c850', 'ground': '#e0c068', 'ice': '#98d8d8',
+    'normal': '#a8a878', 'poison': '#a040a0', 'psychic': '#f85888',
+    'rock': '#b8a038', 'steel': '#b8b8d0', '???': '#68a090', 'water': '#6890f0',
+  },
+
+  statusColors: {
+    'psn': '#c060c0', 'par': '#b8b818', 'slp': '#a0a088',
+    'frz': '#88b0e0', 'brn': '#e07050',
+    'pkrs': '#c060c0', 'fnt': '#e85038',
   },
 
   pokemonForms: {
@@ -261,6 +282,7 @@ var defaultSettings = {
       'dawnwings': 'necrozma-dawnwings',
     },
 
+    // add support for female forms
     'female': [
       'venasaur', 'butterfree', 'rattata', 'raticate', 'pikachu',
       'raichu', 'nidoran', 'zubat', 'golbat', 'gloom', 'vileplume',

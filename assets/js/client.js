@@ -1,5 +1,13 @@
 
-settings = {...defaultSettings, ...themeSettings, ...clientSettings};
+settings = {};
+settings = deepmerge(settings, defaultSettings);
+settings = deepmerge(settings, themeSettings);
+settings = deepmerge(settings, clientSettings);
+console.log(settings);
+
+if (typeof pokedex !== 'undefined') {
+  pokedex = collect(pokedex);
+}
 
 var client = {
   connection: null,
