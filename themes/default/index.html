@@ -29,17 +29,13 @@
                 <div class="pokemon__nick">
                     <span class="pokemon__nick-shiny" v-if="mon.isShiny == 1">★</span>{{mon.nickname}}
                 </div>
-                <div v-if="mon.currentHp != 0">
-                    <div class="pokemon__level-bar" v-if="mon.level != 100">
-                        <span class="pokemon__level">L{{mon.level}}</span>
-                        <span class="pokemon__hp" style="float: right;">{{mon.currentHp}}/{{mon.maxHp}}</span>
-                    </div>
-                    <div class="pokemon__level-bar" v-else>
-                        <div class="pokemon__hp">{{mon.currentHp}}/{{mon.maxHp}}</div>
-                    </div>
+                <div class="pokemon__level-bar" v-if="mon.level != 100">
+                    <span class="pokemon__level">L{{mon.level}}</span>
+                    <span class="pokemon__hp" style="float: right;" v-if="mon.currentHp != 0">{{mon.currentHp}}/{{mon.maxHp}}</span>
+                    <span class="pokemon__dead-label" style="float: right;" v-else> DEAD </span>
                 </div>
-                <div v-else>
-                    <div class="pokemon__dead-label"> D E A D </div>
+                <div class="pokemon__level-bar" v-else>
+                    <div class="pokemon__hp">{{mon.currentHp}}/{{mon.maxHp}}</div>
                 </div>
                 <div class="pokemon__hp-bar">
                     <div class="progress" style="height: 15px;">
@@ -61,10 +57,6 @@ var clientSettings = {
   currentUser: params.get('user'),
   server: params.get('server') || 'http://localhost',
   port: params.get('port') || 3000,
-
-  pokeImg: {
-    borderColor: 'color',
-  }
 };
 </script>
 
