@@ -1,7 +1,6 @@
 
 settings = {...defaultSettings, ...themeSettings, ...clientSettings};
 
-
 var client = {
   connection: null,
   players: [],
