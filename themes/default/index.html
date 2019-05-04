@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pkmn</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://pokelink.cybershade.org/themes/default/assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="party">
+        <div class="pokemon__slot" v-for="mon in party" v-if="party_count != 0 && typeof mon == 'object'" :style="{ 'border-color': mon.locationMet != 0 ? stringToColour(mon.locationMet.toString()) : 'black' }">
+            <div class="pokemon__bar">
+                <span v-if="mon.isGenderless == 0">
+                    <span class="pokemon__gender pokemon__gender-male" v-if="mon.isFemale == 0">♂</span>
+                    <span class="pokemon__gender pokemon__gender-female" v-else>♀</span>
+                </span>
+                <span class="pokemon__status" v-if="mon.status != 0"><img :src="mon.statusImg"></span>
+            </div>
+            <div :class="{ 'pokemon__image': true, 'pokemon__egg': (mon.isEgg == true), 'pokemon__dead': (mon.currentHp == 0)}">
+                <img :src="mon.img">
+            </div>
+            <div class="pokemon__nick">
+                <span class="pokemon__nick-shiny" v-if="mon.isShiny == 1">★</span>{{mon.nickname}}
+            </div>
+            <div v-if="mon.currentHp != 0">
+                <div class="pokemon__level-bar" v-if="mon.level != 100">
+                    <span class="pokemon__level">L{{mon.level}}</span>
+                    <span class="pokemon__hp" style="float: right;">{{mon.currentHp}}/{{mon.maxHp}}</span>
+                </div>
+                <div class="pokemon__level-bar" v-else>
+                    <div class="pokemon__hp">{{mon.currentHp}}/{{mon.maxHp}}</div>
+                </div>
+            </div>
+            <div v-else>
+                <div class="pokemon__dead-label"> D E A D </div>
+            </div>
+            <div class="pokemon__hp-bar">
+                <div class="progress" style="height: 15px;">
+                    <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.currentHp" :aria-valuemin="0" :aria-valuemax="mon.maxHp"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
+            <div class="pokemon__image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let params = new URLSearchParams(document.location.search.substring(1));
+var clientSettings = {
+  currentUser: params.get('user'),
+  server: params.get('server') || 'http://localhost',
+  port: params.get('port') || 3000
+};
+</script>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://pokelink.cybershade.org/assets/js/defaultSettings.js"></script>
+<script src="https://pokelink.cybershade.org/themes/default/js/themeSettings.js"></script>
+<script src="https://pokelink.cybershade.org/assets/js/client.js"></script>
+<script src="https://pokelink.cybershade.org/assets/js/party.js"></script>
+<script src="https://pokelink.cybershade.org/assets/js/color-hash.js"></script>
+
+</body>
+</html>
