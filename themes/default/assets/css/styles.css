@@ -10,7 +10,7 @@
         /*background-color: #ccc !important;*/
     }
 
-    @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/fonts/Pokemon%20GB.ttf")}
+    @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/assets/fonts/Pokemon%20GB.ttf")}
 
     .pokemon__slot {
         float: left;
