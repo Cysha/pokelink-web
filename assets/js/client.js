@@ -15,6 +15,7 @@ var client = {
   connected: false,
   username: null,
   currentUser: settings.currentUser,
+  events: new EventEmitter(),
 
   setup (serverPort, username, host, cb) {
     host = host || 'http://127.0.0.1'
@@ -29,11 +30,18 @@ var client = {
 
       this.connection
         .on('client:party:updated', (data) => { this.handleRemotePlayerParty(socket, data, cb) })
+        .on('client:badges:updated', (data) =>  this.handleRemotePlayerTrainer(socket, data, cb) )
         .on('client:players:list', (players) => { this.addPlayersInBulk(socket, players, cb) })
     })
+
+    return this.events;
   },
 
   join () {
+  },
+
+  handleRemotePlayerTrainer (socket, payload, cb) {
+    this.events.emit('player:trainer:updated', payload)
   },
 
   handleRemotePlayerParty (socket, payload, cb) {

@@ -7,13 +7,16 @@ new Vue({
   },
   mounted: function () {
     var vm = this;
-    this.badges = collect(badges).where('id', 'PM_CRYSTAL').first().badges.map(function(badge) {
-      var badgeObj = {};
-      badgeObj.img = 'https://pokelink.cybershade.org/assets/sprites/badges/'+badge.toLowerCase()+'.png';
-      badgeObj.label = badge+' Badge';
-      badgeObj.active = collect([true, false]).random();
-      return badgeObj;
-    });
+    client.setup(settings.port, 'badges-'+settings.currentUser+'-browser', settings.server, () => {})
+      .on('player:trainer:updated', (data) => {
+        this.badges = collect(data.update.trainer.badges).map(function(badge) {
+          var badgeObj = {};
+          badgeObj.img = 'https://pokelink.cybershade.org/assets/sprites/badges/'+badge.name.toLowerCase()+'.png';
+          badgeObj.label = badge.name+' Badge';
+          badgeObj.active = badge.value
+          return badgeObj;
+        });
+      });
   },
   updated: function( ){
     var vm = this;
