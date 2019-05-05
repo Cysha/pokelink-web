@@ -1,5 +1,5 @@
 new Vue({
-  el: '#app',
+  el: '#party',
   data: function () {
     return {
         party: [],

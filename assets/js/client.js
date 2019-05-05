@@ -37,6 +37,7 @@ var client = {
   },
 
   handleRemotePlayerParty (socket, payload, cb) {
+    console.log(payload);
     let newPlayerParty = {}
 
     if (this.players.hasOwnProperty(payload.username) === false) {
