@@ -1,11 +1,10 @@
 new Vue({
   el: '#party',
-  data: function () {
-    return {
-        party: [],
-        players: {},
-        party_count: 0
-    };
+  data: {
+    party: [],
+    players: {},
+    party_count: 0,
+    switchSpeed: 'switchMedium'
   },
   mounted: function () {
     var vm = this;

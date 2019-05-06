@@ -147,3 +147,16 @@
         filter: grayscale(100%) brightness(0);
         opacity: 0.6;
     }
+
+    /* transitions stuffs */
+    .switchSlow-move {
+        transition: transform 2s;
+    }
+
+    .switchMedium-move {
+        transition: transform 1s;
+    }
+
+    .switchFast-move {
+        transition: transform 0.5s;
+    }
