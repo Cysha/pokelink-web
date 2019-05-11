@@ -9,6 +9,10 @@ if (typeof pokedex !== 'undefined') {
   pokedex = collect(pokedex);
 }
 
+if (typeof moves !== 'undefined') {
+  moves = collect(moves);
+}
+
 var client = {
   connection: null,
   players: [],

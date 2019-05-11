@@ -4,7 +4,8 @@ new Vue({
     party: [],
     players: {},
     party_count: 0,
-    switchSpeed: 'switchMedium'
+    switchSpeed: 'switchMedium',
+    stats: ['hp', 'atk', 'def', 'spatk', 'spdef', 'spd'],
   },
   mounted: function () {
     var vm = this;
@@ -60,11 +61,11 @@ new Vue({
       return { 'border-color': 'black' };
     },
     healthBarPercent: function (pokemon) {
-      if (pokemon.maxHp === pokemon.currentHp) {
+      if (pokemon.hp.max === pokemon.hp.current) {
         return 100;
       }
 
-      return (100/pokemon.maxHp) * pokemon.currentHp;
+      return (100/pokemon.hp.max) * pokemon.hp.current;
     },
     healthBarClass: function (pokemon) {
         var percent = this.healthBarPercent(pokemon);
@@ -87,9 +88,19 @@ new Vue({
     getTypeColor: function(type) {
       return settings.typeColors[type.toLowerCase()];
     },
+    getStatusColor: function(type) {
+      return settings.statusColors[type.toLowerCase()];
+    },
     stringToColour: function(str) {
       var colorHash = new ColorHash({lightness: 0.5});
       return colorHash.hex(str);
+    }
+  },
+  computed: {
+    moveIndexes () {
+      return [1,2,3,4].map((index) => {
+        return 'move' + index;
+      });
     }
   }
 });

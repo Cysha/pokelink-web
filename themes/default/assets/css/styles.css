@@ -107,8 +107,8 @@
         top: 10px;
         min-height: 20px;
         margin: 0 0 -10px 0;
-        transform: scale(1.5);
         left: 60px;
+        transform: scale(1.5);
     }
 
     .pokemon__bar > span {

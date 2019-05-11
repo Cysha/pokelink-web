@@ -282,6 +282,32 @@ var defaultSettings = {
       'dawnwings': 'necrozma-dawnwings',
     },
 
+    // fix some issues in the nameing schemes
+    '<gen5': {
+      'clefairy': 'normal',
+      'clefable': 'normal',
+      'jigglypuff': 'normal',
+      'wigglytuff': 'normal',
+      'mime jr.': 'psychic',
+      'mr. mime': 'psychic',
+      'cleffa': 'normal',
+      'igglybuff': 'normal',
+      'togepi': 'normal',
+      'togetic': 'normal',
+      'togekiss': 'normal',
+      'azurill': 'water',
+      'marill': 'water',
+      'azumarill': 'water',
+      'snubbull': 'normal',
+      'granbull': 'normal',
+      'ralts': 'psychic',
+      'kirlia': 'psychic',
+      'gardevoir': 'psychic',
+      'cottonee': 'grass',
+      'whimsicott': 'grass',
+    },
+
+
     // add support for female forms
     'female': [
       'venasaur', 'butterfree', 'rattata', 'raticate', 'pikachu',

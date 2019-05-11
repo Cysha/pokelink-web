@@ -20,9 +20,11 @@
                 <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
                 <span class="pokemon__gender pokemon__gender-female" v-if="mon.isGenderless == 0 && mon.isFemale == 1">♀</span>
                 <span :class="'pokemon__types pokemon__types-' + type.label.toLowerCase()" v-if="mon.types.length != 0" :style="{ 'backgroundColor': getTypeColor(type.label) }" v-for="type in mon.types">{{type.label}}</span>
-                <span class="pokemon__status" v-if="mon.status != 0"><img :src="mon.statusImg"></span>
+                <span :class="'pokemon__status pokemon__status-'+ mon.status.img.toLowerCase()" v-if="mon.status.img != 0" :style="{ 'backgroundColor': getStatusColor(mon.status.img) }">
+                    {{mon.status.img}}
+                </span>
             </div>
-            <div :class="{ 'pokemon__image': true, 'pokemon__egg': (mon.isEgg == true), 'pokemon__dead': (mon.currentHp == 0)}">
+            <div :class="{ 'pokemon__image': true, 'pokemon__egg': (mon.isEgg == true), 'pokemon__dead': (mon.hp.current == 0)}">
                 <img :src="mon.img">
             </div>
             <div class="pokemon__info">
@@ -31,24 +33,24 @@
                 </div>
                 <div class="pokemon__level-bar" v-if="mon.level != 100">
                     <span class="pokemon__level">L{{mon.level}}</span>
-                    <span class="pokemon__hp" style="float: right;" v-if="mon.currentHp != 0">{{mon.currentHp}}/{{mon.maxHp}}</span>
+                    <span class="pokemon__hp" style="float: right;" v-if="mon.hp.current != 0">{{mon.hp.current}}/{{mon.hp.max}}</span>
                     <span class="pokemon__dead-label" style="float: right;" v-else> DEAD </span>
                 </div>
                 <div class="pokemon__level-bar" v-else>
-                    <div class="pokemon__hp">{{mon.currentHp}}/{{mon.maxHp}}</div>
+                    <div class="pokemon__hp">{{mon.hp.current}}/{{mon.hp.max}}</div>
                 </div>
                 <div class="pokemon__hp-bar">
                     <div class="progress" style="height: 15px;">
-                        <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.currentHp" :aria-valuemin="0" :aria-valuemax="mon.maxHp"></div>
+                        <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.hp.current" :aria-valuemin="0" :aria-valuemax="mon.hp.max"></div>
                     </div>
                 </div>
             </div>
         </div>
     </transition-group>
-        <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
-            <div class="pokemon__image">
-            </div>
+    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
+        <div class="pokemon__image">
         </div>
+    </div>
 </div>
 
 <script src="../../assets/js/events.js"></script>

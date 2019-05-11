@@ -14,7 +14,7 @@ new Vue({
           this.updateBadges(user)
         });
       })
-        
+
   },
   updated: function( ){
     var vm = this;

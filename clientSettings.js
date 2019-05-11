@@ -6,5 +6,5 @@ var clientSettings = {
 
   pokeImg: {
     borderColor: 'route',
-  }
+  },
 };
