@@ -34,6 +34,7 @@ EventEmitter.prototype.on = function (event, listener) {
     }
 
     this.events[event].push(listener);
+    return this.events
 };
 
 EventEmitter.prototype.removeListener = function (event, listener) {

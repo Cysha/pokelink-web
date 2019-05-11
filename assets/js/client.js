@@ -29,23 +29,32 @@ var client = {
       this.connected = true
 
       this.connection
-        .on('client:party:updated', (data) => { this.handleRemotePlayerParty(socket, data, cb) })
-        .on('client:badges:updated', (data) =>  this.handleRemotePlayerTrainer(socket, data, cb) )
-        .on('client:players:list', (players) => { this.addPlayersInBulk(socket, players, cb) })
+        .on('client:party:updated', (data) => this.handleRemotePlayerParty(socket, data, cb))
+        .on('client:badges:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
+        .on('client:players:list', (players) => this.addPlayersInBulk(socket, players, cb))
+        .on('player:trainer:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
     })
 
-    return this.events;
+    return this;
+  },
+
+  on (eventName, callback) {
+    this.events.on(eventName, callback)
+
+    return this
   },
 
   join () {
   },
 
   handleRemotePlayerTrainer (socket, payload, cb) {
+    console.log('Player Trainer Updated')
+    console.log(payload)
     this.events.emit('player:trainer:updated', payload)
   },
 
   handleRemotePlayerParty (socket, payload, cb) {
-    console.log(payload);
+    console.log('Party Updated')
     let newPlayerParty = {}
 
     if (this.players.hasOwnProperty(payload.username) === false) {
@@ -65,6 +74,8 @@ var client = {
 
 
   addPlayersInBulk (socket, players, cb) {
+    console.log('Initial Bulk Load')
+    console.log(players)
     players.forEach((player) => {
       let tempPlayer = {
         id: player.id,
@@ -77,6 +88,8 @@ var client = {
         cb(username, newPlayerList)
       })
     })
+
+    this.events.emit('client:players:list', players)
   },
 
   log (title, msg, ...params) {
