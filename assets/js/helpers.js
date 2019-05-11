@@ -18,7 +18,7 @@ function transformPokemon(pokemon) {
 
   // handle forms
   if (settings.pokeImg.ignoreForms !== false) {
-    if (typeof pokemon.alternateForm != 'undefined' && pokemon.alternateForm !== 'normal') {
+    if (pokemon.alternateForm !== '' && typeof pokemon.alternateForm !== 'undefined' && pokemon.alternateForm !== 'normal') {
       filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
 
       if (settings.pokeImg.useDexNumbers) {
