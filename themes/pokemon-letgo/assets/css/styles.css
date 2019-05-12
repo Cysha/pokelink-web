@@ -1,0 +1,359 @@
+.arrow {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 36px;
+    height: 36px;
+    -webkit-animation: boing 0.8s ease infinite;
+            animation: boing 0.8s ease infinite;
+    -webkit-transform-origin: right center;
+            transform-origin: right center;
+    pointer-events: none;
+  }
+  .arrow svg {
+    position: absolute;
+    width: 36px;
+    left: 0;
+    top: 0;
+    -webkit-filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4));
+    -webkit-animation: smoosh 0.7s ease infinite;
+            animation: smoosh 0.7s ease infinite;
+  }
+  
+  .pokes {
+    display: flex;
+    flex: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .pokemon {
+    text-align: center;
+    position: relative;
+    width: 180px;
+    min-width: 150px;
+    margin: 20px;
+  }
+  .pokemon * {
+    vertical-align: middle;
+  }
+  .pokemon label {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .pokemon .radio {
+    position: absolute;
+    opacity: 0;
+  }
+  .pokemon .lvl {
+    color: #00b8ff;
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .pokemon .sex {
+    position: absolute;
+    right: 14px;
+    top: 11px;
+  }
+  .pokemon .sex .icon {
+    width: 18px;
+  }
+  .pokemon .sex .icon.female {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .pokemon .sprite {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .pokemon .details {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    right: 0;
+  }
+  .pokemon .details .name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #222;
+    margin: 4px 0;
+    display: inline-block;
+  }
+  .pokemon .details .hp {
+    width: 60%;
+    margin: auto;
+  }
+  .pokemon .details .hp .text {
+    color: #666;
+    display: inline-block;
+    padding-top: 4px;
+    font-size: 14px;
+  }
+  .pokemon .details .hp .bar {
+    border-radius: 50px;
+    background: #073fa7;
+    border: 3.5px solid #00a3e2;
+    height: 11px;
+    overflow: hidden;
+  }
+  .pokemon .details .hp .bar .health {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, lime, #8bf500);
+  }
+  .pokemon .details .hp .bar .health.low {
+    background: linear-gradient(to right, #ffcc00, #f1f500);
+  }
+  .pokemon .details .hp .bar .health.critical {
+    background: linear-gradient(to right, #d20000, #f51700);
+  }
+  .pokemon .pokeball {
+    position: absolute;
+    fill: white;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    width: 76%;
+    left: 12%;
+    top: 47%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .pokemon .cell {
+    transition: all 0.2s ease;
+  }
+  .pokemon .cell .bg {
+    stroke: rgba(255, 255, 255, 0.5);
+    fill: rgba(255, 255, 255, 0.5);
+    transition: all 1.15s ease;
+  }
+  .pokemon .cell .stroke {
+    stroke: white;
+    stroke-width: 4px;
+  }
+  .pokemon:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    bottom: 2px;
+    height: 180px;
+    border-radius: 100% 100% 70% 70% / 70% 70% 20% 20%;
+    background: transparent;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    z-index: -2;
+  }
+  .pokemon.selected:after {
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  }
+  .pokemon.selected .cell {
+    -webkit-filter: drop-shadow(0px 2px 6px white);
+            filter: drop-shadow(0px 2px 6px white);
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+  .pokemon.selected .cell .bg {
+    fill: rgba(255, 246, 146, 0.9);
+    fill: url(#bg-gradient-selected) !important;
+  }
+  .pokemon.selected .pokeball {
+    opacity: 0.8;
+  }
+  .pokemon.selected .sprite {
+    -webkit-animation: bounce 0.8s ease infinite;
+            animation: bounce 0.8s ease infinite;
+  }
+  
+  .button {
+    position: relative;
+    background: white;
+    border: 2px solid #ffc55b;
+    border-radius: 10px;
+    min-height: 30px;
+    vertical-align: middle;
+    padding: 0 20px;
+    outline: none !important;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .button:after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: white;
+    border-radius: 13px;
+    z-index: -1;
+    box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.2);
+  }
+  .button:hover {
+    background: linear-gradient(to bottom, #ffd78e, #ffc55b);
+    border-color: white;
+  }
+  .button:hover:after {
+    background: linear-gradient(to bottom, #ffd78e, #ffc55b);
+    box-shadow: 0 0 5px 2px white, 0 0 15px #ffe9c1, 0 3px 5px -2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .candy {
+    display: block;
+    position: absolute;
+    top: 52%;
+    left: 55%;
+    height: 12px;
+    width: 12px;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    margin: 12px;
+  }
+  .candy.mighty {
+    -webkit-filter: hue-rotate(300deg) saturate(2.2);
+            filter: hue-rotate(300deg) saturate(2.2);
+  }
+  .candy.smart {
+    -webkit-filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
+            filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
+  }
+  .candy.tough {
+    -webkit-filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
+            filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
+  }
+  .candy.courage {
+    -webkit-filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
+            filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
+  }
+  .candy.quick {
+    -webkit-filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
+            filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
+  }
+  .candy:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 1px;
+    box-shadow: 0px 5px #000000,0px 6px #000000,0px 7px #000000,1px 8px #000000,3px 9px #000000,2px 9px #000000,4px 10px #000000,5px 10px #000000,6px 11px #000000,7px 11px #000000,8px 11px #000000,9px 10px #000000,10px 9px #000000,10px 8px #000000,10px 7px #000000,10px 6px #000000,10px 5px #000000,10px 4px #000000,10px 3px #000000,9px 2px #000000,8px 1px #000000,7px 1px #000000,6px 1px #000000,5px 2px #000000,4px 2px #000000,3px 3px #000000,2px 3px #000000,1px 4px #000000,8px 2px #ffffff,7px 2px #ffffff,6px 3px #ffffff,7px 3px #ffffff,8px 3px #ffffff,9px 3px #ffffff,8px 4px #ffffff,6px 2px #fff69c,5px 3px #fff69c,4px 3px #fff69c,4px 4px #fff69c,2px 4px #fff69c,3px 5px #fff69c,6px 4px #fff69c,9px 5px #fff69c,9px 7px #fff69c,6px 8px #fff69c,3px 4px #fff6e6,2px 5px #fff6e6,3px 6px #fff6e6,7px 4px #fff6e6,9px 4px #fff6e6,7px 8px #fff6e6,8px 8px #ffffff,8px 10px #dea410,7px 10px #dea410,6px 10px #dea410,9px 9px #dea410,8px 9px #dea410,7px 9px #dea410,6px 9px #dea410,5px 9px #dea410,4px 9px #dea410,4px 8px #dea410,3px 8px #dea410,2px 8px #dea410,2px 7px #dea410,1px 7px #dea410,1px 6px #dea410,1px 5px #eec529,2px 6px #eec529,3px 7px #eec529,5px 8px #eec529,9px 8px #eec529,7px 6px #f6de41,8px 6px #f6de41,8px 7px #f6de41,7px 7px #f6de41,7px 5px #f6de41,6px 5px #f6de41,5px 5px #f6de41,6px 6px #f6de41,5px 4px #ffe65a,4px 5px #ffe65a,8px 5px #ffe65a,9px 6px #ffe65a,4px 6px #ffe65a,5px 6px #ffe65a,5px 7px #ffe65a,6px 7px #ffe65a,4px 7px #fff69c;
+  }
+  
+  .heart {
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    top: 54%;
+    left: 39%;
+    -webkit-animation: float 1s ease infinite;
+            animation: float 1s ease infinite;
+  }
+  .heart:after {
+    content: "";
+    width: 1px;
+    height: 1px;
+    display: block;
+    box-shadow: 8px 15px #000000,9px 15px #000000,10px 14px #000000,11px 13px #000000,12px 12px #000000,13px 11px #000000,14px 10px #000000,15px 9px #000000,15px 8px #000000,15px 7px #000000,15px 6px #000000,14px 4px #000000,12px 3px #000000,11px 3px #000000,9px 5px #000000,8px 5px #000000,7px 14px #000000,6px 13px #000000,5px 12px #000000,4px 11px #000000,3px 10px #000000,2px 9px #000000,2px 8px #000000,2px 7px #000000,2px 6px #000000,3px 4px #000000,5px 3px #000000,6px 3px #000000,8px 14px #a53367,9px 14px #a53367,10px 13px #a53367,11px 12px #a53367,12px 11px #a53367,13px 10px #a53367,14px 9px #a53367,14px 5px #a53367,13px 4px #a53367,3px 5px #a53367,4px 4px #a53367,7px 13px #a53367,6px 12px #a53367,5px 11px #a53367,4px 10px #a53367,3px 9px #a53367,3px 6px #a53367,14px 6px #a53367,10px 4px #a53367,7px 4px #a53367,6px 4px #a53367,11px 4px #a53367,7px 5px #a53367,10px 5px #a53367,8px 6px #a53367,9px 6px #a53367,3px 7px #eb86ae,3px 8px #eb86ae,5px 4px #eb86ae,12px 4px #eb86ae,14px 7px #eb86ae,14px 8px #eb86ae,8px 13px #eb86ae,9px 13px #eb86ae,7px 12px #eb86ae,4px 9px #eb86ae,13px 9px #eb86ae,12px 10px #eb86ae,10px 12px #eb86ae,5px 10px #eb86ae,4px 5px #eb86ae,13px 5px #eb86ae,5px 6px #ffffff,6px 6px #ffffff,5px 7px #ffffff,11px 6px #ffffff,6px 7px #feccf1,5px 8px #feccf1,4px 6px #feccf1,5px 5px #feccf1,11px 7px #feccf1,9px 8px #ffc6f8,8px 8px #ffc6f8,8px 9px #ffc6f8,9px 9px #ffc6f8,7px 9px #f2d2f9,6px 8px #f2d2f9,7px 8px #f2d2f9,13px 8px #ffa5da,12px 9px #ffa5da,11px 10px #ffa5da,11px 11px #ffa5da,10px 11px #ffa5da,9px 12px #ffa5da,8px 12px #ffa5da,13px 7px #ffa5da,13px 6px #ffa5da,12px 5px #ffa5da,4px 7px #ffa5da,4px 8px #ffa5da,5px 9px #ffa5da,6px 10px #ffa5da,6px 11px #ffa5da,7px 11px #ffa5da,12px 7px #ffd2f2,12px 8px #ffd2f2,11px 9px #ffd2f2,10px 10px #ffd2f2,9px 11px #ffd2f2,8px 11px #ffd2f2,6px 9px #ffd2f2,7px 10px #ffd2f2,8px 10px #ffd2f2,9px 10px #ffd2f2,10px 9px #ffd2f2,11px 8px #ffd2f2,10px 8px #ffd2f2,10px 7px #ffd2f2,12px 6px #ffc6f8,7px 7px #ffc6f8,8px 7px #ff87c2,9px 7px #ff87c2,10px 6px #ff87c2,11px 5px #ff87c2,7px 6px #ff87c2,6px 5px #ff87c2,2px 4px #f2d2f9,3px 3px #f2d2f9,5px 2px #f2d2f9,6px 2px #f2d2f9,11px 2px #f2d2f9,12px 2px #f2d2f9,14px 3px #f2d2f9,15px 4px #f2d2f9,2px 10px #eb86ae,3px 11px #eb86ae,4px 12px #eb86ae,5px 13px #eb86ae,6px 14px #eb86ae,11px 14px #eb86ae,12px 13px #eb86ae,13px 12px #eb86ae,14px 11px #eb86ae,15px 10px #eb86ae,16px 7px #eb86ae,16px 8px #eb86ae,15px 5px #eb86ae,13px 3px #eb86ae,10px 3px #eb86ae,9px 4px #eb86ae,7px 3px #eb86ae,8px 4px #eb86ae,4px 3px #eb86ae,2px 5px #eb86ae,1px 7px #eb86ae,1px 8px #eb86ae,1px 6px #f2d2f9,1px 9px #f2d2f9,6px 15px #f2d2f9,5px 14px #f2d2f9,4px 13px #f2d2f9,3px 12px #f2d2f9,2px 11px #f2d2f9,4px 2px #f2d2f9,8px 3px #f2d2f9,9px 3px #f2d2f9,13px 2px #f2d2f9,11px 15px #f2d2f9,12px 14px #f2d2f9,13px 13px #f2d2f9,14px 12px #f2d2f9,15px 11px #f2d2f9,16px 9px #f2d2f9,16px 6px #f2d2f9,1px 10px #ffc6f8,16px 10px #ffc6f8,16px 5px #ffc6f8,1px 5px #ffc6f8,7px 2px #ffc6f8,10px 2px #ffc6f8,7px 15px #a53367,10px 15px #a53367,7px 16px #f2d2f9,10px 16px #f2d2f9,8px 16px #ffa5da,9px 16px #ffa5da;
+  }
+  
+  @-webkit-keyframes boing {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+              transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+    }
+  }
+  
+  @keyframes boing {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+              transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+    }
+  }
+  @-webkit-keyframes bounce {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+              transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+    }
+  }
+  @keyframes bounce {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+              transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+    }
+  }
+  @-webkit-keyframes float {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%);
+              transform: translateY(-50%) translateX(-50%);
+    }
+    50% {
+      -webkit-transform: translateY(-57%) translateX(-50%);
+              transform: translateY(-57%) translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%);
+              transform: translateY(-50%) translateX(-50%);
+    }
+    50% {
+      -webkit-transform: translateY(-57%) translateX(-50%);
+              transform: translateY(-57%) translateX(-50%);
+    }
+  }
+  body, html {
+    min-height: 100%;
+    text-align: center;
+  }
+  
+  h1 {
+    display: inline-block;
+    font-size: 60px;
+    margin: 10px;
+    color: #805cff;
+    font-weight: 900;
+  }
+  
+  .logo {
+    max-width: 400px;
+    margin: 100px 40px;
+  }
+  
+  body {
+    color: black;
+    background: red;
+    background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    font-family: "Heebo", sans-serif;
+  }
+  
