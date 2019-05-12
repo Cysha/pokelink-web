@@ -3,6 +3,10 @@ new Vue({
   data: {
     party: [],
     players: {},
+    game: {
+      name: '',
+      generation: 0,
+    },
     party_count: 0,
     switchSpeed: 'switchMedium',
     stats: ['hp', 'atk', 'def', 'spatk', 'spdef', 'spd'],
@@ -23,12 +27,31 @@ new Vue({
             vm.party = vm.players[username];
             vm.party_count = vm.party.filter(function(value) { return typeof value == "object" }).length;
         }
-    });
+    })
+    .on('player:trainer:updated', (payload) => { this.updateTrainerStuffs(payload)})
+    ;
   },
   updated: function( ){
     var vm = this;
   },
   methods: {
+    updateTrainerStuffs (payload) {
+      console.log(`Trainer Update recieved for ${payload.username}`)
+      console.log(payload.username, window.settings)
+      if (payload.username !== settings.currentUser) return;
+
+      this.game = {
+        name: payload.trainer.game.friendlyName,
+        generation: payload.trainer.game.generation,
+      };
+
+      settings.game = {
+        name: payload.trainer.game.friendlyName,
+        generation: payload.trainer.game.generation,
+      };
+
+    },
+
     styleBorder(mon) {
       var borderColor = settings.pokeImg.borderColor;
       if (borderColor === false || mon.locationMet === 0) {
