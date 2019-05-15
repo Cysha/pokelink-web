@@ -3,10 +3,6 @@ new Vue({
   data: {
     party: [],
     players: {},
-    game: {
-      name: '',
-      generation: 0,
-    },
     party_count: 0,
     switchSpeed: 'switchMedium',
     stats: ['hp', 'atk', 'def', 'spatk', 'spdef', 'spd'],
@@ -37,18 +33,8 @@ new Vue({
   methods: {
     updateTrainerStuffs (payload) {
       console.log(`Trainer Update recieved for ${payload.username}`)
-      console.log(payload.username, window.settings)
+      console.log(payload, window.settings)
       if (payload.username !== settings.currentUser) return;
-
-      this.game = {
-        name: payload.trainer.game.friendlyName,
-        generation: payload.trainer.game.generation,
-      };
-
-      settings.game = {
-        name: payload.trainer.game.friendlyName,
-        generation: payload.trainer.game.generation,
-      };
 
     },
 

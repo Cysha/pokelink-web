@@ -12,7 +12,6 @@ function transformPokemon(pokemon) {
     url = settings.imgPaths.shiny;
   }
 
-
   // figure out which version of the filename we wanna use
   var filename = settings.pokeImg.useDexNumbers
     ? pokemon.species
@@ -42,7 +41,7 @@ function transformPokemon(pokemon) {
   }
 
   // normalize species name
-  if (pokemon.nickname == '') {
+  if (typeof pokemon.nickname === 'undefined' || pokemon.nickname == '') {
     pokemon.nickname = pokemon.speciesName;
   } else {
     pokemon.nickname = pokemon.nickname.replace(/\\u\{ffff\}.*$/, '');
@@ -85,13 +84,26 @@ function transformPokemon(pokemon) {
       if (pokemon[move].name === '--') {
         return;
       }
-      var moveEntry = moves.where('ename', unCamelCase(pokemon[move].name)).first();
+      var moveEntry = movedex.where('ename', unCamelCase(pokemon[move].name)).first();
       if (typeof moveEntry !== "undefined") {
         pokemon[move].max_pp = moveEntry.pp;
         pokemon[move].type = moveEntry.type;
       }
     })
   }
+
+  // handle item stuff
+  if (itemdex.has('gen'+settings.game.generation)) {
+    item = collect(itemdex.get('gen'+settings.game.generation))
+      .filter((row) => { return row.id == pokemon.heldItem; })
+      .first();
+    pokemon.heldItem = {
+      id: pokemon.heldItem,
+      img: settings.imgPaths.items+'gen'+settings.game.generation+'/'+pokemon.heldItem+'.png',
+      name: typeof item !== 'undefined' ? item.name : 'Unknown',
+    };
+  }
+
 
   return pokemon;
 }

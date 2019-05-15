@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pkmn</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../themes/default/assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+<body>
+<div id="party">
+<table class="table table-bordered table-dark table-striped">
+    <thead>
+        <tr>
+            <th>pkmn</th>
+            <th>info</th>
+            <th>movesets</th>
+            <th>stats</th>
+            <th>ivs</th>
+            <th>evs</th>
+        </tr>
+    </thead>
+    <tbody v-for="mon in party" v-if="mon !== false" :key="mon.nickname">
+        <tr>
+            <td>
+                <div>
+                    <span>
+                        <span class="pokemon__nick-shiny" v-if="mon.isShiny == 1">★</span>
+                        <span v-if="mon.nickname != ''">{{mon.nickname}}</span>
+                        <span><small>({{mon.speciesName}} #{{mon.species}})</small></span>
+                    </span>
+                    <span class="pokemon__gender">
+                        <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
+                        <span class="pokemon__gender pokemon__gender-female" v-if="mon.isGenderless == 0 && mon.isFemale == 1">♀</span>
+                    </span>
+                </div>
+                <img :src="mon.img">
+                <div class="pokemon__types">
+                    <span v-for="type in mon.types" v-if="mon.types.length != 0" :class="' pokemon__types-' + type.label.toLowerCase()" :style="{ 'backgroundColor': getTypeColor(type.label) }">{{type.label}}</span>
+                </div>
+                <div class="pokemon__types">
+                    <span :class="'pokemon__status pokemon__status-'+ mon.status.img.toLowerCase()" v-if="mon.status.img != 0" :style="{ 'backgroundColor': getStatusColor(mon.status.img) }">
+                        {{mon.status.img}}
+                    </span>
+                </div>
+                <div class="pokemon__level-bar">
+                    <span class="pokemon__hp" style="font-size: 1.2rem" v-if="mon.hp.current != 0">{{mon.hp.current}}/{{mon.hp.max}}</span>
+                </div>
+                <div class="pokemon__hp-bar">
+                    <div class="progress" style="height: 15px;">
+                        <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.hp.current" :aria-valuemin="0" :aria-valuemax="mon.hp.max"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div>Level: {{mon.level}}</div>
+                <div>Exp: {{mon.exp}}</div>
+                <div>HP: {{mon.hp.current}} / {{mon.hp.max}}</div>
+                <div>HiddenPower: {{mon.hiddenpower || '??'}}</div>
+                <div>Nature: {{mon.nature || '??'}}</div>
+                <div>Ability: {{mon.ability || '??'}}</div>
+                <div>Held Item: <span v-if="mon.heldItem.id != 0"><img :src="mon.heldItem.img"> <small>({{mon.heldItem.name}})</small></span><span v-else>No Item</span></div>
+            </td>
+            <td>
+                <div v-for="moveKey in moveIndexes" v-if="typeof mon[moveKey] !== 'undefined' && mon[moveKey].name != '--'">
+                    {{mon[moveKey].name}} ({{mon[moveKey].pp}}/{{mon[moveKey].max_pp || '??'}})
+                    <span class="pokemon__types">
+                        <span v-if="mon[moveKey].hasOwnProperty('type')" :class="'pokemon__types-' + mon[moveKey].type.toLowerCase()" :style="{ 'backgroundColor': getTypeColor(mon[moveKey].type) }">{{mon[moveKey].type}}</span>
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div v-for="stat in stats"> {{stat}}</div>
+            </td>
+            <td>
+                <div v-for="stat in stats" v-if="typeof mon.ivs !== 'undefined'">
+                    {{mon.ivs[stat]}}
+                </div>
+            </td>
+            <td>
+                <div v-for="stat in stats" v-if="typeof mon.evs !== 'undefined'">
+                    {{mon.evs[stat]}}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../assets/data/pokedex.js"></script>
+<script src="../../assets/data/moves.js"></script>
+<script src="../../assets/data/gen3_items.js"></script>
+<script src="../../assets/data/gen4_items.js"></script>
+<script src="../../assets/data/gen5_items.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="../../themes/default/assets/js/themeSettings.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/js/party.js"></script>
+
+</body>
+</html>

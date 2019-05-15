@@ -148,6 +148,31 @@
         opacity: 0.6;
     }
 
+    .pokemon__types {}
+    .pokemon__types span, .pokemon__gender span {
+        font-family: "PT Sans Condensed", "Roboto Condensed", sans-serif;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 19px;
+        text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3), 1px -1px 1px rgba(0, 0, 0, 0.3), -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.9), 0 2px 1px rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 6px;
+        box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.6);
+        border-top: 1px rgba(255, 255, 255, 0.5) solid;
+        border-bottom: 4px rgba(0, 0, 0, 0.5) solid;
+        margin: 2px;
+        font-weight: normal;
+        text-transform: uppercase;
+        min-width: 65px;
+        text-align: center;
+        padding: 5px 8px;
+    }
+    .pokemon__types span + span {
+        margin: -5px;
+        border-radius: 0 6px 6px 0;
+    }
+
+
     /* transitions stuffs */
     .switchSlow-move {
         transition: transform 2s;

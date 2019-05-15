@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Badges</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../themes/default/assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+<body>
+<div id="badges">
+    <div class="badges">
+        <div v-for="badge in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
+            <img :src="badge.img" :alt="badge.label">
+        </div>
+    </div>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../assets/data/badges.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="../../themes/default/assets/js/themeSettings.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script src="../../assets/js/badges.js"></script>
+
+</body>
+</html>

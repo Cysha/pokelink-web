@@ -29,6 +29,7 @@ var defaultSettings = {
       unknown: 'https://pokelink.cybershade.org/assets/sprites/',
       status: 'https://pokelink.cybershade.org/assets/sprites/status/',
       types: 'https://pokelink.cybershade.org/assets/sprites/types/',
+      items: 'https://pokelink.cybershade.org/assets/sprites/items/',
   },
 
   typeColors: {
@@ -335,6 +336,34 @@ var defaultSettings = {
 
       'pyroar', 'meowstic'
     ]
-  }
+  },
+
+  natures: {
+    'hardy': { increase: 'atk', decrease: 'atk' },
+    'lonely': { increase: 'atk', decrease: 'def' },
+    'brave': { increase: 'atk', decrease: 'spd' },
+    'adamant': { increase: 'atk', decrease: 'spatk' },
+    'naughty': { increase: 'atk', decrease: 'spdef' },
+    'bold': { increase: 'def', decrease: 'atk' },
+    'docile': { increase: 'def', decrease: 'def' },
+    'relaxed': { increase: 'def', decrease: 'spd' },
+    'impish': { increase: 'def', decrease: 'spatk' },
+    'lax': { increase: 'def', decrease: 'spdef' },
+    'timid': { increase: 'spd', decrease: 'atk' },
+    'hasty': { increase: 'spd', decrease: 'def' },
+    'serious': { increase: 'speed', decrease: 'speed' },
+    'jolly': { increase: 'spd', decrease: 'spatk' },
+    'naive': { increase: 'spd', decrease: 'spdef' },
+    'modest': { increase: 'spatk', decrease: 'atk' },
+    'mild': { increase: 'spatk', decrease: 'def' },
+    'quiet': { increase: 'spatk', decrease: 'spd' },
+    'bashful': { increase: 'spatk', decrease: 'spatk' },
+    'rash': { increase: 'spatk', decrease: 'spdef' },
+    'calm': { increase: 'spdef', decrease: 'atk' },
+    'gentle': { increase: 'spdef', decrease: 'def' },
+    'sassy': { increase: 'spdef', decrease: 'spd' },
+    'careful': { increase: 'spdef', decrease: 'spatk' },
+    'quirky': { increase: 'spdef', decrease: 'spdef' },
+  },
 
 };

@@ -1,5 +1,5 @@
 
-settings = {};
+window.settings = {};
 settings = deepmerge(settings, defaultSettings);
 settings = deepmerge(settings, themeSettings);
 settings = deepmerge(settings, clientSettings);
@@ -9,8 +9,12 @@ if (typeof pokedex !== 'undefined') {
   pokedex = collect(pokedex);
 }
 
-if (typeof moves !== 'undefined') {
-  moves = collect(moves);
+if (typeof movedex !== 'undefined') {
+  movedex = collect(movedex);
+}
+
+if (typeof itemdex !== 'undefined') {
+  itemdex = collect(itemdex);
 }
 
 var client = {
@@ -74,8 +78,8 @@ var client = {
 
     this.log('Client Rcv: Player %s updated their party', payload.username);
     cb(payload.username, Object.values(this.players[payload.username]));
+    this.events.emit('client:party:updated', this.players[payload.username]);
   },
-
 
   addPlayersInBulk (socket, players, cb) {
     console.log('Initial Bulk Load');
@@ -88,15 +92,22 @@ var client = {
           party: player.party
         }
       }
+
+      console.log([player.username, settings.currentUser]);
+      if (player.username === settings.currentUser) {
+        settings.game = {
+          name: player.trainer.game.friendlyName,
+          generation: player.trainer.game.generation,
+        };
+        console.log(['setting game to gen: '+ settings.game.generation +' - '+settings.game.name]);
+        this.events.emit('player:trainer:updated', player);
+        this.events.emit('client:party:updated', player.party);
+      }
+
       this.handleRemotePlayerParty(socket, tempPlayer, (username, newPlayerList) => {
         cb(username, newPlayerList);
       });
-
-      if (player.username === settings.currentUser) {
-        this.events.emit('player:trainer:updated', player);
-      }
     });
-
     this.events.emit('client:players:list', players);
   },
 

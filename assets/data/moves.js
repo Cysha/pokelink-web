@@ -1,4 +1,4 @@
-var moves = [
+var movedex = [
     {
         "accuracy": 100,
         "category": "\u7269\u7406",
