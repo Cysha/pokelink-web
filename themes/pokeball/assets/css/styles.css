@@ -7,7 +7,7 @@
         /* background-color: black !important; */
     }
     body {
-        background-color: #595858  !important;
+        /*background-color: #595858  !important;*/
     }
 
     @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/assets/fonts/Pokemon%20GB.ttf")}
