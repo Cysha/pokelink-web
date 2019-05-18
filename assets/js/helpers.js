@@ -1,11 +1,14 @@
 
 function transformPokemon(pokemon) {
+  if (typeof pokemon.transformed != 'undefined') {
+    return pokemon;
+  }
   //console.info(pokemon);
   // try and get pokedex info
   if (typeof pokedex !== 'undefined') {
     entry = pokedex.where('id', pokemon.species).first();
   }
-
+  pokemon.transformed = true;
   // handle shinies
   var url = settings.imgPaths.normal;
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
@@ -52,7 +55,7 @@ function transformPokemon(pokemon) {
   if (pokemon.status.psn === 1) { pokemon.status.img = 'psn'.toUpperCase(); }
   if (pokemon.status.slp === 1) { pokemon.status.img = 'slp'.toUpperCase(); }
   if (pokemon.status.par === 1) { pokemon.status.img = 'par'.toUpperCase(); }
-  if (pokemon.status.fzn === 1) { pokemon.status.img = 'fzn'.toUpperCase(); }
+  if (pokemon.status.frz === 1) { pokemon.status.img = 'frz'.toUpperCase(); }
   if (pokemon.status.brn === 1) { pokemon.status.img = 'brn'.toUpperCase(); }
   if (pokemon.dead === true) { pokemon.status.img = 'fnt'.toUpperCase(); }
 

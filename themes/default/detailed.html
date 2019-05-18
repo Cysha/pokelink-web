@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Pkmn</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../../themes/default/assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
@@ -38,15 +38,16 @@
                         <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
                         <span class="pokemon__gender pokemon__gender-female" v-if="mon.isGenderless == 0 && mon.isFemale == 1">♀</span>
                     </span>
+                    <span class="pokemon__types">
+                        <span :style="{ 'backgroundColor': getStatusColor('pkrs') }" v-if="mon.pokerus > 0">PkRs</span>
+                        <span :class="'pokemon__status pokemon__status-'+ mon.status.img.toLowerCase()" v-if="mon.status.img != 0" :style="{ 'backgroundColor': getStatusColor(mon.status.img) }">
+                            {{mon.status.img}}
+                        </span>
+                    </span>
                 </div>
                 <img :src="mon.img">
                 <div class="pokemon__types">
                     <span v-for="type in mon.types" v-if="mon.types.length != 0" :class="' pokemon__types-' + type.label.toLowerCase()" :style="{ 'backgroundColor': getTypeColor(type.label) }">{{type.label}}</span>
-                </div>
-                <div class="pokemon__types">
-                    <span :class="'pokemon__status pokemon__status-'+ mon.status.img.toLowerCase()" v-if="mon.status.img != 0" :style="{ 'backgroundColor': getStatusColor(mon.status.img) }">
-                        {{mon.status.img}}
-                    </span>
                 </div>
                 <div class="pokemon__level-bar">
                     <span class="pokemon__hp" style="font-size: 1.2rem" v-if="mon.hp.current != 0">{{mon.hp.current}}/{{mon.hp.max}}</span>
@@ -108,7 +109,7 @@
 <script src="../../themes/default/assets/js/themeSettings.js"></script>
 <script src="../../assets/js/client.js"></script>
 <script src="../../assets/js/helpers.js"></script>
-<script src="../../assets/js/party.js"></script>
+<script src="./assets/js/party.js"></script>
 
 </body>
 </html>

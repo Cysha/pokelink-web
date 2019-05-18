@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width">
     <title>Badges</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../../themes/default/assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 </head>
 
 <body>
-<div id="badges">
+<div id="badges" style="display: none" :class="{ 'browser-connected' : true }">
     <div class="badges">
         <div v-for="badge in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
             <img :src="badge.img" :alt="badge.label">
         </div>
+    </div>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
     </div>
 </div>
 
@@ -32,7 +36,7 @@
 <script src="../../assets/js/defaultSettings.js"></script>
 <script src="../../themes/default/assets/js/themeSettings.js"></script>
 <script src="../../assets/js/client.js"></script>
-<script src="../../assets/js/badges.js"></script>
+<script src="./assets/js/badges.js"></script>
 
 </body>
 </html>

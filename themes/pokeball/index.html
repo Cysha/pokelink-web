@@ -13,8 +13,8 @@
 </head>
 
 <body>
-<div id="party">
-    <transition-group :name="switchSpeed" tag="div" class="party">
+<div id="party" style="display: none" :class="{ 'browser-connected' : true }">
+    <transition-group :name="switchSpeed" tag="div" class="party" v-if="loaded">
         <div v-for="mon in party" v-if="party_count != 0 && typeof mon == 'object'" class="pokemon__slot" :key="mon.nickname">
             <div :class="{ 'pokemon__image': true, 'pokemon__dead': (mon.hp.current == 0)}">
                 <img :src="mon.img">
@@ -32,7 +32,7 @@
                     <span class="pokemon__level">L{{mon.level}}</span>
                     <span class="pokemon__hp" style="float: right;">{{mon.hp.current}}/{{mon.hp.max}}</span>
                 </div>
-                <div class="pokemon__level-bar" v-else>;p
+                <div class="pokemon__level-bar" v-else>
                     <div class="pokemon__hp">{{mon.hp.current}}/{{mon.hp.max}}</div>
                 </div>
             </div>
@@ -44,14 +44,15 @@
                     <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.hp.current" :aria-valuemin="0" :aria-valuemax="mon.hp.max"></div>
                 </div>
             </div>
-            <div class="pokemon__types">
-                <span :class="'pokemon__types-' + type.label.toLowerCase()" v-if="mon.types.length != 0" :style="{ 'backgroundColor': getTypeColor(type.label) }" v-for="type in mon.types">{{type.label}}</span>
-            </div>
         </div>
     </transition-group>
-    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
+    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6" v-if="loaded">
         <div class="pokemon__image">
         </div>
+    </div>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
     </div>
 </div>
 
@@ -71,7 +72,7 @@
 <script src="./assets/js/themeSettings.js"></script>
 <script src="../../assets/js/helpers.js"></script>
 <script src="../../assets/js/client.js"></script>
-<script src="../../assets/js/party.js"></script>
+<script src="./assets/js/party.js"></script>
 
 </body>
 </html>

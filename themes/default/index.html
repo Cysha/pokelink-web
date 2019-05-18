@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width">
     <title>Pkmn</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="../../themes/default/assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 </head>
 
 <body>
-<div id="party">
-    <transition-group :name="switchSpeed" tag="div" class="party">
+<div id="party" style="display: none" :class="{ 'browser-connected' : true }">
+    <transition-group :name="switchSpeed" tag="div" class="party" v-if="loaded">
         <div :class="{ 'pokemon__slot': true, 'type_border': isBorderColorType() }" v-for="mon in party" :key="mon.nickname+mon.species" v-if="party_count != 0 && typeof mon == 'object'" :style="styleBorder(mon)">
             <div class="pokemon__bar">
                 <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
@@ -47,9 +47,13 @@
             </div>
         </div>
     </transition-group>
-    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
+    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
         <div class="pokemon__image">
         </div>
+    </div>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
     </div>
 </div>
 
@@ -66,10 +70,10 @@
 
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>
-<script src="../../themes/default/assets/js/themeSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
 <script src="../../assets/js/client.js"></script>
 <script src="../../assets/js/helpers.js"></script>
-<script src="../../assets/js/party.js"></script>
+<script src="./assets/js/party.js"></script>
 
 </body>
 </html>

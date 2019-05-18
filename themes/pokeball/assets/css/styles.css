@@ -7,7 +7,7 @@
         /* background-color: black !important; */
     }
     body {
-        /*background-color: #595858  !important;*/
+        background-color: #595858  !important;
     }
 
     @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/assets/fonts/Pokemon%20GB.ttf")}
@@ -136,3 +136,21 @@
     .switchFast-move {
         transition: transform 0.5s;
     }
+
+
+.no-connection {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    display: table-cell;
+    text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.browser-connected {
+    display: block !important;
+}
