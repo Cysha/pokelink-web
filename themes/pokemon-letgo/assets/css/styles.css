@@ -215,6 +215,42 @@
     box-shadow: 0 0 5px 2px white, 0 0 15px #ffe9c1, 0 3px 5px -2px rgba(0, 0, 0, 0.2);
   }
 
+  .candy {
+    display: block;
+    position: absolute;
+    top: 52%;
+    left: 55%;
+    height: 12px;
+    width: 12px;
+    transform: scale(1);
+    margin: 12px;
+  }
+
+  .candy:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 1px;
+    box-shadow: 0px 5px #000000,0px 6px #000000,0px 7px #000000,1px 8px #000000,3px 9px #000000,2px 9px #000000,4px 10px #000000,5px 10px #000000,6px 11px #000000,7px 11px #000000,8px 11px #000000,9px 10px #000000,10px 9px #000000,10px 8px #000000,10px 7px #000000,10px 6px #000000,10px 5px #000000,10px 4px #000000,10px 3px #000000,9px 2px #000000,8px 1px #000000,7px 1px #000000,6px 1px #000000,5px 2px #000000,4px 2px #000000,3px 3px #000000,2px 3px #000000,1px 4px #000000,8px 2px #ffffff,7px 2px #ffffff,6px 3px #ffffff,7px 3px #ffffff,8px 3px #ffffff,9px 3px #ffffff,8px 4px #ffffff,6px 2px #fff69c,5px 3px #fff69c,4px 3px #fff69c,4px 4px #fff69c,2px 4px #fff69c,3px 5px #fff69c,6px 4px #fff69c,9px 5px #fff69c,9px 7px #fff69c,6px 8px #fff69c,3px 4px #fff6e6,2px 5px #fff6e6,3px 6px #fff6e6,7px 4px #fff6e6,9px 4px #fff6e6,7px 8px #fff6e6,8px 8px #ffffff,8px 10px #dea410,7px 10px #dea410,6px 10px #dea410,9px 9px #dea410,8px 9px #dea410,7px 9px #dea410,6px 9px #dea410,5px 9px #dea410,4px 9px #dea410,4px 8px #dea410,3px 8px #dea410,2px 8px #dea410,2px 7px #dea410,1px 7px #dea410,1px 6px #dea410,1px 5px #eec529,2px 6px #eec529,3px 7px #eec529,5px 8px #eec529,9px 8px #eec529,7px 6px #f6de41,8px 6px #f6de41,8px 7px #f6de41,7px 7px #f6de41,7px 5px #f6de41,6px 5px #f6de41,5px 5px #f6de41,6px 6px #f6de41,5px 4px #ffe65a,4px 5px #ffe65a,8px 5px #ffe65a,9px 6px #ffe65a,4px 6px #ffe65a,5px 6px #ffe65a,5px 7px #ffe65a,6px 7px #ffe65a,4px 7px #fff69c;
+  }
+
+  .candy.mighty {
+      filter: hue-rotate(300deg) saturate(2.2);
+  }
+  .candy.smart {
+      filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
+  }
+  .candy.tough {
+      filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
+  }
+  .candy.courage {
+      filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
+  }
+  .candy.quick {
+      filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
+  }
+
+
   @-webkit-keyframes boing {
     0%,100% {
       -webkit-transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);

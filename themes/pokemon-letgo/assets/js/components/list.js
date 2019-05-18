@@ -5,12 +5,14 @@ Vue.component( "List", {
       <Pokemon v-for="( poke, idx ) in pokemon" v-if="poke !== null" :key="poke.nickname+poke.species" :pokemon="poke">
       </Pokemon>
     </transition-group>
+    <Pokemon v-for="index in 6-party_count" :key="index" v-if="party_count != 6">
+    </Pokemon>
   </div>
 `,
   data() { return {
     pokemon: {},
     switchSpeed: 'switchMedium',
-
+    party_count: 0,
   }},
   mounted () {
     var vm = this;
@@ -18,30 +20,30 @@ Vue.component( "List", {
       .on('client:players:list', (users) => {
         users.forEach(user => {
           if (user.username === settings.currentUser) {
-            console.log('1 updated vm.pokemon!');
-            console.log(user.party);
-            vm.pokemon = collect(user.party).map(function(pokemonWrapper) {
-              if (pokemonWrapper.pokemon == null) {
-                return null;
-              }
-              return transformPokemon(pokemonWrapper.pokemon);
-            }).all();
+            this.updateUserParty(user.party, vm);
           }
         });
       })
       .on('client:party:updated', (party) => {
-        console.log('2 updated vm.pokemon!');
-        console.log(party);
-        vm.pokemon = collect(party).map(function(pokemonWrapper) {
-          if (pokemonWrapper.pokemon == null) {
-            return null;
-          }
-          return transformPokemon(pokemonWrapper.pokemon);
-        }).all();
+        this.updateUserParty(party, vm);
       })
   },
   methods: {
     update( val ) {
+    },
+
+    updateUserParty(party, vm) {
+      party = collect(party).map(function(pokemonWrapper) {
+        if (pokemonWrapper.pokemon == null) {
+          return null;
+        }
+        return transformPokemon(pokemonWrapper.pokemon);
+      });
+
+      vm.pokemon = party.all();
+      vm.party_count = party.toArray().filter(function(value) {
+        return value !== null;
+      }).length;
     }
   }
 });
