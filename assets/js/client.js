@@ -1,8 +1,11 @@
 
 window.settings = {};
 settings = deepmerge(settings, defaultSettings);
+console.log(defaultSettings);
 settings = deepmerge(settings, themeSettings);
+console.log(themeSettings);
 settings = deepmerge(settings, clientSettings);
+console.log(clientSettings);
 console.log(settings);
 
 if (typeof pokedex !== 'undefined') {
