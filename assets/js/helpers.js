@@ -171,3 +171,9 @@ function getTypeColor(type) {
 
   return settings.typeColors[type.toLowerCase()];
 }
+function getStatusColor(status) {
+  if (typeof status !== 'string') { return 'white'; }
+  if (status.len == 0) { return 'white'; }
+
+  return settings.statusColors[status.toLowerCase()];
+}
