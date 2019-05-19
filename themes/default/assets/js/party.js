@@ -52,7 +52,7 @@ new Vue({
       var typeColor = settings.pokeImg.typeColor;
 
       if (routeColor == true) {
-        return { 'border-color': this.stringToColour(mon.locationMet.toString()) };
+        return { 'border-color': string2Hex(mon.locationMet.toString()) };
       }
 
       if (pokemonColor == true) {
@@ -61,10 +61,10 @@ new Vue({
 
       if (typeColor == true) {
         var count = mon.types.length;
-        var type1 = this.getTypeColor(mon.types[0].label);
+        var type1 = getTypeColor(mon.types[0].label);
 
         if (count === 2) {
-          var type2 = this.getTypeColor(mon.types[1].label);
+          var type2 = getTypeColor(mon.types[1].label);
           return {
             'background': 'linear-gradient(to right, '+type1+' 50%, '+type2+' 50%)',
             'border-color': 'black',
@@ -100,15 +100,16 @@ new Vue({
     isBorderColorType: function() {
       return settings.pokeImg.typeColor == true;
     },
+
     getTypeColor: function(type) {
-      return settings.typeColors[type.toLowerCase()];
+      return getTypeColor(type);
     },
-    getStatusColor: function(type) {
-      return settings.statusColors[type.toLowerCase()];
+
+    getStatusColor: function(status) {
+      return getStatusColor(status);
     },
-    stringToColour: function(str) {
-      var colorHash = new ColorHash({lightness: 0.5});
-      return colorHash.hex(str);
+    string2Hex: function(str) {
+      return string2Hex(str);
     }
   },
   computed: {
