@@ -124,3 +124,50 @@ function unCamelCase (str){
     // uppercase the first character
     .replace(/^./, function(str){ return str.toUpperCase(); });
 }
+
+function hex2rgba(hex, opacity) {
+  hex = hex.replace('#','');
+  r = parseInt(hex.substring(0,2), 16);
+  g = parseInt(hex.substring(2,4), 16);
+  b = parseInt(hex.substring(4,6), 16);
+
+  result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+  return result;
+}
+
+function normalizeColor(str, opacity=100) {
+  // hex color
+  if (str.indexOf('#') !== -1) {
+    return this.convertHex(str, opacity);
+  }
+
+  // if html color
+  if (typeof settings.htmlColors[str] !== 'undefined') {
+    return settings.htmlColors[str];
+  }
+
+  // rgb/rgba values!
+  if (str.indexOf('rgb(') !== -1 || str.indexOf('rgba(') !== -1) {
+    if (str.indexOf('rgb(') !== -1) {
+      str = str.replace('rgb(', 'rgba(');
+      str = str.replace(')', ', '+opacity/100+')');
+    } else {
+      str = str.replace(/[\d\.]+\)$/g, ''+opacity/100+')');
+    }
+  }
+
+  // we dunno what this is, just return
+  return str;
+}
+
+function string2Hex(str) {
+  var colorHash = new ColorHash({lightness: 0.5});
+  return colorHash.hex(str);
+}
+
+function getTypeColor(type) {
+  if (typeof type !== 'string') { return 'white'; }
+  if (type.len == 0) { return 'white'; }
+
+  return settings.typeColors[type.toLowerCase()];
+}

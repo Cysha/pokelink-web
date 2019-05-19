@@ -16,7 +16,7 @@ Vue.component( "Pokemon", {
           <h2 class="name">{{ pokemon.nickname }}</h2>
           <div class="hp">
             <div class="bar">
-              <div class="health" :style="{ width: healthPercent }" :class="{ low: healthPercent <= 50, critical: healthPercent <= 15 }"></div>
+              <div class="health" :style="{ width: healthPercent }" :class="{ low: parseFloat(healthPercent) <= 50, critical: parseFloat(healthPercent) <= 15 }"></div>
             </div>
             <span class="text">{{ pokemon.hp.current }} / {{ pokemon.hp.max }}</span>
           </div>
@@ -53,15 +53,24 @@ Vue.component( "Pokemon", {
 
     type1() {
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
-      return this.convertHex(this.getTypeColor(this.pokemon.types[0].label), 50);
+
+      if (settings.pokeImg.staticColor !== false) {
+        return normalizeColor(settings.pokeImg.staticColor, 100);
+      }
+
+      return hex2rgba(getTypeColor(this.pokemon.types[0].label), 50);
     },
     type2() {
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
 
-      if (this.pokemon.types.length == 2) {
-        return this.convertHex(this.getTypeColor(this.pokemon.types[1].label), 50);
+      if (settings.pokeImg.staticColor !== false) {
+        return normalizeColor(settings.pokeImg.staticColor, 100);
       }
-      return this.convertHex(this.getTypeColor(this.pokemon.types[0].label), 50);
+
+      if (this.pokemon.types.length == 2) {
+        return hex2rgba(getTypeColor(this.pokemon.types[1].label), 50);
+      }
+      return hex2rgba(getTypeColor(this.pokemon.types[0].label), 50);
     },
 
     selectedPokemon: {
@@ -74,19 +83,6 @@ Vue.component( "Pokemon", {
     }
   },
   methods: {
-
-
-    getTypeColor: function(type) {
-      if (typeof type !== 'string') { return 'white'; }
-      if (type.len == 0) { return 'white'; }
-
-      return settings.typeColors[type.toLowerCase()];
-    },
-    stringToColour: function(str) {
-      var colorHash = new ColorHash({lightness: 0.5});
-      return colorHash.hex(str);
-    },
-
     getPokeballTopColor: function() {
       if (settings.pokeImg.letsgo.colorPokeball !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
@@ -96,11 +92,15 @@ Vue.component( "Pokemon", {
       }
 
       if (settings.pokeImg.routeColor === true) {
-        return this.stringToColour(this.pokemon.locationMet.toString());
+        return string2Hex(this.pokemon.locationMet.toString());
       }
 
       if (settings.pokeImg.typeColor === true) {
-        return this.getTypeColor(this.pokemon.types[0].label);
+        return getTypeColor(this.pokemon.types[0].label);
+      }
+
+      if (settings.pokeImg.staticColor !== false) {
+        return normalizeColor(settings.pokeImg.staticColor, 100);
       }
 
       return 'white';
@@ -116,14 +116,19 @@ Vue.component( "Pokemon", {
 
       if (settings.pokeImg.routeColor === true) {
         if (settings.pokeImg.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
-        return this.stringToColour(this.pokemon.locationMet.toString());
+        return string2Hex(this.pokemon.locationMet.toString());
       }
 
       if (settings.pokeImg.typeColor === true) {
         if (this.pokemon.types.length === 2) {
-          return this.getTypeColor(this.pokemon.types[1].label);
+          return getTypeColor(this.pokemon.types[1].label);
         }
-        return this.getTypeColor(this.pokemon.types[0].label);
+        return getTypeColor(this.pokemon.types[0].label);
+      }
+
+      if (settings.pokeImg.staticColor !== false) {
+        if (settings.pokeImg.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
+        return settings.pokeImg.staticColor;
       }
 
       return 'white';
@@ -133,15 +138,19 @@ Vue.component( "Pokemon", {
       if (settings.pokeImg.letsgo.colorBorder !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'white'; }
 
+      if (settings.pokeImg.staticColor !== false) {
+        return normalizeColor(settings.pokeImg.staticColor);
+      }
+
       if (settings.pokeImg.routeColor === true) {
-        return this.stringToColour(this.pokemon.locationMet.toString());
+        return string2Hex(this.pokemon.locationMet.toString());
       }
 
       if (settings.pokeImg.pokemonColor === true) {
-        return this.convertHex(settings.htmlColors[this.pokemon.color], 50);
+        return hex2rgba(settings.htmlColors[this.pokemon.color], 50);
       }
 
-      if (settings.pokeImg.typeColor === true) {
+      if (settings.pokeImg.typeColor === true || settings.pokeImg.staticColor !== false) {
         return 'url(#types-'+this.pokemon.species+')';
       }
 
@@ -153,28 +162,18 @@ Vue.component( "Pokemon", {
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.5)'; }
 
       if (settings.pokeImg.routeColor === true) {
-        return this.stringToColour(this.pokemon.locationMet.toString());
+        return string2Hex(this.pokemon.locationMet.toString());
       }
 
       if (settings.pokeImg.pokemonColor === true) {
-        return this.convertHex(settings.htmlColors[this.pokemon.color], 50);
+        return hex2rgba(settings.htmlColors[this.pokemon.color], 50);
       }
 
-      if (settings.pokeImg.typeColor === true) {
+      if (settings.pokeImg.typeColor === true || settings.pokeImg.staticColor !== false) {
         return 'url(#types-'+this.pokemon.species+')';
       }
 
       return 'rgba(255,255,255,.5)';;
     },
-
-    convertHex: function(hex,opacity){
-        hex = hex.replace('#','');
-        r = parseInt(hex.substring(0,2), 16);
-        g = parseInt(hex.substring(2,4), 16);
-        b = parseInt(hex.substring(4,6), 16);
-
-        result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
-        return result;
-    }
   }
 });
