@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pkmn</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+<body>
+<div id="party">
+    <transition-group :name="switchSpeed" tag="div" class="pokemon" v-if="loaded">
+        <pokemon-card :pokemon="mon" v-for="mon in party" v-if="party_count!= 0 && typeof mon == 'object'" :key="mon.nickname+mon.species" ></pokemon-card>
+        <pokemon-card v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
+        </pokemon-card>
+    </transition-group>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../assets/data/pokedex.js"></script>
+<script src="../../assets/data/moves.js"></script>
+<script src="../../assets/data/gen3_items.js"></script>
+<script src="../../assets/data/gen4_items.js"></script>
+<script src="../../assets/data/gen5_items.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
+
+<script src="./assets/js/components/pokemon-card.js"></script>
+<script src="./assets/js/components/male.js"></script>
+<script src="./assets/js/components/female.js"></script>
+
+
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script src="./assets/js/party.js"></script>
+
+</body>
+</html>
