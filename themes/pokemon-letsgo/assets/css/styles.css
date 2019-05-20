@@ -1,4 +1,4 @@
-.arrow {
+  .arrow {
     position: absolute;
     left: 0;
     top: 50%;
@@ -22,11 +22,13 @@
   }
 
   .pokes {
-    display: block;
-    flex: wrap;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    max-height: 100vh;
+    justify-content: space-evenly;
+
   }
 
   .pokemon {
@@ -36,7 +38,7 @@
     position: relative;
     width: 180px;
     min-width: 150px;
-    margin: 10px;
+
     max-height: 256px;
   }
   .pokemon * {

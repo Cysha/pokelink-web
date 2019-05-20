@@ -3,7 +3,9 @@ function transformPokemon(pokemon) {
   if (typeof pokemon.transformed != 'undefined') {
     return pokemon;
   }
-  //console.info(pokemon);
+  if (window.settings.debug) {
+    console.info(pokemon);
+  }
   // try and get pokedex info
   if (typeof pokedex !== 'undefined') {
     entry = pokedex.where('id', pokemon.species).first();
@@ -96,15 +98,15 @@ function transformPokemon(pokemon) {
   }
 
   // handle item stuff
+  pokemon.heldItem = {
+    id: pokemon.heldItem,
+    img: settings.imgPaths.items+'gen'+settings.game.generation+'/'+pokemon.heldItem+'.png',
+  };
   if (itemdex.has('gen'+settings.game.generation)) {
-    item = collect(itemdex.get('gen'+settings.game.generation))
-      .filter((row) => { return row.id == pokemon.heldItem; })
+    var item = collect(itemdex.get('gen'+settings.game.generation))
+      .filter((row) => { return row.id == pokemon.heldItem.id; })
       .first();
-    pokemon.heldItem = {
-      id: pokemon.heldItem,
-      img: settings.imgPaths.items+'gen'+settings.game.generation+'/'+pokemon.heldItem+'.png',
-      name: typeof item !== 'undefined' ? item.name : 'Unknown',
-    };
+    pokemon.heldItem.name = typeof item !== 'undefined' ? item.name : 'Unknown';
   }
 
 

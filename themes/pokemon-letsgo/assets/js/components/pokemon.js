@@ -3,7 +3,7 @@ Vue.component( "Pokemon", {
     <div :class="{ 'pokemon': true }" :style="{'opacity': opacity }">
       <Bg :border="getBorderColor()" :bgc="getBgColor()" :type1="type1" :type2="type2" :ident="ident"></Bg>
       <Pokeball :topColor="getPokeballTopColor()" :bottomColor="getPokeballBottomColor()"></Pokeball>
-      <label v-if="typeof pokemon != 'undefined'">
+      <label v-if="typeof pokemon == 'object'">
         <input class="radio" type="radio" name="poke" :id="pokemon.nickname" :value="pokemon.nickname" v-model="selectedPokemon">
         <span class="lvl">Lv. {{ pokemon.level }}</span>
         <span class="sex" :class="sex" v-if="sex !== ''">
@@ -11,7 +11,7 @@ Vue.component( "Pokemon", {
           <Male v-else></Male>
         </span>
         <img class="sprite" :src="pokemon.img" />
-        <span class="candy" v-if="pokemon.heldItem.id !== 0"></span>
+        <span class="candy" v-if="hasItem"></span>
         <div class="details">
           <h2 class="name">{{ pokemon.nickname }}</h2>
           <div class="hp">
@@ -49,6 +49,11 @@ Vue.component( "Pokemon", {
     opacity() {
       if (typeof this.pokemon === "undefined") { return '0.4'; }
       return '1';
+    },
+    hasItem() {
+      if (typeof this.pokemon === "undefined") { return false; }
+      if (typeof this.pokemon.heldItem === "undefined") { return false; }
+      return this.pokemon.heldItem.id !== 0;
     },
 
     type1() {

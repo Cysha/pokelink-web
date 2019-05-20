@@ -40,8 +40,10 @@ new Vue({
   },
   methods: {
     updateTrainerStuffs (payload) {
-      console.log(`Trainer Update recieved for ${payload.username}`)
-      console.log(payload, window.settings)
+      if (window.settings.debug) {
+        console.log(`Trainer Update recieved for ${payload.username}`)
+        console.log(payload, window.settings)
+      }
       if (payload.username !== settings.currentUser) return;
 
     },

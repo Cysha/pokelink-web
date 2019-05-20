@@ -30,8 +30,10 @@ new Vue({
   },
   methods: {
     updateBadges (payload) {
-      //console.log(`Trainer Update recieved for ${payload.username}`)
-      //console.log(payload.username, window.settings)
+      if (window.settings.debug) {
+        console.log(`Trainer Update recieved for ${payload.username}`)
+        console.log(payload, window.settings)
+      }
       if (payload.username !== settings.currentUser) return;
 
       this.badges = payload.trainer.badges

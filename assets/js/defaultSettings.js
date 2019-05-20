@@ -1,4 +1,5 @@
 var defaultSettings = {
+  debug: false,
   game: {
     // only 3 4 and 5 supported atm
     generation: null,

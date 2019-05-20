@@ -1,12 +1,11 @@
 
 window.settings = {};
 settings = deepmerge(settings, defaultSettings);
-console.log(defaultSettings);
 settings = deepmerge(settings, themeSettings);
-console.log(themeSettings);
 settings = deepmerge(settings, clientSettings);
-console.log(clientSettings);
-console.log(settings);
+if (window.settings.debug) {
+  console.log(settings);
+}
 
 if (typeof pokedex !== 'undefined') {
   pokedex = collect(pokedex);
@@ -59,13 +58,17 @@ var client = {
   },
 
   handleRemotePlayerTrainer (socket, payload, cb) {
-    console.log('Player Trainer Updated');
-    console.log(payload);
+    if (window.settings.debug) {
+      console.log('Player Trainer Updated');
+      console.log(payload);
+    }
     this.events.emit('player:trainer:updated', payload);
   },
 
   handleRemotePlayerParty (socket, payload, cb) {
-    console.log('Party Updated');
+    if (window.settings.debug) {
+      console.log('Party Updated');
+    }
     let newPlayerParty = {};
 
     if (this.players.hasOwnProperty(payload.username) === false) {
@@ -85,8 +88,10 @@ var client = {
   },
 
   addPlayersInBulk (socket, players, cb) {
-    console.log('Initial Bulk Load');
-    console.log(players);
+    if (window.settings.debug) {
+      console.log('Initial Bulk Load');
+      console.log(players);
+    }
     players.forEach((player) => {
       let tempPlayer = {
         id: player.id,
@@ -96,13 +101,14 @@ var client = {
         }
       }
 
-      console.log([player.username, settings.currentUser]);
       if (player.username === settings.currentUser) {
         settings.game = {
           name: player.trainer.game.friendlyName,
           generation: player.trainer.game.generation,
         };
-        console.log(['setting game to gen: '+ settings.game.generation +' - '+settings.game.name]);
+        if (window.settings.debug) {
+          console.log(['setting game to gen: '+ settings.game.generation +' - '+settings.game.name]);
+        }
         this.events.emit('player:trainer:updated', player);
         this.events.emit('client:party:updated', player.party);
       }
