@@ -10,7 +10,8 @@ Vue.component( "Pokemon", {
           <Female v-if="sex === 'female'"></Female>
           <Male v-else></Male>
         </span>
-        <img class="sprite" :src="pokemon.img" />
+        <img v-if="pokemon.isEgg" class="sprite" :src="pokemon.img" style="max-height: 80px;" />
+        <img v-else class="sprite" :src="pokemon.img" />
         <span class="candy" v-if="hasItem"></span>
         <div class="details">
           <h2 class="name">{{ pokemon.nickname }}</h2>

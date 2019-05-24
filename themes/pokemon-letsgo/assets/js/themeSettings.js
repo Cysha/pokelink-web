@@ -4,6 +4,8 @@ var themeSettings = {
     },
 
     pokeImg: {
+        eggType: 'static',
+
         routeColor: true,
         pokemonColor: false,
         typeColor: false,

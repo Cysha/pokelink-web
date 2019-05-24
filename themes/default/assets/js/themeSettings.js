@@ -3,4 +3,7 @@ var themeSettings = {
         name: 'default',
     },
 
+    pokeImg: {
+        eggType: 'animated',
+    }
 };

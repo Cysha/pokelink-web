@@ -16,7 +16,8 @@ var defaultSettings = {
     fileType: 'gif',
     ignoreShinies: false,
     ignoreForms: true,
-    determineEggs: true,
+    determineEggs: false,
+    eggType: 'static', //or animated
 
     // customizations, only 1 can be active at once
     routeColor: true,
@@ -28,7 +29,8 @@ var defaultSettings = {
     normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated/',
     shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated-shiny/',
     party: 'https://pokelink.cybershade.org/assets/sprites/party/',
-    egg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
+    animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
+    staticEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.png',
     unknown: 'https://pokelink.cybershade.org/assets/sprites/',
     status: 'https://pokelink.cybershade.org/assets/sprites/status/',
     types: 'https://pokelink.cybershade.org/assets/sprites/types/',

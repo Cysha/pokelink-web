@@ -3,7 +3,10 @@ Vue.component( "pokemon-card", {
   <div class="card has-text-weight-bold has-text-white">
     <div class="card-image" v-if="typeof this.pokemon === 'object'">
       <div class="card-image-container">
-        <span>
+        <span v-if="this.pokemon.isEgg === true">
+          <img :src="this.pokemon.img"/>
+        </span>
+        <span v-else>
           <img :src="'http://static.pokemonpets.com/images/monsters-images-300-300/'+imageTag+'.png'"/>
         </span>
       </div>

@@ -43,7 +43,7 @@ function transformPokemon(pokemon) {
 
   pokemon.img = url+filename+'.'+settings.pokeImg.fileType;
   if (!settings.pokeImg.determineEggs && pokemon.isEgg === true) {
-    pokemon.img = settings.imgPaths.egg;
+    pokemon.img = settings.pokeImg.eggType === 'static' ? settings.imgPaths.staticEgg : settings.imgPaths.animatedEgg;
     pokemon.nickname = 'Egg';
   }
 
