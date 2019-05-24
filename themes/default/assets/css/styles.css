@@ -18,7 +18,7 @@
         height: 100vh;
         min-height: 100vh;
         margin-left: 1.5vw;
-        background: url('/assets/pokeball.png') no-repeat;
+        background: url('../../../../assets/pokeball.png') no-repeat;
         background-position: center;
         background-size: 150vh;
         color: black;
@@ -197,6 +197,7 @@
     font-size: 5rem;
     color: #fff;
     vertical-align: middle;
+    word-break: break-all;
 }
 
 .browser-connected {

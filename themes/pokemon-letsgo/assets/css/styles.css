@@ -31,6 +31,11 @@
 
   }
 
+  .pokemon__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
   .pokemon {
     /*background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);*/
     float: left;
