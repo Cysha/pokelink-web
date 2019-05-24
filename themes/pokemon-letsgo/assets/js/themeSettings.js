@@ -1,6 +1,6 @@
 var themeSettings = {
     theme: {
-        name: 'default',
+        name: 'pokemon-letsgo',
     },
 
     pokeImg: {

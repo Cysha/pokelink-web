@@ -19,8 +19,7 @@ function transformPokemon(pokemon) {
 
   // normalize name
   pokemon.normalizeName = pokemon.speciesName.toLowerCase();
-  pokemon.normalizeName = pokemon.normalizeName.replace(/[\'\-\♂\♀]/g, '');
-  pokemon.normalizeName = pokemon.normalizeName.replace(/[\♂]/g, ''); // nidoran male
+  pokemon.normalizeName = pokemon.normalizeName.replace(/[^a-zA-Z0-9\♀]/g, '');
   pokemon.normalizeName = pokemon.normalizeName.replace(/[\♀]/g, '-f'); // nidoran female
 
   // figure out which version of the filename we wanna use
