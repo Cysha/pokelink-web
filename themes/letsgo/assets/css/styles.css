@@ -40,6 +40,7 @@
     min-width: 150px;
 
     max-height: 256px;
+    margin-right: 20px;
   }
   .pokemon * {
     vertical-align: middle;
@@ -329,9 +330,9 @@
   body {
     color: black;
     font-family: "Heebo", sans-serif;
+/*
     background: red;
     background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
-/*
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;

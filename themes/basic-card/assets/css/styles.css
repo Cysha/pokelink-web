@@ -32,6 +32,7 @@
         width: 300px;
         background-color: rgba(255,255,255, 0.2);
         min-height: 478px;
+        margin-bottom: 60px;
         /*transform: scale(1.2);*/
     }
 
