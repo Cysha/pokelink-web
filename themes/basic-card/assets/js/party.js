@@ -6,7 +6,7 @@ new Vue({
     settings: {},
     party: [],
     players: {},
-    party_count: 6,
+    party_count: 0,
     switchSpeed: 'switchMedium',
   },
   created: function () {
@@ -26,7 +26,7 @@ new Vue({
             return transformPokemon(mon);
         });
 
-        if (username == client.currentUser) {
+        if (username == client.currentUser && typeof vm.players[username] != 'undefined') {
             vm.party = vm.players[username];
             vm.party_count = vm.party.filter(function(value) { return typeof value == "object" }).length;
         }
