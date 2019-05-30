@@ -14,11 +14,14 @@ var defaultSettings = {
     useDexNumbers: false,
     // valid image types include: gif, jpg, jpeg, png etc
     fileType: 'gif',
+    // if your sprite set doesnt have shiny variants, set this to true
     ignoreShinies: false,
+    // if this is true, pokelink will just show the base form pokemon
     ignoreForms: true,
     // if true, the browser sources will identify what pokemon is in the egg
     determineEggs: false,
-    eggType: 'static', //or animated
+    // static or animated
+    eggType: 'static',
 
     // customizations, only 1 can be active at once
     routeColor: true,
