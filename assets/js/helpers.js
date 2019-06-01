@@ -11,6 +11,7 @@ function transformPokemon(pokemon) {
     entry = pokedex.where('id', pokemon.species).first();
   }
   pokemon.transformed = true;
+
   // handle shinies
   var url = settings.imgPaths.normal;
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
@@ -65,30 +66,30 @@ function transformPokemon(pokemon) {
   if (pokemon.status.brn === 1) { pokemon.status.img = 'brn'.toUpperCase(); }
   if (pokemon.dead === true) { pokemon.status.img = 'fnt'.toUpperCase(); }
 
-  if (entry.type.length > 0) {
-    pokemon.types = [];
-    types = entry.type;
-
-    // handle the non-fairy varient of the pokemon
-    var gen5Typing = settings.pokemonForms['<gen5'][pokemon.speciesName.toLowerCase()];
-    if (typeof gen5Typing != "undefined" && settings.game.generation <= 5) {
-      types = [gen5Typing];
-    }
-
-    types.forEach(function(type) {
-      pokemon.types.push({
-        label: type,
-        img: settings.imgPaths.types+type.toLowerCase()+'.png',
-      });
-    });
-  }
-
-  if (entry.color.length) {
-    pokemon.color = entry.color;
-  }
-
   // get move data
   if (typeof pokedex !== 'undefined') {
+    if (entry.type.length > 0) {
+      pokemon.types = [];
+      types = entry.type;
+
+      // handle the non-fairy varient of the pokemon
+      var gen5Typing = settings.pokemonForms['<gen5'][pokemon.speciesName.toLowerCase()];
+      if (typeof gen5Typing != "undefined" && settings.game.generation <= 5) {
+        types = [gen5Typing];
+      }
+
+      types.forEach(function(type) {
+        pokemon.types.push({
+          label: type,
+          img: settings.imgPaths.types+type.toLowerCase()+'.png',
+        });
+      });
+    }
+
+    if (entry.color.length) {
+      pokemon.color = entry.color;
+    }
+
     ['move1', 'move2', 'move3', 'move4'].forEach(function(move) {
       if (pokemon[move].name === '--') {
         return;
@@ -106,13 +107,12 @@ function transformPokemon(pokemon) {
     id: pokemon.heldItem,
     img: settings.imgPaths.items+'gen'+settings.game.generation+'/'+pokemon.heldItem+'.png',
   };
-  if (itemdex.has('gen'+settings.game.generation)) {
+  if (typeof itemdex !== 'undefined' && itemdex.has('gen'+settings.game.generation)) {
     var item = collect(itemdex.get('gen'+settings.game.generation))
       .filter((row) => { return row.id == pokemon.heldItem.id; })
       .first();
     pokemon.heldItem.name = typeof item !== 'undefined' ? item.name : 'Unknown';
   }
-
 
   return pokemon;
 }
