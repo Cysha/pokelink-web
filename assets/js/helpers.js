@@ -18,9 +18,11 @@ function transformPokemon(pokemon) {
   }
 
   // normalize name
-  pokemon.normalizeName = pokemon.speciesName.toLowerCase();
-  pokemon.normalizeName = pokemon.normalizeName.replace(/[^a-zA-Z0-9\♀]/g, '');
-  pokemon.normalizeName = pokemon.normalizeName.replace(/[\♀]/g, '-f'); // nidoran female
+  pokemon.normalizeName = pokemon.speciesName
+    .toLowerCase()
+    .replace(/[é]/g, 'e')
+    .replace(/[^a-zA-Z0-9\♀]/g, '')
+    .replace(/[\♀]/g, '-f'); // nidoran female
 
   // figure out which version of the filename we wanna use
   var filename = settings.pokeImg.useDexNumbers
@@ -33,7 +35,7 @@ function transformPokemon(pokemon) {
       filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
 
       if (settings.pokeImg.useDexNumbers) {
-        filename = filename.replace(pokemon.normalizeName, pokemon.species);
+        filename = filename.replace(pokemon.speciesName, pokemon.species);
       }
     }
     if (pokemon.isFemale == true && settings.pokemonForms['female'].indexOf(pokemon.speciesName) !== -1) {
