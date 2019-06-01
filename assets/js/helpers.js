@@ -65,7 +65,7 @@ function transformPokemon(pokemon) {
   if (pokemon.status.brn === 1) { pokemon.status.img = 'brn'.toUpperCase(); }
   if (pokemon.dead === true) { pokemon.status.img = 'fnt'.toUpperCase(); }
 
-  if (entry.type.length > 0) {
+  if (typeof entry !== 'undefined' && entry.type.length > 0) {
     pokemon.types = [];
     types = entry.type;
 
@@ -83,7 +83,7 @@ function transformPokemon(pokemon) {
     });
   }
 
-  if (entry.color.length) {
+  if (typeof entry !== 'undefined' && entry.color.length) {
     pokemon.color = entry.color;
   }
 
@@ -106,7 +106,7 @@ function transformPokemon(pokemon) {
     id: pokemon.heldItem,
     img: settings.imgPaths.items+'gen'+settings.game.generation+'/'+pokemon.heldItem+'.png',
   };
-  if (itemdex.has('gen'+settings.game.generation)) {
+  if (typeof itemdex !== 'undefined' && itemdex.has('gen'+settings.game.generation)) {
     var item = collect(itemdex.get('gen'+settings.game.generation))
       .filter((row) => { return row.id == pokemon.heldItem.id; })
       .first();

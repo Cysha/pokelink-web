@@ -372,3 +372,20 @@
     .switchFast-move {
         transition: transform 0.5s;
     }
+
+.deaths {}
+
+  .deaths__title {}
+
+  .deaths__list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px;
+  }
+
+    .deaths .deaths__list .deaths__pokemon {
+      height: 100%;
+    }
+
+    .deaths .deaths__list .deaths__pokemon img {
+      height: 100%;
+    }
