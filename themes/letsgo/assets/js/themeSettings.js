@@ -1,17 +1,17 @@
 var themeSettings = {
     theme: {
-        name: 'pokemon-letsgo',
+        name: 'letsgo',
     },
 
     pokeImg: {
         eggType: 'static',
 
-        routeColor: true,
+        routeColor: false,
         pokemonColor: false,
-        typeColor: false,
+        typeColor: true,
         // false to disable, can be a hex color, can be an rgb or rgba value, can also be an html color name
         // like red, or pink etc... https://htmlcolorcodes.com/ works as a color picker
-        staticColor: 'white',
+        staticColor: false,
 
         letsgo: {
             colorPokeball: false,

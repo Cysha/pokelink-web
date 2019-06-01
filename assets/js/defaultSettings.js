@@ -14,10 +14,14 @@ var defaultSettings = {
     useDexNumbers: false,
     // valid image types include: gif, jpg, jpeg, png etc
     fileType: 'gif',
+    // if your sprite set doesnt have shiny variants, set this to true
     ignoreShinies: false,
+    // if this is true, pokelink will just show the base form pokemon
     ignoreForms: true,
+    // if true, the browser sources will identify what pokemon is in the egg
     determineEggs: false,
-    eggType: 'static', //or animated
+    // static or animated
+    eggType: 'static',
 
     // customizations, only 1 can be active at once
     routeColor: true,
@@ -26,12 +30,13 @@ var defaultSettings = {
   },
 
   imgPaths: {
-    normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated/',
-    shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated-shiny/',
-    party: 'https://pokelink.cybershade.org/assets/sprites/party/',
+    normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated/',
+    shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated-shiny/',
+    party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
     animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
     staticEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.png',
     unknown: 'https://pokelink.cybershade.org/assets/sprites/',
+    badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
     status: 'https://pokelink.cybershade.org/assets/sprites/status/',
     types: 'https://pokelink.cybershade.org/assets/sprites/types/',
     items: 'https://pokelink.cybershade.org/assets/sprites/items/',
@@ -54,7 +59,7 @@ var defaultSettings = {
 
   pokemonForms: {
     'unown': {
-      'a': 'unown-a', 'b': 'unown-b',
+      'a': 'unown', 'b': 'unown-b',
       'c': 'unown-c', 'd': 'unown-d',
       'e': 'unown-e', 'f': 'unown-f',
       'g': 'unown-g', 'h': 'unown-h',
@@ -67,7 +72,7 @@ var defaultSettings = {
       'u': 'unown-u', 'v': 'unown-v',
       'w': 'unown-w', 'x': 'unown-x',
       'y': 'unown-y', 'z': 'unown-z',
-      '!': 'unown-!', '?': 'unown-?',
+      '!': 'unown-exclamation', '?': 'unown-question',
     },
 
     'castform': {
@@ -77,7 +82,7 @@ var defaultSettings = {
 
     'deoxys': {
       'normal': 'deoxys','attack': 'deoxys-attack',
-      'defence': 'deoxys-defence', 'speed': 'deoxys-speed',
+      'defense': 'deoxys-defense', 'speed': 'deoxys-speed',
     },
 
     'burmy': {
@@ -138,20 +143,20 @@ var defaultSettings = {
     },
 
     'deerling': {
-      'spring': 'deerling-spring', 'summer': 'deerling-summer',
+      'spring': 'deerling', 'summer': 'deerling-summer',
       'autumn': 'deerling-autumn', 'winter': 'deerling-winter',
     },
 
     'sawsbuck': {
-      'spring': 'sawsbuck-spring', 'summer': 'sawsbuck-summer',
+      'spring': 'sawsbuck', 'summer': 'sawsbuck-summer',
       'autumn': 'sawsbuck-autumn', 'winter': 'sawsbuck-winter',
     },
 
     'tornadus': {
       'incarnate': 'tornadus', 'therian': 'tornadus-therian',
     },
-    'thunderus': {
-      'incarnate': 'thunderus', 'therian': 'thunderus-therian',
+    'thundurus': {
+      'incarnate': 'thundurus', 'therian': 'thundurus-therian',
     },
     'landorus': {
       'incarnate': 'landorus', 'therian': 'landorus-therian',
@@ -185,7 +190,7 @@ var defaultSettings = {
       'elegant': 'vivillon-elegant', 'garden': 'vivillon-garden',
       'highplains': 'vivillon-highplains', 'icysnow': 'vivillon-icysnow',
       'jungle': 'vivillon-jungle', 'marine': 'vivillon-marine',
-      'meadow': 'vivillon-meadow', 'modern': 'vivillon-modern',
+      'meadow': 'vivillon', 'modern': 'vivillon-modern',
       'monsoon': 'vivillon-monsoon', 'ocean': 'vivillon-ocean',
       'polar': 'vivillon-polar', 'river': 'vivillon-river',
       'sandstorm': 'vivillon-sandstorm', 'savanna': 'vivillon-savanna',
@@ -234,7 +239,7 @@ var defaultSettings = {
     },
 
     'xerneas': {
-      'neutral': 'xerneas-neutral', 'active': 'xerneas-active',
+      'neutral': 'xerneas', 'active': 'xerneas',
     },
 
     'zygarde': {
@@ -272,8 +277,7 @@ var defaultSettings = {
     },
 
     'minior': {
-      'meteor': 'minior', 'core': 'minior-core',
-      'red': 'minior-red', 'orange': 'minior-orange',
+      'red': 'minior', 'orange': 'minior-orange',
       'yellow': 'minior-yellow', 'green': 'minior-green',
       'blue': 'minior-blue', 'indigo': 'minior-indigo',
       'violet': 'minior-violet',
@@ -286,6 +290,22 @@ var defaultSettings = {
     'necrozma': {
       'duskmane': 'necrozma-duskmane', 'ultra': 'necrozma-ultra',
       'dawnwings': 'necrozma-dawnwings',
+    },
+
+    'pikachu': {
+      'partner': 'pikachu-partner',
+      'cosplay': 'pikachu-cosplay',
+      'libre': 'pikachu-libre',
+      'belle': 'pikachu-belle',
+      'popstar': 'pikachu-popstar',
+      'rockstar': 'pikachu-rockstar',
+      'phd': 'pikachu-phd',
+      'original': 'pikachu',
+      'hoenn': 'pikachu-hoenn',
+      'alola': 'pikachu-alola',
+      'kalos': 'pikachu-kalos',
+      'sinnoh': 'pikachu-sinnoh',
+      'unova': 'pikachu-unova',
     },
 
     // fix some issues in the nameing schemes
@@ -316,7 +336,7 @@ var defaultSettings = {
 
     // add support for female forms
     'female': [
-      'venasaur', 'butterfree', 'rattata', 'raticate', 'pikachu',
+      'venusaur', 'butterfree', 'rattata', 'raticate', 'pikachu',
       'raichu', 'nidoran', 'zubat', 'golbat', 'gloom', 'vileplume',
       'kadabra', 'alakazam', 'dodrio', 'hypno', 'rhyhorn', 'rhydon',
       'goldeen', 'seaking', 'scyther', 'magikarp', 'gyarados',
@@ -334,7 +354,7 @@ var defaultSettings = {
       'kricketune', 'shinx', 'luxio', 'luxray', 'roserade', 'combee',
       'pachirisu', 'buizel', 'floatzel', 'ambipom', 'gible', 'gabite',
       'garchomp', 'hippopotas', 'hippowdon', 'croagunk', 'toxicroak',
-      'finneon', 'limineon', 'snover', 'weavile', 'rhyperior', 'tangrowth',
+      'finneon', 'lumineon', 'snover', 'weavile', 'rhyperior', 'tangrowth',
       'mamoswine',
 
       'unfezant', 'frillish', 'jellicent',
