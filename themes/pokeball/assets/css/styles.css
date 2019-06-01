@@ -16,7 +16,7 @@
         float: left;
         width: 150px;
         margin-left: 10px;
-        background: url('/assets/pokeball.png') no-repeat;
+        background: url('../../../../assets/pokeball.png') no-repeat;
         background-size: contain;
     }
 

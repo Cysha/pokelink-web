@@ -78,6 +78,7 @@ function transformPokemon(pokemon) {
         types = [gen5Typing];
       }
 
+
       types.forEach(function(type) {
         pokemon.types.push({
           label: type,
@@ -99,7 +100,7 @@ function transformPokemon(pokemon) {
         pokemon[move].max_pp = moveEntry.pp;
         pokemon[move].type = moveEntry.type;
       }
-    })
+    });
   }
 
   // handle item stuff

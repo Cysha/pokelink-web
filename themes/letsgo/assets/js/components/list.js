@@ -1,12 +1,12 @@
 Vue.component( "List", {
   template: `
   <div style="display: none" :class="{ 'browser-connected' : true }" class="pokes">
-    <transition-group :name="switchSpeed" tag="div" v-if="loaded">
+    <transition-group :name="switchSpeed" tag="div" class="pokemon__list" v-if="loaded">
       <Pokemon v-for="( poke, idx ) in party" v-if="typeof poke == 'object'" :key="poke.nickname+poke.species" :pokemon="poke">
       </Pokemon>
+      <Pokemon v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
+      </Pokemon>
     </transition-group>
-    <Pokemon v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
-    </Pokemon>
     <div class="no-connection" v-if="!connected">
       <p>Waiting for successful connection to Pokélink...</p>
       <p>Attempting to connect on port {{settings.port}}</p>
