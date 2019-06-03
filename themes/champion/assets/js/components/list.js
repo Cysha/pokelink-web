@@ -2,7 +2,7 @@ Vue.component( "List", {
   template: `
   <div style="display: none" :class="{ 'browser-connected' : true }" class="pokes">
     <transition-group :name="switchSpeed" tag="div" v-if="loaded">
-      <Pokemon v-for="( poke, idx ) in party" v-if="typeof poke == 'object'" :key="poke.nickname+poke.species" :pokemon="poke">
+      <Pokemon v-for="( poke, idx ) in party" v-if="typeof poke == 'object'" :key="poke.pid" :pokemon="poke">
       </Pokemon>
     </transition-group>
     <Pokemon v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">

@@ -15,7 +15,7 @@
 <body>
 <div id="party" style="display: none" :class="{ 'browser-connected' : true }">
     <transition-group :name="switchSpeed" tag="div" class="party" v-if="loaded">
-        <div :class="{ 'pokemon__slot': true, 'type_border': isBorderColorType() }" v-for="mon in party" :key="mon.nickname+mon.species" v-if="party_count != 0 && typeof mon == 'object'" :style="styleBorder(mon)">
+        <div :class="{ 'pokemon__slot': true, 'type_border': isBorderColorType() }" v-for="mon in party" :key="mon.pid" v-if="party_count != 0 && typeof mon == 'object'" :style="styleBorder(mon)">
             <div class="pokemon__bar">
                 <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
                 <span class="pokemon__gender pokemon__gender-female" v-if="mon.isGenderless == 0 && mon.isFemale == 1">♀</span>

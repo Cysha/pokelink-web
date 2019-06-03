@@ -15,7 +15,7 @@
 <body>
 <div id="party" style="display: none" :class="{ 'browser-connected' : true }">
     <transition-group :name="switchSpeed" tag="div" class="party" v-if="loaded">
-        <div v-for="mon in party" v-if="party_count != 0 && typeof mon == 'object'" class="pokemon__slot" :key="mon.nickname">
+        <div v-for="mon in party" v-if="party_count != 0 && typeof mon == 'object'" class="pokemon__slot" :key="mon.pid">
             <div :class="{ 'pokemon__image': true, 'pokemon__dead': (mon.hp.current == 0)}">
                 <img :src="mon.img">
             </div>

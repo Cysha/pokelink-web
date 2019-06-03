@@ -15,7 +15,7 @@
 <body>
 <div id="party">
     <transition-group :name="switchSpeed" tag="div" class="pokemon" v-if="loaded">
-        <pokemon-card :pokemon="mon" v-for="mon in party" v-if="party_count!= 0 && typeof mon == 'object'" :key="mon.nickname+mon.species" ></pokemon-card>
+        <pokemon-card :pokemon="mon" v-for="mon in party" v-if="party_count!= 0 && typeof mon == 'object'" :key="mon.pid" ></pokemon-card>
         <pokemon-card v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
         </pokemon-card>
     </transition-group>
