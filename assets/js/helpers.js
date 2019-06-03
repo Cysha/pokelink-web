@@ -13,7 +13,7 @@ function transformPokemon(pokemon) {
   pokemon.transformed = true;
 
   // handle shinies
-  var url = settings.imgPaths.normal;
+  var url = settings.imgPaths[settings.pokeImg.usePath];
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
     url = settings.imgPaths.shiny;
   }

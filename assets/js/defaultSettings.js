@@ -14,6 +14,8 @@ var defaultSettings = {
     useDexNumbers: false,
     // valid image types include: gif, jpg, jpeg, png etc
     fileType: 'gif',
+    // pick which pathSet you wish to use
+    usePath: 'normal',
     // if your sprite set doesnt have shiny variants, set this to true
     ignoreShinies: false,
     // if this is true, pokelink will just show the base form pokemon
