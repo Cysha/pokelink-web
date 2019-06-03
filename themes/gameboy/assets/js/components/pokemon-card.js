@@ -5,7 +5,7 @@ Vue.component( "pokemon-card", {
     <div class="details">
       <div class="half top">
         <div class="identity text">
-          {{ this.pokemon.nickname || this.pokemon.speciesName }} <span class="pokemon__gender pokemon__gender-male" v-if="this.pokemon.isGenderless == 0 && this.pokemon.isFemale == 0">♂</span><span class="pokemon__gender pokemon__gender-female" v-if="this.pokemon.isGenderless == 0 && this.pokemon.isFemale == 1">♀</span>
+          <span v-if="this.pokemon.isShiny == 1"><img src="./assets/images/shiny.png" alt="" /></span>{{ this.pokemon.nickname || this.pokemon.speciesName }} <span class="pokemon__gender pokemon__gender-male" v-if="this.pokemon.isGenderless == 0 && this.pokemon.isFemale == 0">♂</span><span class="pokemon__gender pokemon__gender-female" v-if="this.pokemon.isGenderless == 0 && this.pokemon.isFemale == 1">♀</span>
         </div>
         <div class="hp text">{{ pokemon.hp.current }}/{{ pokemon.hp.max }}</div>
       </div>
