@@ -13,48 +13,17 @@
 </head>
 
 <body>
-<div id="party" style="display: none" :class="{ 'browser-connected' : true }">
-    <transition-group :name="switchSpeed" tag="div" class="party" v-if="loaded">
-        <div :class="{ 'pokemon__slot': true, 'type_border': isBorderColorType() }" v-for="mon in party" :key="mon.pid" v-if="party_count != 0 && typeof mon == 'object'" :style="styleBorder(mon)">
-            <div class="pokemon__bar">
-                <span class="pokemon__gender pokemon__gender-male" v-if="mon.isGenderless == 0 && mon.isFemale == 0">♂</span>
-                <span class="pokemon__gender pokemon__gender-female" v-if="mon.isGenderless == 0 && mon.isFemale == 1">♀</span>
-                <span :class="'pokemon__types pokemon__types-' + type.label.toLowerCase()" v-if="mon.types.length != 0" :style="{ 'backgroundColor': getTypeColor(type.label) }" v-for="type in mon.types">{{type.label}}</span>
-                <span :class="'pokemon__status pokemon__status-'+ mon.status.img.toLowerCase()" v-if="mon.status.img != 0" :style="{ 'backgroundColor': getStatusColor(mon.status.img) }">
-                    {{mon.status.img}}
-                </span>
-            </div>
-            <div :class="{ 'pokemon__image': true, 'pokemon__egg': (mon.isEgg == true), 'pokemon__dead': (mon.hp.current == 0)}">
-                <img :src="mon.img">
-            </div>
-            <div class="pokemon__info">
-                <div class="pokemon__nick">
-                    <span class="pokemon__nick-shiny" v-if="mon.isShiny == 1">★</span>{{mon.nickname || mon.speciesName}}
-                </div>
-                <div class="pokemon__level-bar" v-if="mon.level != 100">
-                    <span class="pokemon__level">L{{mon.level}}</span>
-                    <span class="pokemon__hp" style="float: right;" v-if="mon.hp.current != 0">{{mon.hp.current}}/{{mon.hp.max}}</span>
-                    <span class="pokemon__dead-label" style="float: right;" v-else> DEAD </span>
-                </div>
-                <div class="pokemon__level-bar" v-else>
-                    <div class="pokemon__hp">{{mon.hp.current}}/{{mon.hp.max}}</div>
-                </div>
-                <div class="pokemon__hp-bar">
-                    <div class="progress" style="height: 15px;">
-                        <div :class="healthBarClass(mon)" v-bind:style="{width: healthBarPercent(mon) + '%'}" role="progressbar" :aria-valuenow="mon.hp.current" :aria-valuemin="0" :aria-valuemax="mon.hp.max"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id="party">
+  <div style="display: none" :class="{ 'browser-connected' : true }" class="pokes">
+    <transition-group :name="switchSpeed" tag="div" class="pokemon__list" v-if="loaded">
+      <pokemon-card v-for="poke in pokemonToShow" v-if="typeof poke == 'object'" :key="poke.pid" :pokemon="poke"></pokemon-card>
+      <pokemon-card v-for="index in 6-party_count" v-if="loaded && showEmptySlots" :key="index"></pokemon-card>
     </transition-group>
-    <div class="pokemon__slot pokemon__empty" v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
-        <div class="pokemon__image">
-        </div>
-    </div>
     <div class="no-connection" v-if="!connected">
-        <p>Waiting for successful connection to Pokélink...</p>
-        <p>Attempting to connect on port {{settings.port}}</p>
+      <p>Waiting for successful connection to Pokélink...</p>
+      <p>Attempting to connect on port {{settings.port}}</p>
     </div>
+  </div>
 </div>
 
 <script src="../../assets/js/events.js"></script>
@@ -71,8 +40,12 @@
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>
 <script src="./assets/js/themeSettings.js"></script>
-<script src="../../assets/js/client.js"></script>
+
+<script src="./assets/js/components/list.js"></script>
+<script src="./assets/js/components/pokemon-card.js"></script>
+
 <script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/js/client.js"></script>
 <script src="./assets/js/party.js"></script>
 
 </body>

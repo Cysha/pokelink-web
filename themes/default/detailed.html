@@ -66,6 +66,7 @@
                 <div>Nature: {{mon.nature || '??'}}</div>
                 <div>Ability: {{mon.ability || '??'}}</div>
                 <div>Held Item: <span v-if="mon.heldItem.id != 0"><img :src="mon.heldItem.img"> <small>({{mon.heldItem.name}})</small></span><span v-else>No Item</span></div>
+                <div>Location Met: {{ mon.locationMet }}</div>
             </td>
             <td>
                 <div v-for="moveKey in moveIndexes" v-if="typeof mon[moveKey] !== 'undefined' && mon[moveKey].name != '--'">
@@ -103,6 +104,9 @@
 <script src="../../assets/data/gen3_items.js"></script>
 <script src="../../assets/data/gen4_items.js"></script>
 <script src="../../assets/data/gen5_items.js"></script>
+<script src="../../assets/data/gen3_locations.js"></script>
+<script src="../../assets/data/gen4_locations.js"></script>
+<script src="../../assets/data/gen5_locations.js"></script>
 
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>

@@ -46,7 +46,9 @@ function transformPokemon(pokemon) {
 
   pokemon.img = url+filename+'.'+settings.pokeImg.fileType;
   if (!settings.pokeImg.determineEggs && pokemon.isEgg === true) {
-    pokemon.img = settings.pokeImg.eggType === 'static' ? settings.imgPaths.staticEgg : settings.imgPaths.animatedEgg;
+    pokemon.img = settings.pokeImg.eggType === 'static'
+      ? settings.imgPaths.staticEgg
+      : settings.imgPaths.animatedEgg;
     pokemon.nickname = 'Egg';
   }
 
@@ -113,6 +115,24 @@ function transformPokemon(pokemon) {
       .filter((row) => { return row.id == pokemon.heldItem.id; })
       .first();
     pokemon.heldItem.name = typeof item !== 'undefined' ? item.name : 'Unknown';
+  }
+
+  // replace the location id with text
+  if (typeof locationdex !== 'undefined') {
+    let game = settings.game.name
+      .replace('Pokémon ', '');
+    let locations = []
+
+    if (['Fire Red','Leaf Green','Ruby','Sapphire','Emerald'].indexOf(game) !== -1) {
+      locations = collect(locationdex.gen3);
+    }
+
+    if (locations.length !== 0) {
+      pokemon.locationMet = locations
+        .where('id', pokemon.locationMet)
+        .first()
+        .name;
+    }
   }
 
   return pokemon;

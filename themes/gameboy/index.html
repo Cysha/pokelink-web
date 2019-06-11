@@ -13,9 +13,8 @@
 
 <body>
 <div id="party">
-    <pokemon-card :pokemon="mon" v-for="mon in party" v-if="party_count!= 0 && typeof mon == 'object'" :key="mon.pid" ></pokemon-card>
-    <pokemon-card v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded">
-    </pokemon-card>
+    <pokemon-card :pokemon="mon" v-for="mon in party" v-if="party_count!= 0 && typeof mon == 'object'" :key="mon.pid"></pokemon-card>
+    <pokemon-card v-for="index in 6-party_count" :key="index" v-if="party_count != 6 && loaded"></pokemon-card>
 </div>
 
 <script src="../../assets/js/events.js"></script>
