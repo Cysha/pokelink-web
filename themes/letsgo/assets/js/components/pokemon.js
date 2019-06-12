@@ -90,7 +90,7 @@ Vue.component( "Pokemon", {
   },
   methods: {
     getPokeballTopColor: function() {
-      if (settings.pokeImg.letsgo.colorPokeball !== true) { return 'white'; }
+      if (settings.letsgo.colorPokeball !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
 
       if (settings.pokeImg.pokemonColor === true) {
@@ -112,16 +112,16 @@ Vue.component( "Pokemon", {
       return 'white';
     },
     getPokeballBottomColor: function() {
-      if (settings.pokeImg.letsgo.colorPokeball !== true) { return 'white'; }
+      if (settings.letsgo.colorPokeball !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
 
       if (settings.pokeImg.pokemonColor === true) {
-        if (settings.pokeImg.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
         return this.pokemon.color;
       }
 
       if (settings.pokeImg.routeColor === true) {
-        if (settings.pokeImg.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
         return string2Hex(this.pokemon.locationMet.toString());
       }
 
@@ -133,7 +133,7 @@ Vue.component( "Pokemon", {
       }
 
       if (settings.pokeImg.staticColor !== false) {
-        if (settings.pokeImg.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.letsgo.colorBothSidesPokeball !== true) { return 'white'; }
         return settings.pokeImg.staticColor;
       }
 
@@ -141,7 +141,7 @@ Vue.component( "Pokemon", {
     },
 
     getBorderColor: function() {
-      if (settings.pokeImg.letsgo.colorBorder !== true) { return 'white'; }
+      if (settings.letsgo.colorBorder !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'white'; }
 
       if (settings.pokeImg.staticColor !== false) {
@@ -164,7 +164,7 @@ Vue.component( "Pokemon", {
     },
 
     getBgColor: function() {
-      if (settings.pokeImg.letsgo.colorBg !== true) { return 'rgba(255,255,255,.5)'; }
+      if (settings.letsgo.colorBg !== true) { return 'rgba(255,255,255,.5)'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.5)'; }
 
       if (settings.pokeImg.routeColor === true) {
@@ -179,7 +179,7 @@ Vue.component( "Pokemon", {
         return 'url(#types-'+this.pokemon.species+')';
       }
 
-      return 'rgba(255,255,255,.5)';;
+      return 'rgba(255,255,255,.5)';
     },
   }
 });

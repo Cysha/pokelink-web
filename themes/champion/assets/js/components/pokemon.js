@@ -80,7 +80,7 @@ Vue.component( "Pokemon", {
   },
   methods: {
     getPokeballTopColor: function() {
-      if (settings.pokeImg.champion.colorPokeball !== true) { return 'white'; }
+      if (settings.champion.colorPokeball !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
 
       if (settings.pokeImg.pokemonColor === true) {
@@ -102,16 +102,16 @@ Vue.component( "Pokemon", {
       return 'white';
     },
     getPokeballBottomColor: function() {
-      if (settings.pokeImg.champion.colorPokeball !== true) { return 'white'; }
+      if (settings.champion.colorPokeball !== true) { return 'white'; }
       if (typeof this.pokemon === "undefined") { return 'rgba(255,255,255,.2)'; }
 
       if (settings.pokeImg.pokemonColor === true) {
-        if (settings.pokeImg.champion.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.champion.colorBothSidesPokeball !== true) { return 'white'; }
         return this.pokemon.color;
       }
 
       if (settings.pokeImg.routeColor === true) {
-        if (settings.pokeImg.champion.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.champion.colorBothSidesPokeball !== true) { return 'white'; }
         return string2Hex(this.pokemon.locationMet.toString());
       }
 
@@ -123,7 +123,7 @@ Vue.component( "Pokemon", {
       }
 
       if (settings.pokeImg.staticColor !== false) {
-        if (settings.pokeImg.champion.colorBothSidesPokeball !== true) { return 'white'; }
+        if (settings.champion.colorBothSidesPokeball !== true) { return 'white'; }
         return settings.pokeImg.staticColor;
       }
 

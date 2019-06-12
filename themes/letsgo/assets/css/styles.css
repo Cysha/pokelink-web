@@ -22,16 +22,19 @@
   }
 
   .pokes {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    flex-direction: row;
-    max-height: 100vh;
-    justify-content: space-evenly;
 
   }
 
   .pokemon__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    max-height: 100vh;
+    justify-content: space-evenly;
+    align-content: space-between;
+  }
+  .pokemon__list.vertical-column {
+    flex-direction: column;
   }
 
   .pokemon {
@@ -43,8 +46,14 @@
     min-width: 150px;
 
     max-height: 256px;
-    margin-right: 20px;
+    margin: 0 20px;
   }
+  .pokemon__list.vertical-column .pokemon {
+    margin-bottom: 10px;
+  }
+
+
+
   .pokemon * {
     vertical-align: middle;
   }

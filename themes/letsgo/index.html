@@ -14,7 +14,7 @@
 <body>
 <div id="party">
     <div style="display: none" :class="{ 'browser-connected' : true }" class="pokes">
-        <transition-group :name="switchSpeed" tag="div" class="pokemon__list" v-if="loaded">
+        <transition-group :name="switchSpeed" tag="div" class="pokemon__list" :class="{ 'vertical-column': settings.pokeImg.verticalPokemon }" v-if="loaded">
             <Pokemon v-for="poke in pokemonToShow" v-if="typeof poke == 'object'" :key="poke.pid" :pokemon="poke"></Pokemon>
             <Pokemon v-for="index in 6-party_count" v-if="loaded && showEmptySlots" :key="index"></Pokemon>
         </transition-group>

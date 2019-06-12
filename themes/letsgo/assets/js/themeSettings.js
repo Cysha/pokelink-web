@@ -13,11 +13,14 @@ var themeSettings = {
         // like red, or pink etc... https://htmlcolorcodes.com/ works as a color picker
         staticColor: false,
 
-        letsgo: {
-            colorPokeball: false,
-            colorBothSidesPokeball: false,
-            colorBorder: true,
-            colorBg: false,
-        }
+        // switch to columns instead of rows
+        verticalPokemon: true,
+    },
+
+    letsgo: {
+        colorPokeball: false,
+        colorBothSidesPokeball: false,
+        colorBorder: false,
+        colorBg: true,
     }
 };
