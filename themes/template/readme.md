@@ -848,3 +848,11 @@ coming soon
 	}
 }]
 ```
+
+## Settings
+Settings are overridden in the following order
+ - ./assets/js/defaultSettings.js
+   - ./themes/{themeName}/assets/js/themeSettings.js
+      - ./clientSettings.js
+
+This means any settings in `defaultSettings.js` will be overridden by the `themeSettings.js` file within the theme folders. Then the merged settings from `defaultSettings.js` and `themeSettings.js` will be overriden by `clientSettings.js` file.
