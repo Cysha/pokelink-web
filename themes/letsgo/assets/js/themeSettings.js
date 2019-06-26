@@ -14,7 +14,7 @@ var themeSettings = {
         staticColor: false,
 
         // switch to columns instead of rows
-        verticalPokemon: true,
+        verticalPokemon: false,
     },
 
     letsgo: {

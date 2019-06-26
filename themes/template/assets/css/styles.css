@@ -1,0 +1,41 @@
+.pokes {
+
+}
+
+.pokes.browser-connected {
+  display: block !important;
+}
+
+.pokemon__list {
+  width: 600px;
+  position: relative;
+}
+
+.pokemon__list .pokemon {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+}
+
+.pokemon__list .pokemon .pokemon__details {
+  display: block;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__name {
+  font-weight: bold;  
+  color: #c0c0c0;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__hp {
+  border: 1px solid #000000;
+  height: 5px;
+  width: 100%;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__hp .hp__bar {
+  background-color: #ff0000;
+  height: 5px;
+}
