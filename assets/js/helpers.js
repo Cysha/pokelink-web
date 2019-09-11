@@ -31,16 +31,15 @@ function transformPokemon(pokemon) {
     : pokemon.normalizeName;
 
   // handle forms
-  if (settings.pokeImg.ignoreForms !== false) {
+  if (settings.pokeImg.ignoreForms === false) {
     if (pokemon.alternateForm !== '' && typeof pokemon.alternateForm !== 'undefined' && pokemon.alternateForm !== 'normal') {
       filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
 
       if (settings.pokeImg.useDexNumbers) {
         filename = filename.replace(pokemon.speciesName, pokemon.species);
       }
-    }
-    if (pokemon.isFemale == true && settings.pokemonForms['female'].indexOf(pokemon.speciesName) !== -1) {
-      form = '-f';
+    } else if (pokemon.isFemale == true && settings.pokemonForms['female'].indexOf(pokemon.speciesName.toLowerCase()) !== -1) {
+      filename += '-f';
     }
   }
 
@@ -68,9 +67,9 @@ function transformPokemon(pokemon) {
   if (pokemon.status.brn === 1) { pokemon.status.img = 'brn'.toUpperCase(); }
   if (pokemon.dead === true) { pokemon.status.img = 'fnt'.toUpperCase(); }
 
-  // get move data
+  // get data from pokedex
   if (typeof pokedex !== 'undefined') {
-    if (entry.type.length > 0) {
+    if (pokemon.types.length === 0 && entry.type.length > 0) {
       pokemon.types = [];
       types = entry.type;
 
@@ -80,11 +79,23 @@ function transformPokemon(pokemon) {
         types = [gen5Typing];
       }
 
-
       types.forEach(function(type) {
         pokemon.types.push({
           label: type,
           img: settings.imgPaths.types+type.toLowerCase()+'.png',
+        });
+      });
+    } else {
+      types = pokemon.types;
+      pokemon.types = [];
+
+      types.forEach(function(type) {
+        if (type.label === null) {
+          return;
+        }
+        pokemon.types.push({
+          label: type.label,
+          img: settings.imgPaths.types+type.label.toLowerCase()+'.png',
         });
       });
     }
