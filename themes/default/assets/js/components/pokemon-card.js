@@ -11,11 +11,11 @@ Vue.component( "pokemon-card", {
           </span>
       </div>
       <div :class="{ 'pokemon__image': true, 'pokemon__egg': (pokemon.isEgg == true), 'pokemon__dead': (pokemon.hp.current == 0)}">
-          <img :src="pokemon.img">
+          <img :src="pokemon.img" :data-missingno="isMissingno" />
       </div>
       <div class="pokemon__info">
           <div class="pokemon__nick">
-              <span class="pokemon__nick-shiny" v-if="pokemon.isShiny == 1">★</span>{{pokemon.nickname || pokemon.speciesName}}
+              <span class="pokemon__nick-shiny" v-if="pokemon.isShiny == 1">★</span>{{ pokemon.nickname || pokemon.speciesName }}
           </div>
           <div class="pokemon__level-bar" v-if="pokemon.level != 100">
               <span class="pokemon__level">L{{pokemon.level}}</span>
@@ -114,6 +114,10 @@ Vue.component( "pokemon-card", {
     }
   },
   computed: {
+    isMissingno() {
+      if (this.pokemon.isEgg) return false;
 
+      return this.pokemon.species < 0 ? true : false;
+    }
   }
 });

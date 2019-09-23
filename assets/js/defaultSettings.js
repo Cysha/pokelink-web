@@ -19,7 +19,7 @@ var defaultSettings = {
     // if your sprite set doesnt have shiny variants, set this to true
     ignoreShinies: false,
     // if this is true, pokelink will just show the base form pokemon
-    ignoreForms: true,
+    ignoreForms: false,
     // if true, the browser sources will identify what pokemon is in the egg
     determineEggs: false,
     // static or animated
@@ -37,6 +37,7 @@ var defaultSettings = {
     party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
     animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
     staticEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.png',
+    missingno: 'https://pokelink.cybershade.org/assets/sprites/missingno.png',
     unknown: 'https://pokelink.cybershade.org/assets/sprites/',
     badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
     status: 'https://pokelink.cybershade.org/assets/sprites/status/',

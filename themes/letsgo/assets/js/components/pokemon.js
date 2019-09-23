@@ -8,7 +8,7 @@ Vue.component( "Pokemon", {
         <span class="lvl">Lv. {{ pokemon.level }}</span>
         <span class="sex" :class="sex" v-if="sex !== ''">
           <Female v-if="sex === 'female'"></Female>
-          <Male v-else></Male>
+          <Male v-if="sex === 'male'"></Male>
         </span>
         <img v-if="pokemon.isEgg" class="sprite" :src="pokemon.img" style="max-height: 80px;" />
         <img v-else class="sprite" :src="pokemon.img" />

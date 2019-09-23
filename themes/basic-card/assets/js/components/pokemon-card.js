@@ -3,12 +3,7 @@ Vue.component( "pokemon-card", {
   <div class="card has-text-weight-bold has-text-white">
     <div class="card-image" v-if="typeof this.pokemon === 'object'">
       <div class="card-image-container">
-        <span v-if="this.pokemon.isEgg === true">
-          <img :src="this.pokemon.img"/>
-        </span>
-        <span v-else>
-          <img :src="'http://static.pokemonpets.com/images/monsters-images-300-300/'+imageTag+'.png'"/>
-        </span>
+        <span><img :src="imageTag" :data-missingno="isMissingno"/></span>
       </div>
     </div>
     <div class="card-content has-text-centered" v-if="typeof this.pokemon === 'object'">
@@ -40,13 +35,24 @@ Vue.component( "pokemon-card", {
   `,
   props: {
     pokemon: {},
+    settings: {}
   },
   computed: {
     imageTag() {
-      return this.pokemon.species+'-'+this.pokemon.normalizeName;
+      if (this.pokemon.species == -1 || this.pokemon.isEgg == true) {
+        return this.pokemon.img;
+      }
+
+      let imageTag = this.pokemon.species + '-' + this.pokemon.normalizeName;
+      return 'http://static.pokemonpets.com/images/monsters-images-300-300/'+imageTag+'.png';
     },
     healthPercent() {
       return (100/this.pokemon.hp.max) * this.pokemon.hp.current + "%";
     },
+    isMissingno() {
+      if (this.pokemon.isEgg) return false;
+
+      return this.pokemon.species < 0 ? true : false;
+    }
   }
 });

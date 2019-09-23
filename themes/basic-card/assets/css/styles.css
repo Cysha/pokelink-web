@@ -63,6 +63,12 @@
         vertical-align:bottom;
     }
 
+    .pokemon .card .card-image-container span img[data-missingno="true"] {
+        height: 300px;
+        position: relative;
+        left: 55px;
+    }
+
     .card .card-content  {
         text-align: center;
     }

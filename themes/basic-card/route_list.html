@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Route List</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+<body>
+<div id="route_list" style="display: none" :class="{ 'browser-connected' : true }">
+    <div>
+        <table>
+            <tr>
+                <td>Route</td>
+                <td>Pokemon Found</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
+    </div>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
+<script src="../../assets/js/client.js"></script>
+
+<script src="./assets/js/routeLists.js"></script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 
 function transformPokemon(pokemon) {
+  console.log(pokemon);
   if (typeof pokemon.transformed != 'undefined') {
     return pokemon;
   }
@@ -9,6 +10,9 @@ function transformPokemon(pokemon) {
   // try and get pokedex info
   if (typeof pokedex !== 'undefined') {
     entry = pokedex.where('id', pokemon.species).first();
+    if (typeof entry === 'undefined') {
+      entry = {};
+    }
   }
   pokemon.transformed = true;
 
@@ -16,6 +20,9 @@ function transformPokemon(pokemon) {
   var url = settings.imgPaths[settings.pokeImg.usePath];
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
     url = settings.imgPaths.shiny;
+  }
+  if (pokemon.species === -1) {
+    url = settings.imgPaths.missingno;
   }
 
   // normalize name
@@ -43,8 +50,11 @@ function transformPokemon(pokemon) {
     }
   }
 
-  pokemon.img = url+filename+'.'+settings.pokeImg.fileType;
-  if (!settings.pokeImg.determineEggs && pokemon.isEgg === true) {
+  pokemon.img = url;
+  if (pokemon.species !== -1) {
+    pokemon.img += filename+'.'+settings.pokeImg.fileType;
+  }
+  if (settings.pokeImg.determineEggs === false && pokemon.isEgg == true) {
     pokemon.img = settings.pokeImg.eggType === 'static'
       ? settings.imgPaths.staticEgg
       : settings.imgPaths.animatedEgg;
@@ -69,8 +79,11 @@ function transformPokemon(pokemon) {
 
   // get data from pokedex
   if (typeof pokedex !== 'undefined') {
-    if (pokemon.types.length === 0 && entry.type.length > 0) {
+    if (typeof pokemon.types === 'undefined') {
       pokemon.types = [];
+    }
+
+    if (pokemon.types.length === 0 && typeof entry.type !== 'undefined') {
       types = entry.type;
 
       // handle the non-fairy varient of the pokemon
@@ -100,7 +113,7 @@ function transformPokemon(pokemon) {
       });
     }
 
-    if (entry.color.length) {
+    if (entry.length > 0 && entry.color.length) {
       pokemon.color = entry.color;
     }
 
