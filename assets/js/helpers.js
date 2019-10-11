@@ -62,11 +62,12 @@ function transformPokemon(pokemon) {
   }
 
   // normalize species name
-  if (typeof pokemon.nickname === 'undefined' || pokemon.nickname == '') {
+  if (typeof pokemon.nickname === 'undefined' || pokemon.nickname == '' || pokemon.nickname === null) {
     pokemon.nickname = pokemon.speciesName;
-  } else {
-    pokemon.nickname = pokemon.nickname.replace(/\\u\{ffff\}.*$/, '');
   }
+
+  pokemon.nickname = pokemon.nickname.replace(/\\u\{ffff\}.*$/, '');
+
 
   // setup status imgs
   pokemon.status.img = '0';
@@ -142,6 +143,10 @@ function transformPokemon(pokemon) {
   }
 
   // replace the location id with text
+  if (typeof pokemon.locationMet === 'undefined') {
+    pokemon.locationMet = 0;
+  }
+
   if (typeof locationdex !== 'undefined') {
     let game = settings.game.name
       .replace('Pokémon ', '');

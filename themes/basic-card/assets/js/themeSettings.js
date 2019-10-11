@@ -6,6 +6,6 @@ var themeSettings = {
     pokeImg: {
 
         // switch to columns instead of rows
-        verticalPokemon: true,
+        verticalPokemon: false,
     },
 };

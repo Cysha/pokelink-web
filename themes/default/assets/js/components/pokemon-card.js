@@ -1,7 +1,7 @@
 Vue.component( "pokemon-card", {
   template: `
   <div>
-    <div :class="{ 'pokemon__slot': true, 'type_border': isBorderColorType() }" :style="styleBorder(pokemon)" v-if="pokemon !== null">
+    <div class="pokemon__slot" :class="{ 'type_border': isBorderColorType() }" :style="styleBorder(pokemon)" v-if="pokemon !== null">
       <div class="pokemon__bar">
           <span class="pokemon__gender pokemon__gender-male" v-if="pokemon.isGenderless == 0 && pokemon.isFemale == 0">♂</span>
           <span class="pokemon__gender pokemon__gender-female" v-if="pokemon.isGenderless == 0 && pokemon.isFemale == 1">♀</span>

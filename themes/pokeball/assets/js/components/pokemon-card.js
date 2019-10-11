@@ -14,7 +14,7 @@ Vue.component( "pokemon-card", {
 
       </div>
       <div v-if="pokemon.hp.current != 0">
-          <div class="pokemon__level-bar" v-if="pokemon.level != 100">
+          <div class="pokemon__level-bar" v-if="pokemon.level != 100 && pokemon.level > 0">
               <span class="pokemon__level">L{{pokemon.level}}</span>
               <span class="pokemon__hp" style="float: right;">{{pokemon.hp.current}}/{{pokemon.hp.max}}</span>
           </div>

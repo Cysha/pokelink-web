@@ -17,7 +17,7 @@ Vue.component( "pokemon-card", {
         </div>
       </div>
       <div class="stats" v-if="typeof this.pokemon === 'object'">
-        <div>
+        <div v-if="this.pokemon.level > 0">
           <span class="value">{{this.pokemon.level}}</span>
           <span class="tag">Level</span>
         </div>
@@ -25,7 +25,7 @@ Vue.component( "pokemon-card", {
           <span class="img" v-for="type in this.pokemon.types"><img :src="'https://rplus.github.io/Pokemon-CP-list/img/type/type_'+type.label.toLowerCase()+'.png'" /></span>
           <span class="tag">Type(s)</span>
         </div>
-        <div>
+        <div v-if="this.pokemon.heldItem.name !== 'Unknown'">
           <span class="img"><img :src="this.pokemon.heldItem.img" /></span>
           <span class="tag">Item</span>
         </div>

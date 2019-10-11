@@ -6,7 +6,7 @@ Vue.component( "pokemon-card", {
       <div><img :src="pokemon.img"></div>
       <div class="pokemon__nick">
         <span class="pokemon__nick-shiny" v-if="pokemon.isShiny == 1">★</span>
-        {{pokemon.nickname || pokemon.speciesName}}
+        {{ this.pokemon.nickname || this.pokemon.speciesName }}
       </div>
       <div class="pokemon__hp-bar">
         <div class="progress" style="height: 15px;">
