@@ -142,7 +142,10 @@ var defaultSettings = {
     },
 
     'darmanitan': {
-      'standard': 'darmanitan', 'zen': 'darmanitan-zen',
+      'standard': 'darmanitan',
+      'zen': 'darmanitan-zen',
+      'galar': 'darmanitan-galar',
+      'zen-galar': 'darmanitan-zen-galar'
     },
 
     'deerling': {
@@ -311,6 +314,49 @@ var defaultSettings = {
       'unova': 'pikachu-unova',
     },
 
+    // regional forms
+    'rattata': { 'alola': 'rattata-alola' },
+    'raticate': { 'alola': 'raticate-alola' },
+    'raichu': { 'alola': 'raichu-alola' },
+    'sandshrew': { 'alola': 'sandshrew-alola' },
+    'sandslash': { 'alola': 'sandslash-alola' },
+    'vulpix': { 'alola': 'vulpix-alola' },
+    'ninetales': { 'alola': 'ninetales-alola' },
+    'diglett': { 'alola': 'diglett-alola' },
+    'dugtrio': { 'alola': 'dugtrio-alola' },
+    'persian': { 'alola': 'persian-alola' },
+    'geodude': { 'alola': 'geodude-alola' },
+    'graveler': { 'alola': 'graveler-alola' },
+    'golem': { 'alola': 'golem-alola' },
+    'grimer': { 'alola': 'grimer-alola' },
+    'exeggutor': { 'alola': 'exeggutor-alola' },
+    'marowak': { 'alola': 'marowak-alola' },
+
+    'ponyta': { 'galar': 'ponyta-galar' },
+    'rapidash': { 'galar': 'rapidash-galar' },
+    'farfetchd': { 'galar': 'farfetchd-galar' },
+    'weezing': { 'galar': 'weezing-galar' },
+    'mrmime': { 'galar': 'mrmime-galar' },
+    'corsola': { 'galar': 'corsola-galar' },
+    'zigzagoon': { 'galar': 'zigzagoon-galar' },
+    'linoon': { 'galar': 'linoon-galar' },
+    'darumaka': { 'galar': 'darumaka-galar' },
+    'yamask': { 'galar': 'yamask-galar' },
+    'stunfisk': { 'galar': 'stunfisk-galar' },
+    'zacian': { '1': 'zacian-1' },
+    'zamazenta': { '1': 'zamazenta-1' },
+    'toxtricity': { 'amped': 'toxtricity-amped' },
+    'cramorant': { 'normal': 'cramorant', '1': 'cramorant-1', '2': 'cramorant-2' },
+    'alcremie': {
+      'normal': 'alcremie-vanilla',
+      'vanilla': 'alcremie-vanilla', 'matcha': 'alcremie-matcha',
+      '1': 'alcremie-1', '2': 'alcremie-2', '3': 'alcremie-3',
+      '4': 'alcremie-4', '5': 'alcremie-5', '6': 'alcremie-6',
+      '7': 'alcremie-7',
+    },
+
+    'meowth': { 'alola': 'meowth-alola', 'galar': 'meowth-galar' },
+
     // fix some issues in the nameing schemes
     '<gen5': {
       'clefairy': 'normal',
@@ -362,7 +408,9 @@ var defaultSettings = {
 
       'unfezant', 'frillish', 'jellicent',
 
-      'pyroar', 'meowstic'
+      'pyroar', 'meowstic',
+
+      ''
     ]
   },
 
