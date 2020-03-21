@@ -34,10 +34,14 @@ new Vue({
       //console.log(payload.username, window.settings)
       if (payload.username !== settings.currentUser) return;
 
+      badgeFolder = collect(badges).filter((badgeCollection) => {
+        return badgeCollection.id === settings.game.id
+      }).first().folder;
+
       this.badges = payload.trainer.badges
         .map(function(badge) {
           var badgeObj = {};
-          badgeObj.img = window.settings.imgPaths.badges+badge.name.toLowerCase()+'.png';
+          badgeObj.img = window.settings.imgPaths.badges+badgeFolder+'/'+badge.name.toLowerCase()+'.png';
           badgeObj.label = badge.name+' Badge';
           badgeObj.active = badge.value
           return badgeObj;

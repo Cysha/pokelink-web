@@ -88,7 +88,7 @@ var client = {
   },
 
   addPlayersInBulk (socket, players, cb) {
-    if (window.settings.debug) {
+    if (window.settings.debug || true) {
       console.log('Initial Bulk Load');
       console.log(players);
     }
@@ -103,6 +103,7 @@ var client = {
 
       if (player.username === settings.currentUser) {
         settings.game = {
+          id: player.trainer.game.id,
           name: player.trainer.game.friendlyName,
           generation: player.trainer.game.generation,
         };

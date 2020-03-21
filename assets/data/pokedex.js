@@ -1,5 +1,13 @@
 var pokedex = [
   {
+    "id": 0,
+    "name": {
+      "english": "Egg"
+    },
+    "type": ["normal"],
+    "color": "white"
+  },
+  {
     "id": 1,
     "name": {
       "english": "Bulbasaur",
@@ -2475,7 +2483,7 @@ var pokedex = [
   {
     "id": 122,
     "name": {
-      "english": "Mr. Mime",
+      "english": "Mr.Mime",
       "japanese": "バリヤード",
       "chinese": "魔墙人偶"
     },
@@ -16583,5 +16591,925 @@ var pokedex = [
       "Speed": 34
     },
     "color": "gray"
+  },
+  {
+    "id": 810,
+    "name": {
+      "english": "Grookey"
+    },
+    "type": [
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 811,
+    "name": {
+      "english": "Thwackey"
+    },
+    "type": [
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 812,
+    "name": {
+      "english": "Rillaboom"
+    },
+    "type": [
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 813,
+    "name": {
+      "english": "Scorbunny"
+    },
+    "type": [
+      "Fire"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 814,
+    "name": {
+      "english": "Raboot"
+    },
+    "type": [
+      "Fire"
+    ],
+    "color": "gray"
+  },
+  {
+    "id": 815,
+    "name": {
+      "english": "Cinderace"
+    },
+    "type": [
+      "Fire"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 816,
+    "name": {
+      "english": "Sobble"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 817,
+    "name": {
+      "english": "Drizzile"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 818,
+    "name": {
+      "english": "Inteleon"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 819,
+    "name": {
+      "english": "Skwovet"
+    },
+    "type": [
+      "Normal"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 820,
+    "name": {
+      "english": "Greedent"
+    },
+    "type": [
+      "Normal"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 821,
+    "name": {
+      "english": "Rookidee"
+    },
+    "type": [
+      "Flying"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 822,
+    "name": {
+      "english": "Corvisquire"
+    },
+    "type": [
+      "Flying"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 823,
+    "name": {
+      "english": "Corviknight"
+    },
+    "type": [
+      "Flying",
+      "Steel"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 824,
+    "name": {
+      "english": "Blipbug"
+    },
+    "type": [
+      "Bug"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 825,
+    "name": {
+      "english": "Dottler"
+    },
+    "type": [
+      "Bug",
+      "Psychic"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 826,
+    "name": {
+      "english": "Orbeetle"
+    },
+    "type": [
+      "Bug",
+      "Psychic"
+    ],
+    "color": "red"
+  },
+  {
+    "id": 827,
+    "name": {
+      "english": "Nickit"
+    },
+    "type": [
+      "Dark"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 828,
+    "name": {
+      "english": "Thievul"
+    },
+    "type": [
+      "Dark"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 829,
+    "name": {
+      "english": "Gossifleur"
+    },
+    "type": [
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 830,
+    "name": {
+      "english": "Eldegoss"
+    },
+    "type": [
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 831,
+    "name": {
+      "english": "Wooloo"
+    },
+    "type": [
+      "Normal"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 832,
+    "name": {
+      "english": "Dubwool"
+    },
+    "type": [
+      "Normal"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 833,
+    "name": {
+      "english": "Chewtle"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 834,
+    "name": {
+      "english": "Drednaw"
+    },
+    "type": [
+      "Water",
+      "Rock"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 835,
+    "name": {
+      "english": "Yamper"
+    },
+    "type": [
+      "Electric"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 836,
+    "name": {
+      "english": "Boltund"
+    },
+    "type": [
+      "Electric"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 837,
+    "name": {
+      "english": "Rolycoly"
+    },
+    "type": [
+      "Rock"
+    ],
+    "color": "black"
+  },
+  {
+    "id": 838,
+    "name": {
+      "english": "Carkol"
+    },
+    "type": [
+      "Rock",
+      "Fire"
+    ],
+    "color": "black"
+  },
+  {
+    "id": 839,
+    "name": {
+      "english": "Coalossal"
+    },
+    "type": [
+      "Rock",
+      "Fire"
+    ],
+    "color": "black"
+  },
+  {
+    "id": 840,
+    "name": {
+      "english": "Applin"
+    },
+    "type": [
+      "Grass",
+      "Dragon"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 841,
+    "name": {
+      "english": "Flapple"
+    },
+    "type": [
+      "Grass",
+      "Dragon"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 842,
+    "name": {
+      "english": "Appletun"
+    },
+    "type": [
+      "Grass",
+      "Dragon"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 843,
+    "name": {
+      "english": "Silicobra"
+    },
+    "type": [
+      "Ground"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 844,
+    "name": {
+      "english": "Sandaconda"
+    },
+    "type": [
+      "Ground"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 845,
+    "name": {
+      "english": "Cramorant"
+    },
+    "type": [
+      "Flying",
+      "Water"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 846,
+    "name": {
+      "english": "Arrokuda"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 847,
+    "name": {
+      "english": "Barraskewda"
+    },
+    "type": [
+      "Water"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 848,
+    "name": {
+      "english": "Toxel"
+    },
+    "type": [
+      "Electric",
+      "Poison"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 849,
+    "name": {
+      "english": "Toxtricity"
+    },
+    "type": [
+      "Electric",
+      "Poison"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 850,
+    "name": {
+      "english": "Sizzlipede"
+    },
+    "type": [
+      "Fire",
+      "Bug"
+    ],
+    "color": "red"
+  },
+  {
+    "id": 851,
+    "name": {
+      "english": "Centiskorch"
+    },
+    "type": [
+      "Fire",
+      "Bug"
+    ],
+    "color": "red"
+  },
+  {
+    "id": 852,
+    "name": {
+      "english": "Clobbopus"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 853,
+    "name": {
+      "english": "Grapploct"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 854,
+    "name": {
+      "english": "Sinistea"
+    },
+    "type": [
+      "Ghost"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 855,
+    "name": {
+      "english": "Polteageist"
+    },
+    "type": [
+      "Ghost"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 856,
+    "name": {
+      "english": "Hatenna"
+    },
+    "type": [
+      "Psychic"
+    ],
+    "color": "pink"
+  },
+  {
+    "id": 857,
+    "name": {
+      "english": "Hattrem"
+    },
+    "type": [
+      "Psychic"
+    ],
+    "color": "pink"
+  },
+  {
+    "id": 858,
+    "name": {
+      "english": "Hatterene"
+    },
+    "type": [
+      "Psychic",
+      "Fairy"
+    ],
+    "color": "pink"
+  },
+  {
+    "id": 859,
+    "name": {
+      "english": "Impidimp"
+    },
+    "type": [
+      "Dark",
+      "Fairy"
+    ],
+    "color": "pink"
+  },
+  {
+    "id": 860,
+    "name": {
+      "english": "Morgrem"
+    },
+    "type": [
+      "Dark",
+      "Fairy"
+    ],
+    "color": "pink"
+  },
+  {
+    "id": 861,
+    "name": {
+      "english": "Grimmsnarl"
+    },
+    "type": [
+      "Dark",
+      "Fairy"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 862,
+    "name": {
+      "english": "Obstagoon"
+    },
+    "type": [
+      "Dark",
+      "Normal"
+    ],
+    "color": "gray"
+  },
+  {
+    "id": 863,
+    "name": {
+      "english": "Perrserker"
+    },
+    "type": [
+      "Steel"
+    ],
+    "color": "brown"
+  },
+  {
+    "id": 864,
+    "name": {
+      "english": "Cursola"
+    },
+    "type": [
+      "Ghost"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 865,
+    "name": {
+      "english": "Sirfetch'd"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 866,
+    "name": {
+      "english": "Mr.Rime"
+    },
+    "type": [
+      "Ice",
+      "Psychic"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 867,
+    "name": {
+      "english": "Runerigus"
+    },
+    "type": [
+      "Ground",
+      "Ghost"
+    ],
+    "color": "gray"
+  },
+  {
+    "id": 868,
+    "name": {
+      "english": "Milcery"
+    },
+    "type": [
+      "Fairy"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 869,
+    "name": {
+      "english": "Alcremie"
+    },
+    "type": [
+      "Fairy"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 870,
+    "name": {
+      "english": "Falinks"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 871,
+    "name": {
+      "english": "Pincurchin"
+    },
+    "type": [
+      "Electric"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 872,
+    "name": {
+      "english": "Snom"
+    },
+    "type": [
+      "Ice",
+      "Bug"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 873,
+    "name": {
+      "english": "Frosmoth"
+    },
+    "type": [
+      "Ice",
+      "Bug"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 874,
+    "name": {
+      "english": "Stonjourner"
+    },
+    "type": [
+      "Rock"
+    ],
+    "color": "gray"
+  },
+  {
+    "id": 875,
+    "name": {
+      "english": "Eiscue"
+    },
+    "type": [
+      "Ice"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 876,
+    "name": {
+      "english": "Indeedee"
+    },
+    "type": [
+      "Psychic",
+      "Normal"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": 877,
+    "name": {
+      "english": "Morpeko"
+    },
+    "type": [
+      "Electric",
+      "Dark"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 878,
+    "name": {
+      "english": "Cufant"
+    },
+    "type": [
+      "Steel"
+    ],
+    "color": "yellow"
+  },
+  {
+    "id": 879,
+    "name": {
+      "english": "Copperajah"
+    },
+    "type": [
+      "Steel"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 880,
+    "name": {
+      "english": "Dracozolt"
+    },
+    "type": [
+      "Electric",
+      "Dragon"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 881,
+    "name": {
+      "english": "Arctozolt"
+    },
+    "type": [
+      "Electric",
+      "Ice"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 882,
+    "name": {
+      "english": "Dracovish"
+    },
+    "type": [
+      "Water",
+      "Dragon"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 883,
+    "name": {
+      "english": "Arctovish"
+    },
+    "type": [
+      "Water",
+      "Ice"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 884,
+    "name": {
+      "english": "Duraludon"
+    },
+    "type": [
+      "Steel",
+      "Dragon"
+    ],
+    "color": "white"
+  },
+  {
+    "id": 885,
+    "name": {
+      "english": "Dreepy"
+    },
+    "type": [
+      "Dragon",
+      "Ghost"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 886,
+    "name": {
+      "english": "Drakloak"
+    },
+    "type": [
+      "Dragon",
+      "Ghost"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 887,
+    "name": {
+      "english": "Dragapult"
+    },
+    "type": [
+      "Dragon",
+      "Ghost"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 888,
+    "name": {
+      "english": "Zacian"
+    },
+    "type": [
+      "Fairy"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 888,
+    "name": {
+      "english": "Zacian"
+    },
+    "type": [
+      "Fairy",
+      "Steel"
+    ],
+    "color": "blue"
+  },
+  {
+    "id": 889,
+    "name": {
+      "english": "Zamazenta"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": "red"
+  },
+  {
+    "id": 889,
+    "name": {
+      "english": "Zamazenta"
+    },
+    "type": [
+      "Fighting",
+      "Steel"
+    ],
+    "color": "red"
+  },
+  {
+    "id": 890,
+    "name": {
+      "english": "Eternatus"
+    },
+    "type": [
+      "Poison",
+      "Dragon"
+    ],
+    "color": "purple"
+  },
+  {
+    "id": "???",
+    "name": {
+      "english": "Kubfu"
+    },
+    "type": [
+      "Fighting"
+    ],
+    "color": ""
+  },
+  {
+    "id": "???",
+    "name": {
+      "english": "Urshifu"
+    },
+    "type": [
+      "Fighting",
+      "Dark"
+    ],
+    "color": ""
+  },
+  {
+    "id": "???",
+    "name": {
+      "english": "Urshifu"
+    },
+    "type": [
+      "Fighting",
+      "Water"
+    ],
+    "color": ""
+  },
+  {
+    "id": "???",
+    "name": {
+      "english": "Calyrex"
+    },
+    "type": [
+      "Psychic",
+      "Grass"
+    ],
+    "color": ""
+  },
+  {
+    "id": "???",
+    "name": {
+      "english": "Zarude"
+    },
+    "type": [
+      "Dark",
+      "Grass"
+    ],
+    "color": ""
   }
 ]

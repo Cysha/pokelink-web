@@ -62,7 +62,8 @@ var defaultSettings = {
 
   pokemonForms: {
     'unown': {
-      'a': 'unown', 'b': 'unown-b',
+      'a': 'unown',
+      'a': 'unown-a', 'b': 'unown-b',
       'c': 'unown-c', 'd': 'unown-d',
       'e': 'unown-e', 'f': 'unown-f',
       'g': 'unown-g', 'h': 'unown-h',
@@ -225,7 +226,7 @@ var defaultSettings = {
     'furfrou': {
       'natural': 'furfrou', 'heart': 'furfrou-heart',
       'star': 'furfrou-star', 'diamond': 'furfrou-diamond',
-      'debutante': 'furfrou-debutante', 'matron': 'furfrou-matron',
+      'deputante': 'furfrou-deputante', 'matron': 'furfrou-matron',
       'dandy': 'furfrou-dandy', 'lareine': 'furfrou-lareine',
       'kabuki': 'furfrou-kabuki', 'pharaoh': 'furfrou-pharaoh',
     },
@@ -253,7 +254,7 @@ var defaultSettings = {
     },
 
     'hoopa': {
-      'confined': 'hoopa', 'unbound': 'hoopa-unbound', 'mega': 'hoopa-mega',
+      'confined': 'hoopa', 'unbound': 'hoopa-unbound',
     },
 
     'oricorio': {
@@ -314,6 +315,27 @@ var defaultSettings = {
       'unova': 'pikachu-unova',
     },
 
+    'toxtricity': {
+      'normal': 'toxtricity',
+      'amped': 'toxtricity',
+      'lowkey': 'toxtricity-lowkey'
+    },
+
+    'zacian': {
+      'crowned': 'zacian-crowned'
+    },
+
+    'zamazenta': {
+      'crowned': 'zamazenta-crowned'
+    },
+
+    'cramorant': {
+      'normal': 'cramorant',
+      'gulping': 'cramorant-gulping',
+      'gorging': 'cramorant-gorging'
+    },
+
+
     // regional forms
     'rattata': { 'alola': 'rattata-alola' },
     'raticate': { 'alola': 'raticate-alola' },
@@ -343,17 +365,6 @@ var defaultSettings = {
     'darumaka': { 'galar': 'darumaka-galar' },
     'yamask': { 'galar': 'yamask-galar' },
     'stunfisk': { 'galar': 'stunfisk-galar' },
-    'zacian': { '1': 'zacian-1' },
-    'zamazenta': { '1': 'zamazenta-1' },
-    'toxtricity': { 'amped': 'toxtricity-amped' },
-    'cramorant': { 'normal': 'cramorant', '1': 'cramorant-1', '2': 'cramorant-2' },
-    'alcremie': {
-      'normal': 'alcremie-vanilla',
-      'vanilla': 'alcremie-vanilla', 'matcha': 'alcremie-matcha',
-      '1': 'alcremie-1', '2': 'alcremie-2', '3': 'alcremie-3',
-      '4': 'alcremie-4', '5': 'alcremie-5', '6': 'alcremie-6',
-      '7': 'alcremie-7',
-    },
 
     'meowth': { 'alola': 'meowth-alola', 'galar': 'meowth-galar' },
 
@@ -408,9 +419,7 @@ var defaultSettings = {
 
       'unfezant', 'frillish', 'jellicent',
 
-      'pyroar', 'meowstic',
-
-      ''
+      'pyroar', 'meowstic'
     ]
   },
 
