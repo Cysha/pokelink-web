@@ -42,7 +42,9 @@ var client = {
         .on('client:party:updated', (data) => this.handleRemotePlayerParty(socket, data, cb))
         .on('client:badges:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
         .on('client:players:list', (players) => this.addPlayersInBulk(socket, players, cb))
-        .on('player:trainer:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb));
+        .on('player:trainer:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
+        .on('player:settings:updated', (data) => this.handleRemotePlayerSettings(socket, data, cb))
+      ;
     })
 
     return this;
@@ -85,6 +87,17 @@ var client = {
     this.log('Client Rcv: Player %s updated their party', payload.username);
     cb(payload.username, Object.values(this.players[payload.username]));
     this.events.emit('client:party:updated', this.players[payload.username]);
+  },
+
+  handleRemotePlayerSettings (socket, settingsPayload, cb) {
+    window.settings = deepmerge(
+      window.settings,
+      settingsPayload
+    )
+    console.log(window.settings)
+    // this.players = {...this.players}
+    console.info(`Settings updated`)
+    this.events.emit('settings:updated', window.settings)
   },
 
   addPlayersInBulk (socket, players, cb) {

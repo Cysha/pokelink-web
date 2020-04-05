@@ -148,8 +148,9 @@ function transformPokemon(pokemon) {
   }
 
   if (typeof locationdex !== 'undefined') {
-    let game = settings.game.name
-      .replace('Pokémon ', '');
+    let game = settings.game.name || ''
+
+    game = game.replace('Pokémon ', '');
     let locations = []
 
     if (['Fire Red','Leaf Green','Ruby','Sapphire','Emerald'].indexOf(game) !== -1) {
