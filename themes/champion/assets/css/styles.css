@@ -39,7 +39,7 @@
     width: 200px;
     min-width: 150px;
 
-    min-height: 256px;
+    min-height: 156px;
     min-width: 200px;
   }
   .pokemon * {
@@ -77,7 +77,7 @@
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
   }
-  .pokemon .sprite {
+  .pokemon .sprite,.pokemon .sprite:empty {
     position: absolute;
     top: 35%;
     left: 50%;
@@ -96,6 +96,8 @@
     color: #222;
     margin: 4px 0;
     display: inline-block;
+    vertical-align: top;
+
   }
   .pokemon .details .hp {
     width: 60%;
@@ -331,8 +333,8 @@
     color: black;
     font-family: "Heebo", sans-serif;
 /*
-    background: red;
     background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+    background: red;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;

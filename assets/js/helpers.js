@@ -39,8 +39,22 @@ function transformPokemon(pokemon) {
 
   // handle forms
   if (settings.pokeImg.ignoreForms === false) {
-    if (pokemon.alternateForm !== '' && typeof pokemon.alternateForm !== 'undefined' && pokemon.alternateForm !== 'normal') {
-      filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
+    if (pokemon.alternateForm !== '' && typeof pokemon.alternateForm !== 'undefined') {
+      switch (pokemon.alternateForm) {
+        case 'gmax':
+        case 'mega':
+        case 'megay':
+        case 'megax':
+          filename += '-' + pokemon.alternateForm
+          break
+
+        case 'normal':
+
+          break
+
+        default:
+          filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
+      }
 
       if (settings.pokeImg.useDexNumbers) {
         filename = filename.replace(pokemon.speciesName, pokemon.species);

@@ -62,7 +62,7 @@ var defaultSettings = {
 
   pokemonForms: {
     'unown': {
-      'a': 'unown',
+      'normal': 'unown',
       'a': 'unown-a', 'b': 'unown-b',
       'c': 'unown-c', 'd': 'unown-d',
       'e': 'unown-e', 'f': 'unown-f',
@@ -123,18 +123,6 @@ var defaultSettings = {
 
     'shaymin': {
       'land': 'shaymin', 'sky': 'shaymin-sky',
-    },
-
-    'arceus': {
-      'normal': 'arceus', 'fire': 'arceus-fire',
-      'water': 'arceus-water', 'electric': 'arceus-electric',
-      'grass': 'arceus-grass', 'ice': 'arceus-ice',
-      'fighting': 'arceus-fighting', 'poison': 'arceus-poison',
-      'ground': 'arceus-ground', 'flying': 'arceus-flying',
-      'psychic': 'arceus-psychic', 'bug': 'arceus-bug',
-      'rock': 'arceus-rock', 'ghost': 'arceus-ghost',
-      'dragon': 'arceus-dragon', 'dark': 'arceus-dark',
-      'steel': 'arceus-steel', 'fairy': 'arceus-fairy',
     },
 
     'basculin': {
@@ -316,7 +304,6 @@ var defaultSettings = {
     },
 
     'toxtricity': {
-      'normal': 'toxtricity',
       'amped': 'toxtricity',
       'lowkey': 'toxtricity-lowkey'
     },
@@ -420,6 +407,93 @@ var defaultSettings = {
       'unfezant', 'frillish', 'jellicent',
 
       'pyroar', 'meowstic'
+    ],
+
+    'megax': [
+      'charizard',
+      'mewtwo'
+    ],
+
+    'megay': [
+      'charizard',
+      'mewtwo'
+    ],
+
+    'mega': [
+      'venusaur',
+      'blastoise',
+      'alakazam',
+      'gengar',
+      'kangaskhan',
+      'pinsir',
+      'gyarados',
+      'aerodactyl',
+      'ampharos',
+      'scizor',
+      'heracross',
+      'houndoom',
+      'tyranitar',
+      'blaziken',
+      'gardevoir',
+      'mawile',
+      'aggron',
+      'medicham',
+      'manectric',
+      'banette',
+      'absol',
+      'garchomp',
+      'lucario',
+      'abomasnow',
+
+      'beedrill',
+      'pidgeot',
+      'slowbro',
+      'steelix',
+      'sceptile',
+      'swampert',
+      'sableye',
+      'sharpedo',
+      'camerupt',
+      'altaria',
+      'glalie',
+      'salamence',
+      'metagross',
+      'latias',
+      'latios',
+      'rayquaza',
+      'lopunny',
+      'gallade',
+      'audino',
+      'diancie'
+    ],
+
+    'gmax': [
+      'charizard',
+      'pikachu',
+      'eevee',
+      'butterfree',
+      'meowth',
+      'corviknight',
+      'alcremie',
+      'drednaw',
+      'gengar',
+      'sandaconda',
+      'centiskorch',
+      'machamp',
+      'coalossal',
+      'grimmsnarl',
+      'duraludon',
+      'hatterene',
+      'copperajah',
+      'appletun',
+      'flapple',
+      'orbeetle',
+      'kingler',
+      'lapras',
+      'snorlax',
+      'melmetal',
+      'toxtricity',
+      'garbodor'
     ]
   },
 

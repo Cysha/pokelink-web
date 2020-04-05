@@ -95,6 +95,7 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+    max-height: 40%;
   }
   .pokemon .details {
     position: absolute;
@@ -342,8 +343,8 @@
   body {
     color: black;
     font-family: "Heebo", sans-serif;
-/*
     background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+/*
     background: red;
     background-size: cover;
     background-repeat: no-repeat;

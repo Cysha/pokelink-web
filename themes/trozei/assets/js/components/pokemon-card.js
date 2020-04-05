@@ -2,13 +2,13 @@ Vue.component( "pokemon-card", {
   template: `
   <div class="pokemon__slot" :class="{ 'pokemon__empty': pokemon === null }">
     <div v-if="pokemon !== null">
-      <div class="pokemon__level">{{pokemon.level}}</div>
+      <div class="pokemon__level" v-if="!getHideSetting('level')">{{pokemon.level}}</div>
       <div><img :src="pokemon.img"></div>
-      <div class="pokemon__nick">
+      <div class="pokemon__nick" v-if="!getHideSetting('nickname')">
         <span class="pokemon__nick-shiny" v-if="pokemon.isShiny == 1">★</span>
         {{ this.pokemon.nickname || this.pokemon.speciesName }}
       </div>
-      <div class="pokemon__hp-bar">
+      <div class="pokemon__hp-bar" v-if="!getHideSetting('hp')">
         <div class="progress" style="height: 15px;">
           <div :class="healthBarClass(pokemon)" v-bind:style="{width: healthBarPercent(pokemon) + '%'}" role="progressbar" :aria-valuenow="pokemon.hp.current" :aria-valuemin="0" :aria-valuemax="pokemon.hp.max"></div>
         </div>
@@ -16,7 +16,7 @@ Vue.component( "pokemon-card", {
           <span class="text">{{ pokemon.hp.current }} / {{ pokemon.hp.max }}</span>
         </div>
       </div>
-      <div class="pokemon__bar">
+      <div class="pokemon__bar" v-if="!getHideSetting('types')">
         <span :class="'pokemon__types pokemon__types-' + type.label.toLowerCase()" v-if="pokemon.types.length != 0" :style="{ 'backgroundColor': getTypeColor(type.label) }" v-for="type in pokemon.types">{{type.label}}</span>
       </div>
     </div>
@@ -60,5 +60,9 @@ Vue.component( "pokemon-card", {
     getTypeColor: function(type) {
       return getTypeColor(type);
     },
+    getHideSetting(setting) {
+      console.log([setting, settings.theme.hide[setting]]);
+      return settings.theme.hide[setting] || false;
+    }
   }
 });

@@ -4,6 +4,7 @@ var themeSettings = {
     },
 
     pokeImg: {
+        usePath: 'party',
         eggType: 'static',
 
         routeColor: false,
@@ -22,5 +23,9 @@ var themeSettings = {
         colorBothSidesPokeball: false,
         colorBorder: false,
         colorBg: true,
+    },
+
+    imgPaths: {
+        party: 'http://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
     }
 };

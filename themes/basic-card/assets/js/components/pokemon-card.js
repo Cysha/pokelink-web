@@ -9,7 +9,7 @@ Vue.component( "pokemon-card", {
     <div class="card-content has-text-centered" v-if="typeof this.pokemon === 'object'">
       <div class="main">
         <div class="title has-text-white">{{ this.pokemon.nickname || this.pokemon.speciesName }}</div>
-        <div class="hp">
+        <div class="hp" v-if="settings.hp">
           <div class="bar">
             <div class="health" :style="{ width: healthPercent }" :class="{ low: parseFloat(healthPercent) <= 50, critical: parseFloat(healthPercent) <= 15 }"></div>
           </div>
@@ -25,7 +25,7 @@ Vue.component( "pokemon-card", {
           <span class="img" v-for="type in this.pokemon.types"><img :src="'https://rplus.github.io/Pokemon-CP-list/img/type/type_'+type.label.toLowerCase()+'.png'" /></span>
           <span class="tag">Type(s)</span>
         </div>
-        <div v-if="this.pokemon.heldItem.name !== 'Unknown'">
+        <div v-if="typeof this.pokemon.heldItem.id !== 'undefined'">
           <span class="img"><img :src="this.pokemon.heldItem.img" /></span>
           <span class="tag">Item</span>
         </div>
@@ -35,7 +35,9 @@ Vue.component( "pokemon-card", {
   `,
   props: {
     pokemon: {},
-    settings: {}
+    settings: {
+      hp: false
+    }
   },
   computed: {
     imageTag() {
@@ -43,7 +45,19 @@ Vue.component( "pokemon-card", {
         return this.pokemon.img;
       }
 
-      let imageTag = this.pokemon.species + '-' + this.pokemon.normalizeName;
+      var name = this.pokemon.species;
+
+      if (this.pokemon.isShiny) {
+        name = (this.pokemon.species+2000)+'-Shiny';
+      }
+
+      if (this.pokemon.alternateForm == 'mega' || this.pokemon.alternateForm == 'megay' || this.pokemon.alternateForm == 'megax') {
+        name = (this.pokemon.species+8000)+'-'+(this.pokemon.alternateForm.replace(/^(.)|\s+(.)/g, function ($1) {
+          return $1.toUpperCase()
+        }));
+      }
+
+      let imageTag = name + '-' + this.pokemon.normalizeName;
       return 'http://static.pokemonpets.com/images/monsters-images-300-300/'+imageTag+'.png';
     },
     healthPercent() {

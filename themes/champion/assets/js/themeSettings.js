@@ -4,6 +4,8 @@ var themeSettings = {
     },
 
     pokeImg: {
+        usePath: 'party',
+        fileType: 'png',
         routeColor: false,
         pokemonColor: false,
         typeColor: true,
@@ -15,5 +17,10 @@ var themeSettings = {
     champion: {
         colorPokeball: false,
         colorBothSidesPokeball: false,
+    },
+
+    imgPaths: {
+        party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/galar/',
     }
+
 };
