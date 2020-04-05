@@ -1,0 +1,110 @@
+.pokes {
+margin-top: 110px;
+}
+
+.pokes.browser-connected {
+  display: block !important;
+}
+
+.pokemon__list {
+  /* display: grid; */
+  width: 100%;
+  /* grid-template-columns: repeat(6, 128px); */
+  /* grid-template-rows: repeat(1, 115px); */
+  /* column-gap: 20px; */
+  display: block;
+}
+
+.pokemon__list .pokemon {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  background-image: transparent !important;
+  /* overflow: hidden; */
+  width: 148x;
+  margin-left: 53px;
+  height: 148px;
+}
+
+.pokemon__list .pokemon.isDead {
+  filter: grayscale(1);
+}
+
+.pokemon__list .pokemon .sprite {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  transform: scale(1.25);
+  bottom: 9px;
+}
+
+.pokemon__list .pokemon .hp {
+  width: 80%;
+  bottom: 6px;
+  height: 12px;
+  position: absolute;
+  left: 10px;
+  border: 4px solid rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.7);
+}
+
+.pokemon__list .pokemon .name {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  bottom: -45px;
+  text-shadow: black 4px 2px;
+  font-size: 16pt;
+}
+
+.pokemon__list .pokemon .hp .hp__inner {
+  background: linear-gradient(to right, lime, #8bf500);
+  transition: width 2s;
+  height: 100%;
+}
+
+.pokemon .hp .hp__inner.low {
+  background: linear-gradient(to right, #ffcc00, #f1f500);
+}
+.pokemon .hp .hp__inner.critical {
+  background: linear-gradient(to right, #d20000, #f51700);
+}
+
+.pokemon__list .pokemon .pokemon__details {
+  display: block;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__name {
+  font-weight: bold;
+  color: #c0c0c0;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__hp {
+  border: 1px solid #000000;
+  height: 5px;
+  width: 100%;
+}
+
+.pokemon__list .pokemon .pokemon__details .details__hp .hp__bar {
+  background-color: #ff0000;
+  height: 5px;
+}
+
+/* transitions stuffs */
+.switchSlow-move {
+    transition: transform 2s;
+}
+
+.switchMedium-move {
+    transition: transform 1s;
+}
+
+.switchFast-move {
+    transition: transform 0.5s;
+}
+
+
+body {
+  background-color: rgba(32, 16, 58);
+}
