@@ -207,3 +207,66 @@
     .browser-connected {
         display: block !important;
     }
+
+.badge__slot.badge__slot--gen8 img {
+    width: auto;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--grass img {
+    width: 523px;
+    left: 341px;
+    position: absolute;
+    top: 461px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--water img {
+    left: 529px;
+    position: absolute;
+    top: -11px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--fire img {
+    left: 241px;
+    position: absolute;
+    top: 232px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--fighting img {
+    display: block;
+    left: 14px;
+    position: absolute;
+    top: 422px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--fairy img {
+    width: 690px;
+    left: 454px;
+    position: absolute;
+    top: 219px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--rock img {
+    left: 306px;
+    position: absolute;
+    top: -121px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--ice img {
+    left: 306px;
+    position: absolute;
+    top: -121px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--dark img {
+    left: 127px;
+    position: absolute;
+    top: 68px;
+}
+
+.badge__slot.badge__slot--gen8.badge__slot--dragon img {
+    position: absolute;
+    left: -115px;
+    width: 679px;
+    top: 0px;
+    height: auto;
+}

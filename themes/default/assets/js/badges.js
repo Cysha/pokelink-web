@@ -5,7 +5,8 @@ new Vue({
       connected: false,
       loaded: false,
       settings: {},
-      badges: []
+      badges: [],
+      game: {}
     };
   },
   created: function () {
@@ -38,6 +39,7 @@ new Vue({
         return badgeCollection.id === settings.game.id
       }).first().folder;
 
+      this.game = payload.trainer.game
       this.badges = payload.trainer.badges
         .map(function(badge) {
           var badgeObj = {};
