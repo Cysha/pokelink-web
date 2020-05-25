@@ -70,10 +70,10 @@
                 <div>Location Met: {{ mon.locationMet }}</div>
             </td>
             <td>
-                <div v-for="moveKey in moveIndexes" v-if="typeof mon[moveKey] !== 'undefined' && mon[moveKey].name != '--'">
-                    {{mon[moveKey].name}} ({{mon[moveKey].pp}}/{{mon[moveKey].max_pp || '??'}})
+                <div v-for="moveKey in [1,2,3,4]" v-if="typeof mon['move' + moveKey] !== 'undefined' && mon['move' + moveKey].name != '--'">
+                    {{mon['move' + moveKey].name}} ({{mon['move' + moveKey].pp}}/{{mon['move' + moveKey].max_pp || '??'}})
                     <span class="pokemon__types">
-                        <span v-if="mon[moveKey].hasOwnProperty('type')" :class="'pokemon__types-' + mon[moveKey].type.toLowerCase()" :style="{ 'backgroundColor': getTypeColor(mon[moveKey].type) }">{{mon[moveKey].type}}</span>
+                        <span v-if="mon['move' + moveKey].hasOwnProperty('type')" :class="'pokemon__types-' + mon['move' + moveKey].type.toLowerCase()" :style="{ 'backgroundColor': getTypeColor(mon['move' + moveKey].type) }">{{mon['move' + moveKey].type}}</span>
                     </span>
                 </div>
             </td>
