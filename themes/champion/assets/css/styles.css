@@ -77,7 +77,8 @@
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
   }
-  .pokemon .sprite,.pokemon .sprite:empty {
+  .pokemon .sprite, .pokemon .sprite:empty {
+    max-height: 100%;
     position: absolute;
     top: 35%;
     left: 50%;

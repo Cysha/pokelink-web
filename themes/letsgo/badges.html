@@ -14,10 +14,8 @@
 
 <body>
 <div id="badges" style="display: none" :class="{ 'browser-connected' : true }">
-    <div class="badges">
-        <div v-for="badge in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
-            <img :src="badge.img" :alt="badge.label">
-        </div>
+    <div v-for="badge in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
+        <img :src="badge.img" :alt="badge.label">
     </div>
     <div class="no-connection" v-if="!connected">
         <p>Waiting for successful connection to Pokélink...</p>

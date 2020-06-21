@@ -19,6 +19,8 @@ if (typeof itemdex !== 'undefined') {
   itemdex = collect(itemdex);
 }
 
+var events = [];
+
 var client = {
   connection: null,
   players: [],
@@ -39,11 +41,51 @@ var client = {
       this.connected = true;
 
       this.connection
-        .on('client:party:updated', (data) => this.handleRemotePlayerParty(socket, data, cb))
-        .on('client:badges:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
-        .on('client:players:list', (players) => this.addPlayersInBulk(socket, players, cb))
-        .on('player:trainer:updated', (data) => this.handleRemotePlayerTrainer(socket, data, cb))
-        .on('player:settings:updated', (data) => this.handleRemotePlayerSettings(socket, data, cb))
+        .on('client:party:updated', (data) => {
+          let event = {
+            event: 'client:party:updated',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.handleRemotePlayerParty(socket, data, cb)
+        })
+        .on('client:badges:updated', (data) => {
+          let event = {
+            event: 'client:badges:updated',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.handleRemotePlayerTrainer(socket, data, cb)
+        })
+        .on('client:players:list', (players) => {
+          let event = {
+            event: 'client:players:list',
+            payload: players
+          };
+          events.push(event)
+          console.log(event)
+          this.addPlayersInBulk(socket, players, cb)
+        })
+        .on('player:trainer:updated', (data) => {
+          let event = {
+            event: 'player:trainer:updated',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.handleRemotePlayerTrainer(socket, data, cb)
+        })
+        .on('player:settings:updated', (data) => {
+          let event = {
+            event: 'player:settings:updated',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.handleRemotePlayerSettings(socket, data, cb)
+        })
       ;
     })
 

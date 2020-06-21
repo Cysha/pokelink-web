@@ -90,6 +90,7 @@
             transform: rotate(-45deg);
   }
   .pokemon .sprite {
+    max-height: 100%;
     position: absolute;
     top: 35%;
     left: 50%;

@@ -42,6 +42,7 @@
     }
 
     .pokemon__image {
+        max-height: 100%;
         height: 65vh;
         position: relative;
         white-space: nowrap;
