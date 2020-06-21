@@ -4,13 +4,13 @@
         overflow: hidden;
         padding: 0;
         margin: 0;
-        background: transparent !important;
+        background-color: transparent !important;
     }
     body {
-        /*background-color: #595858  !important;*/
+        background-color: transparent  !important;
     }
 
-    @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("/assets/fonts/Pokemon%20GB.ttf")}
+    @font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("../../../../assets/fonts/Pokemon%20GB.ttf")}
 
     .pokemon__slot {
         float: left;
