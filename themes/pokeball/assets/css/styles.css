@@ -4,7 +4,7 @@
         overflow: hidden;
         padding: 0;
         margin: 0;
-        /* background-color: black !important; */
+        background: transparent !important;
     }
     body {
         /*background-color: #595858  !important;*/
