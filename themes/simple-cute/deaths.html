@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Deaths</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139026483-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139026483-5');
+</script>
+</head>
+
+<body>
+<div id="deaths" style="display: none" :class="{ 'browser-connected' : true }">
+    <div class="deaths">
+        <div class="deaths__title">Deaths: {{deaths.length}} </div>
+        <div class="deaths__list">
+            <div class="deaths__pokemon" v-for="pokemon in deaths" :key="pokemon.pid">
+                <img :src="pokemon.img" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="../../themes/default/assets/js/themeSettings.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script>
+new Vue({
+  el: '#deaths',
+  data: function () {
+    return {
+      connected: false,
+      loaded: false,
+      deaths: []
+    };
+  },
+  created: function () {
+    this.loaded = true
+  },
+  mounted: function () {
+    var vm = this;
+    let deathsClient = client.setup(settings.port, 'deaths-'+settings.currentUser+'-browser', settings.server, (data) => {
+      vm.connected = true;
+    })
+      .on('player:party:death', (payload) => { this.updateDeaths(payload)})
+      .on('client:players:list', (users) => {
+        users.forEach(user => {
+          this.updateDeaths(user)
+        });
+      })
+  },
+  methods: {
+    updateDeaths (payload) {
+      if (window.settings.debug) {
+        console.log(`Death Update recieved from ${payload.username}`)
+        console.log(payload, window.settings)
+      }
+      if (payload.username !== settings.currentUser) return;
+
+      this.deaths = payload.pokedex.dead.map(pokemon => transformPokemon(pokemon))
+      console.log(this.deaths)
+    }
+  }
+});
+</script>
+
+</body>
+</html>

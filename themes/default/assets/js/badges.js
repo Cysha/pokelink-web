@@ -37,6 +37,7 @@ new Vue({
 
       badgeFolder = collect(badges).filter((badgeCollection) => {
         return badgeCollection.id === settings.game.id
+          || badgeCollection.id === payload.trainer.game.id
       }).first().folder;
 
       this.game = payload.trainer.game

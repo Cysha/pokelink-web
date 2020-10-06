@@ -1,0 +1,113 @@
+.pokes {
+  margin-top: 110px;
+  }
+
+  .pokes.browser-connected {
+    display: block !important;
+  }
+
+  .pokemon__list {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+  }
+
+  .pokemon__list .pokemon {
+    margin: 10px;
+  }
+  .pokemon>div {
+    content: " ";
+    width: 160px;
+    height: 160px;
+    -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out;
+    background-size: cover;
+}
+
+  .pokemon__list .pokemon .sprite {
+    width: 160px;
+    height: 160px;
+  }
+
+  .pokemon .sex {
+    position: absolute;
+    right: 14px;
+    bottom: 11px;
+  }
+  .sex svg:nth-child(1) {
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    z-index: 99;
+  }
+  .sex svg:nth-child(2) {
+    filter: blur(6px);
+    width: 30px !important;
+  }
+  .pokemon .sex .icon {
+    width: 30px;
+  }
+  .pokemon .sex .icon.female {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+
+  .pokemon__list .pokemon.isDead {
+    filter: grayscale(1);
+  }
+
+  .pokemon__list .pokemon .hp {
+    width: 80%;
+    bottom: 6px;
+    height: 12px;
+    position: absolute;
+    left: 10px;
+    border: 4px solid rgba(0,0,0,0.4);
+  }
+
+  .pokemon__list .pokemon .hp .hp__inner {
+    background: linear-gradient(to right, lime, #8bf500);
+    transition: width 2s;
+    height: 100%;
+  }
+
+  .pokemon .hp .hp__inner.low {
+    background: linear-gradient(to right, #ffcc00, #f1f500);
+  }
+  .pokemon .hp .hp__inner.critical {
+    background: linear-gradient(to right, #d20000, #f51700);
+  }
+
+  .pokemon__list .pokemon .pokemon__details {
+    display: block;
+  }
+
+  .pokemon__list .pokemon .pokemon__details .details__name {
+    font-weight: bold;
+    color: #c0c0c0;
+  }
+
+  .pokemon__list .pokemon .pokemon__details .details__hp {
+    border: 1px solid #000000;
+    height: 5px;
+    width: 100%;
+  }
+
+  .pokemon__list .pokemon .pokemon__details .details__hp .hp__bar {
+    background-color: #ff0000;
+    height: 5px;
+  }
+
+  /* transitions stuffs */
+  .switchSlow-move {
+      transition: transform 2s;
+  }
+
+  .switchMedium-move {
+      transition: transform 1s;
+  }
+
+  .switchFast-move {
+      transition: transform 0.5s;
+  }

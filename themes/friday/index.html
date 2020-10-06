@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pkmn</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139026483-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139026483-5');
+</script>
+</head>
+
+<body>
+<div id="party" :data-user="settings.currentUser">
+    <List></List>
+</div>
+<script src="../../assets/data/exp-groups.js"></script>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../assets/data/pokedex.js"></script>
+<script src="../../assets/data/moves.js"></script>
+<script src="../../assets/data/experience.js"></script>
+
+<!-- These are for the items-->
+<script src="../../assets/data/gen3_items.js"></script>
+<script src="../../assets/data/gen4_items.js"></script>
+<script src="../../assets/data/gen5_items.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
+
+<script src="./assets/js/components/pokemon.js"></script>
+<script src="./assets/js/components/list.js"></script>
+
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script>
+let app = new Vue({
+  el: "#party",
+  data: {},
+  created: function () {
+    this.loaded = true
+    this.settings = window.settings;
+  },
+});
+</script>
+
+</body>
+</html>

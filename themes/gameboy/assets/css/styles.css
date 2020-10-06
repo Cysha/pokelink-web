@@ -25,6 +25,12 @@
 
     .sprite {
         width: 40px;
+        text-align: center;
+    }
+
+    .sprite img {
+        max-width: 40px;
+        max-height: 40px;
     }
 
     .details{

@@ -204,10 +204,18 @@
         vertical-align: middle;
         word-break: break-all;
     }
+    .browser-connected .no-connection {
+        display: none;
+    }
 
     .browser-connected {
         display: block !important;
     }
+
+.badge__slot.badge__slot--gen8.badge {
+    width: auto;
+    background-color: transparent;
+}
 
 .badge__slot.badge__slot--gen8 img {
     width: auto;
