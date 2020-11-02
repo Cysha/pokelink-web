@@ -1,4 +1,4 @@
-#Example Template
+# Example Template
 This is a template for a generic pokelink theme
 
 ## Technical Details
