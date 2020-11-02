@@ -7,7 +7,7 @@ var themeSettings = {
         // will use species name instead (eg Bulbasaur.gif instead of 1.gif),
         useDexNumbers: false,
         // valid image types include: gif, jpg, jpeg, png etc
-        fileType: 'png',
+        fileType: 'gif',
         ignoreForms: true,
 
         routeColor: false,
@@ -29,13 +29,7 @@ var themeSettings = {
     },
 
     imgPaths: {
-<<<<<<< Updated upstream
+        normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
         party: 'http://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
-=======
-          normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/emerald/normal/',
-          shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/emerald/shiny/',
-        // party: 'http://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
-        // party: 'http://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
->>>>>>> Stashed changes
     }
 };

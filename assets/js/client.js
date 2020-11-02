@@ -132,12 +132,13 @@ var client = {
   },
 
   handleRemotePlayerSettings (socket, settingsPayload, cb) {
+    if (settingsPayload.user !== settings.currentUser) return
+
     window.settings = deepmerge(
       window.settings,
       settingsPayload
     )
     console.log(window.settings)
-    // this.players = {...this.players}
     console.info(`Settings updated`)
     this.events.emit('settings:updated', window.settings)
   },

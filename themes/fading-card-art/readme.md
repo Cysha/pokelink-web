@@ -8,7 +8,7 @@ This is a theme built from a comisisoned design by [That Boy Meech](https://twit
 ## Features
  - **HP** is shown as the card art fades to grayscale.
  - **Held Items** are shown if applicable in the white box above the pokemon
- - **Nickname** is shown in the box below each pokemon
+ - **Nickname** is shown in the box below each
 
 ## Settings
 
