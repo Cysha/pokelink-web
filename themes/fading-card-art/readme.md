@@ -13,4 +13,12 @@ This is a theme built from a comisisoned design by [That Boy Meech](https://twit
 ## Settings
 
 #### Pokémon TCG art
-You can set the list of TCG sets used as art by changing `pokemonTCGCardSets` in the `./assets/js/themeSettings.js` file.
+This theme relies on TCG art provided by the [Pokémon TCG]() API.
+
+The card art sends a list of card sets and pokemon ids to the api and displays the first instance of the card for that pokemon.
+
+You can set the list of TCG sets that are used, in different 2 ways:
+ - Change the `pokemonTCGCardSets` setting in the `./assets/js/themeSettings.js` file.
+ - by listing the set codes as a query parameter in the URL, seperated by pipes, for example: `https://pokelink.cybershade.org/themes/fading-card-art/index.html?user=Jez&sets=col1|dp1|swsh1|sm1`
+
+**Important NOTE:** Check that the sets you pick cover all the pokemon you can recieve in the game

@@ -2,24 +2,49 @@ var themeSettings = {
     theme: {
         name: 'vyublitz',
         hideHPBar: params.get('hide_hp') === 'true' || false,
-        pokemonTCGCardSets: [
-            'base1',
-            'base2',
-            'basep',
-            'ex3',
-            'pop5',
-            'pop1',
-            'pop3',
-            'xyp',
-            'col1',
-            'dp1',
-            'dp2',
-            'dp3',
-            'dp4',
-            'swsh1',
-            'swsh2',
-            'ex15'
-        ]
+        pokemonTCGCardSets: function () {
+            let userDefinedSets = params.get('sets')
+
+            if (userDefinedSets !== null && userDefinedSets.length > 0) {
+                return userDefinedSets.split('|')
+            }
+
+            return [
+                'base1',
+                'base2',
+                'basep',
+                'ex3',
+                'pop5',
+                'pop1',
+                'pop3',
+                'xyp',
+                'xy12',
+                'col1',
+                'dp1',
+                'dp2',
+                'dp3',
+                'dp4',
+                'swsh1',
+                'swsh2',
+                'swsh3',
+                'ex15',
+                'sm1',
+                'sm2',
+                'sm3',
+                'sm3',
+                'sm4',
+                'sm5',
+                'sm6',
+                'sm7',
+                'sm8',
+                'sm9',
+                'sm10',
+                'sm11',
+                'sm12',
+                'sma',
+                'smp',
+            ]
+        }
     },
 
     pokeImg: {

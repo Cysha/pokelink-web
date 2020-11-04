@@ -28,8 +28,8 @@ Vue.component( "List", {
   }},
   created: function () {
     this.loaded = true
-    this.settings = window.settings;
-    this.sets = this.settings.
+    this.settings = window.settings
+    this.sets = this.settings.theme.pokemonTCGCardSets()
     this.flipped = !!params.get('flipped')
   },
   mounted: function () {
@@ -45,7 +45,7 @@ Vue.component( "List", {
           party == party.reverse()
         }
 
-        fetch(`https://api.pokemontcg.io/v1/cards?setCode=${sets.join('|')}&supertype=pokemon&nationalPokedexNumber=${idList}`)
+        fetch(`https://api.pokemontcg.io/v1/cards?setCode=${this.sets.join('|')}&supertype=pokemon&nationalPokedexNumber=${idList}`)
           .then(response => response.json())
           .then(cards => {
             vm.players[username] = party.map(function (pokemonWrapper) {

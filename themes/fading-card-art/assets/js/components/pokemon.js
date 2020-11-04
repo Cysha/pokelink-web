@@ -30,8 +30,7 @@ Vue.component( "Pokemon", {
         'swsh1',
         'base2',
         'ex15'
-      ],
-      party: [25, 1, 54, 21, 5, 53]
+      ]
     }
   },
   created () {
