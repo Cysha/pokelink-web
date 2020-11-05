@@ -1,0 +1,211 @@
+@font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("./../../assets/fonts/Pokemon%20GB.ttf")}
+
+.pokes {
+
+}
+
+.pokes.browser-connected {
+  display: block !important;
+}
+
+.pokemon__list {
+  width: 600px;
+  position: relative;
+}
+
+.pokemon__list .pokemon {
+  display: block;
+  position: relative;
+  text-align: center;
+  height: 202px;
+  width: 570px;
+  padding: 5px;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.pokemon.isDead {
+  filter: grayscale(1);
+}
+
+.pokemon .pokemon__hp {
+  content: " ";
+  z-index: 1;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.pokemon .pokemon__hp {
+  content: " ";
+  z-index: 1;
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #3c3c3c;
+}
+
+.pokemon .pokemon__hp .hp__inner {
+  content: " ";
+  z-index: 5;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(to right, lime, #8bf500);
+  transition: width 2s;
+}
+
+.pokemon .pokemon__hp .hp__inner.low {
+  background: linear-gradient(to right, #ffcc00, #f1f500);
+}
+.pokemon .pokemon__hp .hp__inner.critical {
+  background: linear-gradient(to right, #d20000, #f51700);
+}
+
+.pokemon .pokemon__level {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-family: "Pokemon GB";
+  color: #fff;
+  z-index: 10;
+}
+
+.pokemon .pokemon__level small {
+    font-size: 70%;
+}
+
+.pokemon_bg {
+  border-radius: 0 0 0 45%;
+  background-color: black;
+  height: 200%;
+  width: 100%;
+  bottom: 20px;
+  left: 1px;
+  z-index: 5;
+  position: absolute;
+}
+
+.pokemon__image {
+  z-index: 10;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  height: calc(100% - 25px);
+}
+
+img.sprite {
+  height: 90%;
+}
+
+.pokemon__name {
+  position: absolute;
+  top: 10px;
+  color: #fff;
+  left: 200px;
+  z-index: 10;
+  font-family: "Pokemon GB";
+  font-size: 27px;
+}
+
+.hp__text-label {
+  bottom: 0;
+  z-index: 10;
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  left: 228px;
+  font-family: "Pokemon GB";
+  transform: skewX(-23deg);
+  background-color: #b3b3b3;
+  padding: 3px 10px;
+  line-height: 19px;
+  height: 14px;
+}
+
+.hp__text-values {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  font-family: "Pokemon GB";
+  color: #fff;
+  z-index: 5;
+  text-indent: 251px;
+  -webkit-text-stroke: black 1px;
+  font-size: 17px;
+}
+
+.pokemon__heldItem {
+  position: absolute;
+  bottom: 5px;
+  width: 23px;
+  height: 23px;
+  z-index: 5;
+  left: 5px;
+}
+
+.exp {
+  right: 10px;
+  top: 45px;
+  z-index: 10;
+  position: absolute;
+  width: 365px;
+  height: 6px;
+  overflow: hidden;
+  background: #252525;
+}
+
+.exp .exp__inner {
+  height: 100%;
+  background-color: cyan;
+  transition: width 2s;
+}
+
+.moves {
+    right: 10px;
+    position: absolute;
+    width: 420px;
+    top: 50px;
+    z-index: 10;
+}
+
+.move {
+  width: 50%;
+  z-index: 10;
+  color: #ffff;
+  display: inline-block;
+  height: 29px;
+  margin-top: 16px;
+}
+
+.move__icon, .move__name, .move__pp {
+  display: inline-block;
+  font-family: "Pokemon GB";
+}
+
+.move__icon {
+  width: 30px;
+  height: 20px;
+}
+
+.move__name {
+  width: 129px;
+}
+
+.move__name svg {
+  width: 100%;
+  color: #fff;
+}
+
+.move__name text  {
+  font-family: "Pokemon GB";
+}
+
+.move__pp {
+  width: 43px;
+}
