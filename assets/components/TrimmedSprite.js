@@ -20,19 +20,19 @@ Vue.component( 'TrimmedSprite', {
             var img = new Image();
             img.crossOrigin = "Anonymous";
             img.onload = function() {
-            var canvas = vm.$refs.canvas;
-            var ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            let trimmed = trimCanvas(canvas)
-            canvas.width = trimmed.width
-            canvas.height = trimmed.height
-            var newImage = new Image()
-            newImage.onload = function () {
-                ctx.drawImage(newImage, 0, 0);
-                vm.fixedSprite = true
-                vm.$emit('done')
-            }
-            newImage.src = trimmed.toDataURL()
+                var canvas = vm.$refs.canvas;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                let trimmed = trimCanvas(canvas)
+                canvas.width = trimmed.width
+                canvas.height = trimmed.height
+                var newImage = new Image()
+                newImage.onload = function () {
+                    ctx.drawImage(newImage, 0, 0);
+                    vm.fixedSprite = true
+                    vm.$emit('done')
+                }
+                newImage.src = trimmed.toDataURL()
             }
             img.src = this.pokemon.img
         }

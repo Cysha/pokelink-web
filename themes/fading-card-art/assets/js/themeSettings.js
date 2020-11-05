@@ -1,6 +1,6 @@
 var themeSettings = {
     theme: {
-        name: 'vyublitz',
+        name: 'fading-card-art',
         hideHPBar: params.get('hide_hp') === 'true' || false,
         pokemonTCGCardSets: function () {
             let userDefinedSets = params.get('sets')
