@@ -1,0 +1,27 @@
+var themeSettings = {
+    theme: {
+        name: 'vyublitz',
+        hideHPBar: params.get('hide_hp') === 'true' || false,
+    },
+
+    pokeImg: {
+        // valid image types include: gif, jpg, jpeg, png etc
+        fileType: 'png',
+        ignoreForms: true,
+    },
+
+    // Change these to thwwwwwwwwe image paths
+
+    imgPaths: {
+      normal: 'http://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
+      shiny: 'http://pokelink.cybershade.org/assets/sprites/pokemon/home/shiny/',
+      party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
+      animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
+      staticEgg: 'https://www.cpokemon.com/pokes/home/0.png',
+      unknown: 'https://pokelink.cybershade.org/assets/sprites/',
+      badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
+      status: 'https://pokelink.cybershade.org/assets/sprites/status/',
+      types: 'https://pokelink.cybershade.org/assets/sprites/types/',
+      items: 'https://pokelink.cybershade.org/assets/sprites/items/',
+    },
+};
