@@ -354,8 +354,23 @@
     vertical-align: middle;
 }
 
+.badges {}
+.badge__slot {
+    display: block;
+    float: left;
+}
+
+.badge__slot img {
+    width: 100px;
+}
+.badge__slot--inactive img {
+    -webkit-filter: grayscale(100%) brightness(0);
+    filter: grayscale(100%) brightness(0);
+    opacity: 0.6;
+}
+
 .browser-connected {
-    display: block !important;
+  display: block !important;
 }
 
     /* transitions stuffs */

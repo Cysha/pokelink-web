@@ -297,3 +297,18 @@
     .switchFast-move {
         transition: transform 0.5s;
     }
+
+.badges {}
+  .badge__slot {
+      display: block;
+      float: left;
+  }
+
+  .badge__slot img {
+      width: 100px;
+  }
+  .badge__slot--inactive img {
+      -webkit-filter: grayscale(100%) brightness(0);
+      filter: grayscale(100%) brightness(0);
+      opacity: 0.6;
+  }

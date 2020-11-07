@@ -10,9 +10,24 @@
 /* margin-top: 110px; */
 }
 
-.pokes.browser-connected {
+.browser-connected {
   display: block !important;
 }
+
+.badges {}
+    .badge__slot {
+        display: block;
+        float: left;
+    }
+
+    .badge__slot img {
+        width: 100px;
+    }
+    .badge__slot--inactive img {
+        -webkit-filter: grayscale(100%) brightness(0);
+        filter: grayscale(100%) brightness(0);
+        opacity: 0.6;
+    }
 
 .pokemon__list {
   display: flex;
