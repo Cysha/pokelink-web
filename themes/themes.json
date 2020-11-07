@@ -7,7 +7,7 @@
       {"name": "Big Numbers (with TCG art as a background)", "path": "big-numbers", "params": {"flipped": false, "useCardArtBackground": true}},
       {"name": "Big Numbers  (with a background gradient derived from typings)", "path": "big-numbers", "params": {"flipped": false, "useTypesGradient": true}},
       {"name": "Big Numbers (with TCG art, and the gradient overlayed)", "path": "big-numbers", "params": {"flipped": false, "useCardArtBackground": true, "useTypesGradient": true}},
-      {"name": "Fading Card Art", "path": "fading-card-art"},
+      {"name": "Fading Card Art", "path": "fading-card-art", "params": {"flipped": false, "flat": false}},
       {"name": "Friday", "path": "friday"},
       {"name": "Friday - DarkMode", "path": "friday", "params": {"darkMode": true}},
       {"name": "Gameboy - Retro", "path": "gameboy"},
@@ -19,6 +19,7 @@
       {"name": "Pokeball", "path": "pokeball"},
       {"name": "Rescue Team DX (Supports up to Sinnoh)", "path": "rescue-team-dx"},
       {"name": "Sword and Shield-style team", "path": "sword-shield-team"},
+      {"name": "Simple Circles", "path": "simple-circles"},
       {"name": "Trozei", "path": "trozei"},
       {"name": "Twitch Plays Pokemon", "path": "twitch-plays-pokemon"}
     ]

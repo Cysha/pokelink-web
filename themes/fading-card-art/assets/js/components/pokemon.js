@@ -1,6 +1,6 @@
 Vue.component( "Pokemon", {
   template: `
-    <div :class="{ 'pokemon': true, 'card': true,'isDead': isDead }" :style="mainStyle">
+    <div :class="{ 'pokemon': true, 'card': true,'isDead': isDead, 'flat': settings.theme.flat }" :style="mainStyle">
       <div class="heldItem">
         <img v-if="typeof pokemon == 'object' && pokemon.heldItem.id != 0" :src="pokemon.heldItem.img">
       </div>

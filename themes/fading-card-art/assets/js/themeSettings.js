@@ -2,6 +2,7 @@ var themeSettings = {
     theme: {
         name: 'fading-card-art',
         hideHPBar: params.get('hide_hp') === 'true' || false,
+        flat: params.get('flat') === 'true' || false,
         pokemonTCGCardSets: function () {
             let userDefinedSets = params.get('sets')
 

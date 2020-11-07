@@ -41,6 +41,11 @@ margin-top: 110px;
 
 .pokemon.card {
   position: relative;
+  margin-bottom: 100px;
+}
+
+.pokemon.card.flat {
+  top: 0px !important;
 }
 
 .pokemon.card:nth-child(even) {

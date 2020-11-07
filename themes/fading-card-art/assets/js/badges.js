@@ -14,7 +14,7 @@ new Vue({
   },
   mounted: function () {
     var vm = this;
-    let badgesClient = client.setup(settings.port, 'badges-'+settings.currentUser+'-browser', settings.server, (data) => {
+    client.setup(settings.port, 'badges-' + settings.currentUser+'-browser', settings.server, (username, party) => {
       vm.connected = true;
     })
       .on('player:trainer:updated', (payload) => { this.updateBadges(payload)})
