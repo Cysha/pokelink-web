@@ -47,7 +47,6 @@ var client = {
             payload: data
           };
           events.push(event)
-          console.log(event)
           this.handleRemotePlayerParty(socket, data, cb)
         })
         .on('client:badges:updated', (data) => {
@@ -56,7 +55,6 @@ var client = {
             payload: data
           };
           events.push(event)
-          console.log(event)
           this.handleRemotePlayerTrainer(socket, data, cb)
         })
         .on('client:players:list', (players) => {
@@ -113,7 +111,7 @@ var client = {
     if (window.settings.debug) {
       console.log('Party Updated');
     }
-    let newPlayerParty = {};
+    let newPlayerParty = [];
 
     if (this.players.hasOwnProperty(payload.username) === false) {
       this.players[payload.username] = payload.update.party;
@@ -131,20 +129,30 @@ var client = {
     this.events.emit('client:party:updated', this.players[payload.username]);
   },
 
-  handleRemotePlayerSettings (socket, settingsPayload, cb) {
-    if (settingsPayload.user !== settings.currentUser) return
+  handleRemotePlayerSettings (socket, payload, cb) {
+    if (settings.currentUser !== payload.username) return
 
     window.settings = deepmerge(
       window.settings,
-      settingsPayload
+      payload.updatedSettings.settings
     )
-    console.log(window.settings)
+
+    const transformedParty = Object.values(this.players[payload.username])
+      .map(poke => {
+        delete poke['pokemon']['transformed']
+        return poke
+      })
+
+    console.info(transformedParty)
+
     console.info(`Settings updated`)
+    cb(payload.username, transformedParty);
+    this.events.emit('client:party:updated', transformedParty);
     this.events.emit('settings:updated', window.settings)
   },
 
   addPlayersInBulk (socket, players, cb) {
-    if (window.settings.debug || true) {
+    if (window.settings.debug) {
       console.log('Initial Bulk Load');
       console.log(players);
     }
