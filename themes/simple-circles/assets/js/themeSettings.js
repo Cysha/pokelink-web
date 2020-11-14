@@ -14,6 +14,7 @@ var themeSettings = {
 
     imgPaths: {
       normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
+    //   normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
       shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/shiny/',
       party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
       animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',

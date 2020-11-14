@@ -398,24 +398,56 @@ var badges = [
     id: 'POKEMON S',
     folder: 'alola',
     badges: [
+      'trial-normal',
+      'trial-water',
+      'trial-fire',
+      'trial-grass',
+      'trial-electric',
+      'trial-ghost',
+      'trial-dragon',
+      'trial-fairy'
     ]
   },
   {
     id: 'POKEMON M',
     folder: 'alola',
     badges: [
+      'trial-normal',
+      'trial-water',
+      'trial-fire',
+      'trial-grass',
+      'trial-electric',
+      'trial-ghost',
+      'trial-dragon',
+      'trial-fairy'
     ]
   },
   {
-    id: 'POKEMON US',
+    id: 'POKEMON USUN',
     folder: 'alola',
     badges: [
+      'trial-normal',
+      'trial-water',
+      'trial-fire',
+      'trial-grass',
+      'trial-electric',
+      'trial-ghost',
+      'trial-dragon',
+      'trial-fairy'
     ]
   },
   {
-    id: 'POKEMON UM',
+    id: 'POKEMON UMOON',
     folder: 'alola',
     badges: [
+      'trial-normal',
+      'trial-water',
+      'trial-fire',
+      'trial-grass',
+      'trial-electric',
+      'trial-ghost',
+      'trial-dragon',
+      'trial-fairy'
     ]
   },
   {
