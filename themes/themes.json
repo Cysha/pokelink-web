@@ -7,6 +7,7 @@
       {"name": "Big Numbers (with TCG art as a background)", "path": "big-numbers", "params": {"flipped": false, "useCardArtBackground": true}},
       {"name": "Big Numbers  (with a background gradient derived from typings)", "path": "big-numbers", "params": {"flipped": false, "useTypesGradient": true}},
       {"name": "Big Numbers (with TCG art, and the gradient overlayed)", "path": "big-numbers", "params": {"flipped": false, "useCardArtBackground": true, "useTypesGradient": true}},
+      {"name": "Digital Hex", "path": "digital-hex", "params": {"hide_hp": false, "flat": false}},
       {"name": "Fading Card Art", "path": "fading-card-art", "params": {"flipped": false, "flat": false}},
       {"name": "Friday", "path": "friday"},
       {"name": "Friday - DarkMode", "path": "friday", "params": {"darkMode": true}},
