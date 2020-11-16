@@ -139,7 +139,8 @@ var client = {
 
     const transformedParty = Object.values(this.players[payload.username])
       .map(poke => {
-        delete poke['pokemon']['transformed']
+        if (poke !== null && poke.pokemon !== null) delete poke['pokemon']['transformed']
+
         return poke
       })
 
