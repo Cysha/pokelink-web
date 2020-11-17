@@ -1,7 +1,7 @@
 Vue.component( "List", {
   template: `
   <div style="display: none" :class="{ 'browser-connected' : true }" class="pokes">
-    <transition-group :name="switchSpeed" tag="div" :class="['pokemon__list', {'flipped': flipped === true}]" v-if="loaded">
+    <transition-group :name="switchSpeed" tag="div" :class="['pokemon__list', {'flipped': flipped === true, 'horizontal': settings.theme.horizontal}]" v-if="loaded">
       <Pokemon v-for="( poke, idx ) in partySlots" :slotId="idx + 1" :key="'slot' + idx" :pokemon="poke">
       </Pokemon>
     </transition-group>

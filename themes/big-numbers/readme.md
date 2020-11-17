@@ -18,4 +18,7 @@ You can use the card art in the background by appending `&useCardArtBackground=t
 ### Using the type colour(s) in the background
 You can use the card art in the background by appending `&useTypesGradient=true` in the URL
 
+### Use this theme horizontal
+You can flip this theme into horizontal mode by appending `&horizontal=true` in the URL
+
 **Note** *If both are used, the order will be TCG Art, then the type colours overlayed, then the pokemon.*

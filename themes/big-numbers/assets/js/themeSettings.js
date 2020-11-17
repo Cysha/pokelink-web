@@ -1,6 +1,7 @@
 var themeSettings = {
     theme: {
-        name: 'big-numbers'
+        name: 'big-numbers',
+        horizontal: params.get('horizontal') === 'true'
     },
 
     pokeImg: {
