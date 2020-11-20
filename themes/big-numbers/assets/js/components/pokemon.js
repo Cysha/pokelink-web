@@ -47,11 +47,13 @@ Vue.component( "Pokemon", {
       customCardArt: null,
       pokeIsChanging: false,
       isFresh: true,
-      newCardArt: null
+      newCardArt: null,
+      sets: []
     }
   },
   created () {
     this.settings = window.settings;
+    this.sets = this.settings.theme.pokemonTCGCardSets()
   },
   mounted () {
     this.pokeIsChanging = false
@@ -75,12 +77,11 @@ Vue.component( "Pokemon", {
         this.pokeIsChanging = true
       }
       this.isFresh = false
-      let sets = 'base1|base2|basep|ex3|pop5|pop1|pop3|xyp|col1|dp1|dp2|dp3|dp4|swsh1|swsh2|ex15|ex12|dp6|pl2||bw11|bw10|bw9|bw8|bw7|bw6|bw5|bw4|bw4|bw3|bw2|bw1|xy1|xy2|xy3|xy4|xy5|xy6|xy7|xy8'
 
-      fetch('https://api.pokemontcg.io/v1/cards?setCode=' + sets + '&supertype=pokemon&nationalPokedexNumber=' + poke.species)
+      fetch('https://api.pokemontcg.io/v1/cards?setCode=' + this.sets.join('|') + '&supertype=pokemon&nationalPokedexNumber=' + poke.species)
         .then(response => response.json())
         .then(cards => {
-          let setOrder = sets.split('|')
+          let setOrder = this.sets
           // try {
             cardImages = cards
               .cards
