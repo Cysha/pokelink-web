@@ -38,20 +38,20 @@ new Vue({
   },
   methods: {
     updateBadges(payload) {
-      if (window.settings.debug) {
+      if (this.settings.debug) {
         console.log(`Trainer Update recieved for ${payload.username}`);
-        console.log(payload, window.settings);
+        console.log(payload, this.settings);
       }
       if (payload.username !== settings.currentUser) return;
 
-      if (window.settings.game.generation === 3) {
+      if (this.settings.game.generation === 3) {
         this.gymLimits = [14, 21, 24, 29, 43, 43, 47, 50];
       }
 
       this.badges = payload.trainer.badges.map(function (badge) {
         var badgeObj = {};
         badgeObj.img =
-          window.settings.imgPaths.badges + badge.name.toLowerCase() + ".png";
+          this.settings.imgPaths.badges + badge.name.toLowerCase() + ".png";
         badgeObj.label = badge.name + " Badge";
         badgeObj.active = badge.value;
         return badgeObj;

@@ -53,7 +53,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150px;
+}
+
+
+.pkmn__sprite canvas {
+  transform: scale(1.5);
 }
 
 .pkmn__details {
@@ -62,14 +66,15 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  padding: 3px;
-  background: rgb(231, 229, 219);
+  background: rgba(255,255,255,0.1);
   border-radius: 5px;
+  padding: 2px;
+  color: #111;
 }
 
 .details__name {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
@@ -79,11 +84,11 @@ body {
 }
 
 .pkmn__hp {
-  width: 128px;
   position: absolute;
-  top: -4px;
-  left: -4px;
-  transform: rotate(180deg);
+  width: 135px; /* viewbox of the SVG - stroke width */
+  top: -7.5px;
+  left: -7.5px; /* stokre wiidht + offset left from width */
+  transform: rotate(-90deg);
 }
 
 /* Badges */

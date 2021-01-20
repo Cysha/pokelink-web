@@ -19,6 +19,9 @@ Vue.component( "Pokemon", {
     key: {}
   },
   computed: {
+    isEmptySlot() {
+      return typeof this.pokemon === "undefined";
+    },
     healthPercent() {
       return (100/this.pokemon.hp.max) * this.pokemon.hp.current + "%";
     },
@@ -29,15 +32,15 @@ Vue.component( "Pokemon", {
       return (this.pokemon.isGenderless ? '' : (this.pokemon.isFemale ? 'female' : 'male'));
     },
     ident() {
-      if (typeof this.pokemon === "undefined") { return null; }
+      if (this.isEmptySlot) { return null; }
       return this.pokemon.species;
     },
     opacity() {
-      if (typeof this.pokemon === "undefined") { return '0.4'; }
+      if (this.isEmptySlot) { return '0.4'; }
       return '1';
     },
     hasItem() {
-      if (typeof this.pokemon === "undefined") { return false; }
+      if (this.isEmptySlot) { return false; }
       if (typeof this.pokemon.heldItem === "undefined") { return false; }
       return this.pokemon.heldItem.id !== 0;
     },
