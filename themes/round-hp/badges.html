@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Pkmn</title>
+    <title>Badges</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
@@ -21,8 +22,17 @@
 </head>
 
 <body>
-<div id="party" :data-user="settings.currentUser">
-    <List></List>
+<div id="badges" style="display: none" :class="{ 'browser-connected' : true }">
+    <div class="badges">
+        <div v-for="(badge, idx) in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
+            <img :src="badge.img" :alt="badge.label">
+            <p v-if="settings.game.generation === 3" class="badge__level">{{gymLimits[idx]}}</p>
+        </div>
+    </div>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
+    </div>
 </div>
 
 <script src="../../assets/js/events.js"></script>
@@ -30,36 +40,13 @@
 <script src="../../assets/libs/deepmerge.js"></script>
 <script src="../../assets/libs/color-hash.js"></script>
 
-<script src="../../assets/data/pokedex.js"></script>
-<script src="../../assets/data/moves.js"></script>
-
-<!-- These are for the items-->
-<script src="../../assets/data/gen3_items.js"></script>
-<script src="../../assets/data/gen4_items.js"></script>
-<script src="../../assets/data/gen5_items.js"></script>
-<script src="../../assets/data/gen6_items.js"></script>
-<script src="../../assets/data/gen7_items.js"></script>
+<script src="../../assets/data/badges.js"></script>
 
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>
-<script src="./assets/js/themeSettings.js"></script>
-
-<script src="./assets/js/components/pokeball.js"></script>
-<script src="./assets/js/components/pokemon.js"></script>
-<script src="./assets/js/components/list.js"></script>
-
-<script src="../../assets/js/helpers.js"></script>
+<script src="../../themes/default/assets/js/themeSettings.js"></script>
 <script src="../../assets/js/client.js"></script>
-<script>
-let app = new Vue({
-  el: "#party",
-  data: {},
-  created: function () {
-    this.loaded = true
-    this.settings = window.settings;
-  },
-});
-</script>
+<script src="./assets/js/badges.js"></script>
 
 </body>
 </html>
