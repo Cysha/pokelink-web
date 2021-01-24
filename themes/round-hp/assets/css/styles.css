@@ -8,6 +8,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  flex-wrap: wrap;
 }
 
 /* Pokemon */
@@ -21,6 +22,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .pkmn::before {
