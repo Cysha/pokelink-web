@@ -30,4 +30,8 @@ You can add the limit numbers of the gym's Ace pokemon.
 - Add the badge numbers using the `gymAces` parameter separating them by a comma
 - Example: `http://assets.pokelink.xyz/themes/round-hp/index.html?user=fnch&server=localhost&port=3000&gymAces=14,21,24,29,43,43,47,50`
 
+### Dynamic space between Pokémon
 
+- When adding your source to OBS, the recommended height is 153
+- The recommended width should be at least 890. You can increase this width to add more spacing between pokemon
+- After the source is added, you can resize the visual widget in the stream editor.
