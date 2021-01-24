@@ -6,12 +6,13 @@ new Vue({
       loaded: false,
       settings: {},
       badges: [],
-      gymLimits: [],
+      gymAces: [],
     };
   },
   created: function () {
     this.loaded = true;
     this.settings = window.settings;
+    this.gymAces = window.settings.theme.gymAces();
   },
   mounted: function () {
     var vm = this;
@@ -43,10 +44,6 @@ new Vue({
         console.log(payload, this.settings);
       }
       if (payload.username !== settings.currentUser) return;
-
-      if (this.settings.game.generation === 3) {
-        this.gymLimits = [14, 21, 24, 29, 43, 43, 47, 50];
-      }
 
       this.badges = payload.trainer.badges.map(function (badge) {
         var badgeObj = {};

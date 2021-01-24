@@ -1,12 +1,20 @@
 var themeSettings = {
     theme: {
         name: 'round-hp',
+        gymAces: function() {
+          const userGymAces = params.get('gymAces')
+          if (userGymAces !== null && userGymAces.length > 0) {
+              return userGymAces.split(',')
+          }
+    
+          return [];
+        },
     },
     pokeImg:{
       fileType: 'png',
       typeColor: true,
     },
-
+    
     // Change these to the image paths
     imgPaths: {
       normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/normal/',

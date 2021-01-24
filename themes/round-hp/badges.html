@@ -26,7 +26,7 @@
     <div class="badges">
         <div v-for="(badge, idx) in badges" :class="{ 'badge__slot': true, 'badge__slot--inactive': !badge.active }">
             <img :src="badge.img" :alt="badge.label">
-            <p v-if="settings.game.generation === 3" class="badge__level">{{gymLimits[idx]}}</p>
+            <p v-if="gymAces && gymAces[idx]" class="badge__level">{{gymAces[idx]}}</p>
         </div>
     </div>
     <div class="no-connection" v-if="!connected">
@@ -44,7 +44,7 @@
 
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>
-<script src="../../themes/default/assets/js/themeSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
 <script src="../../assets/js/client.js"></script>
 <script src="./assets/js/badges.js"></script>
 
