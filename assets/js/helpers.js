@@ -29,30 +29,37 @@ function transformPokemon(pokemon) {
     .toLowerCase()
     .replace(/[é]/g, 'e')
     .replace(/[^a-zA-Z0-9\♀]/g, '')
-    .replace(/[\♀]/g, '-f'); // nidoran female
+    .replace(/[\♀]/g, '-f') // nidoran female// nidoran male
+  ;
 
   // figure out which version of the filename we wanna use
   var filename = settings.pokeImg.useDexNumbers
     ? pokemon.species
     : pokemon.normalizeName;
 
+  var backupFilename = filename
+
   // handle forms
   if (settings.pokeImg.ignoreForms === false) {
     if (pokemon.alternateForm !== '' && typeof pokemon.alternateForm !== 'undefined') {
-      switch (pokemon.alternateForm) {
-        case 'gmax':
-        case 'mega':
-        case 'megay':
-        case 'megax':
-          filename += '-' + pokemon.alternateForm
-          break
+      try {
+        switch (pokemon.alternateForm) {
+          case 'gmax':
+          case 'mega':
+          case 'megay':
+          case 'megax':
+            filename += '-' + pokemon.alternateForm
+            break
 
-        case 'normal':
+          case 'normal':
 
-          break
+            break
 
-        default:
-          filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
+          default:
+            filename = settings.pokemonForms[pokemon.speciesName.toLowerCase()][pokemon.alternateForm];
+        }
+      } catch (e) {
+        filename = backupFilename
       }
     } else if (
       (pokemon.isFemale == true || pokemon.is_female === true) &&
@@ -208,7 +215,7 @@ function hex2rgba(hex, opacity) {
 function normalizeColor(str, opacity=100) {
   // hex color
   if (str.indexOf('#') !== -1) {
-    return this.convertHex(str, opacity);
+    return hex2rgba(str, opacity);
   }
 
   // if html color

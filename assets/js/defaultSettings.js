@@ -1,5 +1,5 @@
 var defaultSettings = {
-  debug: false,
+  debug: true,
   game: {
     // only 3 4 and 5 supported atm
     generation: null,
@@ -19,7 +19,7 @@ var defaultSettings = {
     // if your sprite set doesnt have shiny variants, set this to true
     ignoreShinies: false,
     // if this is true, pokelink will just show the base form pokemon
-    ignoreForms: false,
+    ignoreForms: true,
     // if true, the browser sources will identify what pokemon is in the egg
     determineEggs: false,
     // static or animated
@@ -32,17 +32,17 @@ var defaultSettings = {
   },
 
   imgPaths: {
-    normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated/',
-    shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated-shiny/',
-    party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
-    animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
-    staticEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.png',
-    missingno: 'https://pokelink.cybershade.org/assets/sprites/missingno.png',
-    unknown: 'https://pokelink.cybershade.org/assets/sprites/',
-    badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
-    status: 'https://pokelink.cybershade.org/assets/sprites/status/',
-    types: 'https://pokelink.cybershade.org/assets/sprites/types/',
-    items: 'https://pokelink.cybershade.org/assets/sprites/items/',
+    normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated/',
+    shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated-shiny/',
+    party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/',
+    animatedEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.gif',
+    staticEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.png',
+    missingno: 'https://assets.pokelink.xyz/assets/sprites/missingno.png',
+    unknown: 'https://assets.pokelink.xyz/assets/sprites/',
+    badges: 'https://assets.pokelink.xyz/assets/sprites/badges/',
+    status: 'https://assets.pokelink.xyz/assets/sprites/status/',
+    types: 'https://assets.pokelink.xyz/assets/sprites/types/',
+    items: 'https://assets.pokelink.xyz/assets/sprites/items/',
   },
 
   typeColors: {

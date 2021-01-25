@@ -34,7 +34,11 @@ var client = {
     this.username = username;
     let address = host + ':' + serverPort;
 
-    this.connection = io(address);
+    this.connection = io.connect(address, {
+      // secure: true,
+      reconnection: true,
+      rejectUnauthorized: false
+    });
 
     this.connection.on('connect', socket => {
       this.log('Client Connected');
@@ -84,6 +88,24 @@ var client = {
           console.log(event)
           this.handleRemotePlayerSettings(socket, data, cb)
         })
+        .on('player:party:death', (data => {
+          let event = {
+            event: 'player:party:death',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.events.emit('player:party:death', event)
+        }))
+        .on('player:party:revive', (data => {
+          let event = {
+            event: 'player:party:revive',
+            payload: data
+          };
+          events.push(event)
+          console.log(event)
+          this.events.emit('player:party:revive', event)
+        }))
       ;
     })
 
@@ -139,7 +161,8 @@ var client = {
 
     const transformedParty = Object.values(this.players[payload.username])
       .map(poke => {
-        delete poke['pokemon']['transformed']
+        if (poke !== null && poke.pokemon !== null) delete poke['pokemon']['transformed']
+
         return poke
       })
 
