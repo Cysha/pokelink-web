@@ -1,0 +1,273 @@
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+/* body {background-color: rgb(53, 57, 61);} */
+  .pokes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    max-height: 100vh;
+  }
+
+  .pokemon {
+    width: 600px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+  }
+
+  .pokemon .pokemon__header {
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pokemon__name-level {
+    font-size: 18pt;
+  }
+  .pokemon__ability, .pokemon__name-level, .pokemon__held_item {
+    height: 33%;
+  }
+  span.pokemon__level {
+    margin-left: 6px;
+  }
+
+  .pokemon .pokemon__header .pokemon__image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .pokemon .pokemon__header .pokemon__image img.pokemon__sprite {
+    width: auto;
+    height: 87%;
+  }
+  .pokemon .pokemon__header .pokemon__image img.heldItem__sprite {
+    width: auto;
+    height: 55%;
+    align-self: flex-end;
+  }
+
+  .pokemon .pokemon__header .pokemon__types {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .pokemon .pokemon__header .pokemon__types img {
+    height: auto;
+    width: 100%;
+  }
+
+  .pokemon .pokemon__details {
+    height: 60%;
+    color: #fff;
+  }
+
+  .pokemon .pokemon__details .pokemon__ability, .pokemon .pokemon__details .pokemon__held_item {
+    font-size: 17pt;
+  }
+
+  .pokemon .pokemon__details span.pokemon__gender {
+    height: 14px;
+    width: 14px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 0px 5px;
+  }
+  .pokemon .pokemon__details .pokemon__gender svg.icon {
+    max-height: 16px;
+    max-width: 16px;
+    left: 2px;
+    position: relative;
+    transform: rotate(-45deg);
+    top: -1px;
+  }
+
+  .pokemon .pokemon__details .pokemon__gender.male {
+    padding: 0 8px;
+  }
+  .pokemon .pokemon__details .pokemon__gender svg.icon.male {
+    max-height: 16px;
+    max-width: 16px;
+    left: 0px;
+    position: relative;
+    top: -1px;
+  }
+
+  .pokemon__info {
+    background-color: rgb(0, 217, 255);
+    height: 100%;
+    padding: 12px;
+    width: 300px;
+    text-shadow: 2px 1px 0px #26a1bc;
+  }
+  .pokemon__moves {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 300px;
+    padding: 12px;
+    flex-direction: column;
+    display: flex;
+  }
+  .pokemon__moves .move {
+      height: 25%;
+      display: flex;
+  }
+
+  .pokemon__moves .move .move__name {
+    font-size: 18pt;
+    line-height: 45px;
+    margin-left: 7px;
+  }
+
+  .move__icon img {
+    height: 45px;
+  }
+
+  .pokemon .details .hp .bar {
+    background: #B3B1B3;
+    height: 6px;
+    overflow: hidden;
+  }
+  .pokemon .details .hp .bar .health {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, lime, #8bf500);
+    transition: width 2s;
+  }
+  .pokemon .details .hp .bar .health.low {
+    background: linear-gradient(to right, #ffcc00, #f1f500);
+  }
+  .pokemon .details .hp .bar .health.critical {
+    background: linear-gradient(to right, #d20000, #f51700);
+  }
+
+
+  @-webkit-keyframes boing {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+              transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+    }
+  }
+
+  @keyframes boing {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-90%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+              transform: translateY(-50%) translateX(-60%) scaleX(0.95) scaleY(1.1);
+    }
+  }
+  @-webkit-keyframes bounce {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+              transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+    }
+  }
+  @keyframes bounce {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+              transform: translateY(-50%) translateX(-50%) scaleX(1) scaleY(1);
+    }
+    50% {
+      -webkit-transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+              transform: translateY(-60%) translateX(-50%) scaleX(0.95) scaleY(1.03);
+    }
+  }
+  @-webkit-keyframes float {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%);
+              transform: translateY(-50%) translateX(-50%);
+    }
+    50% {
+      -webkit-transform: translateY(-57%) translateX(-50%);
+              transform: translateY(-57%) translateX(-50%);
+    }
+  }
+  @keyframes float {
+    0%,100% {
+      -webkit-transform: translateY(-50%) translateX(-50%);
+              transform: translateY(-50%) translateX(-50%);
+    }
+    50% {
+      -webkit-transform: translateY(-57%) translateX(-50%);
+              transform: translateY(-57%) translateX(-50%);
+    }
+  }
+
+  h1 {
+    display: inline-block;
+    font-size: 60px;
+    margin: 10px;
+    color: #805cff;
+    font-weight: 900;
+  }
+
+  body {
+    color: black;
+    font-family: "Heebo", sans-serif;
+/*
+    background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+    background: red;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+*/  }
+
+.no-connection {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    display: table-cell;
+    text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.browser-connected {
+    display: block !important;
+}
+
+    /* transitions stuffs */
+    .switchSlow-move {
+        transition: transform 2s;
+    }
+
+    .switchMedium-move {
+        transition: transform 1s;
+    }
+
+    .switchFast-move {
+        transition: transform 0.5s;
+    }
+
+
+.badges {}
+  .badge__slot {
+      display: block;
+      float: left;
+  }
+
+  .badge__slot img {
+      width: 100px;
+  }
+  .badge__slot--inactive img {
+      -webkit-filter: grayscale(100%) brightness(0);
+      filter: grayscale(100%) brightness(0);
+      opacity: 0.6;
+  }

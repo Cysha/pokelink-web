@@ -12,6 +12,8 @@ var themeSettings = {
         pokemonColor: false,
         typeColor: true,
         ignoreForms: true,
+        ignoreShinies: true,
+
         // false to disable, can be a hex color, can be an rgb or rgba value, can also be an html color name
         // like red, or pink etc... https://htmlcolorcodes.com/ works as a color picker
         staticColor: false,
@@ -23,8 +25,9 @@ var themeSettings = {
     },
 
     imgPaths: {
-        // party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/galar/',
-        party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/national/party/',
+        // party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/galar/',
+        party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/national/party/',
+        shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/national/party/',
     }
 
 };

@@ -1,14 +1,16 @@
 new Vue({
   el: "#party",
-  data() { return {
-    connected: false,
-    loaded: false,
-    settings: {},
-    party: [],
-    players: {},
-    party_count: 0,
-    switchSpeed: 'switchMedium',
-  }},
+  data() {
+    return {
+      connected: false,
+      loaded: false,
+      settings: {},
+      party: [],
+      players: {},
+      party_count: 6,
+      switchSpeed: 'switchMedium',
+    }
+  },
   created: function () {
     this.loaded = true
     this.settings = window.settings;
@@ -20,11 +22,11 @@ new Vue({
         vm.players[username] = party.map(function (pokemonWrapper) {
             let mon = pokemonWrapper.pokemon;
             if (mon == null) {
-                return false;
+                return null;
             }
 
             return transformPokemon(mon);
-        });
+        }).filter(mon => mon !== null);
 
         if (username == client.currentUser) {
             vm.party = vm.players[username];
@@ -42,7 +44,10 @@ new Vue({
       }
       if (payload.username !== settings.currentUser) return;
 
-    }
+    },
+
+    update( val ) {
+    },
   },
   computed: {
     singleSlot () {
@@ -77,15 +82,19 @@ new Vue({
       return this.party
     },
     showEmptySlots() {
-      if (this.party_count !== 6) {
-        return true;
-      }
 
       if (this.singleSlot === true) {
         return false;
       }
 
       if (params.has('fromSlot') && params.has('slots')) {
+        if (this.pokemonToShow.includes(false)) {
+          return true;
+        }
+        return false;
+      }
+
+      if (this.party_count !== 6) {
         return true;
       }
 

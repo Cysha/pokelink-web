@@ -34,9 +34,6 @@ new Vue({
         }
     })
     .on('player:trainer:updated', (payload) => { this.updateTrainerStuffs(payload)})
-    .on('settings:updated', (payload) => {
-      this.settings = payload
-    })
     ;
   },
   methods: {

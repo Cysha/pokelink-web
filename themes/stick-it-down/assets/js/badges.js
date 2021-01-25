@@ -39,7 +39,7 @@ new Vue({
       this.badges = payload.trainer.badges
         .map(function(badge) {
           var badgeObj = {};
-          badgeObj.img = 'https://assets.pokelink.xyz/assets/sprites/badges/'+badge.name.toLowerCase()+'.png';
+          badgeObj.img = window.settings.imgPaths.badges+badge.name.toLowerCase()+'.png';
           badgeObj.label = badge.name+' Badge';
           badgeObj.active = badge.value
           return badgeObj;
