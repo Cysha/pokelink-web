@@ -1,0 +1,137 @@
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  margin: 0;
+}
+
+.pokemon__list {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  gap: 15px 15px;
+}
+
+.pokemon__list .pokemon {
+  background: black;
+  height: 75px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  min-width: 265px;
+  margin-bottom: 20px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.pokemon__list .pokemon.opaque {
+  opacity: 0.3;
+}
+
+.pokemon__list .pokemon .pokemon__card-art {
+  height: 75px;
+  width: -webkit-fill-available;
+  content: "-";
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 391px;
+  background-attachment: local;
+  background-position: -46px -101px;
+  opacity: 0.2;
+}
+
+.pokemon__list .pokemon .pokemon__sprite .pokemon__image {
+  display: flex;
+  width: 40%;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  padding: 0px 20px;
+}
+
+.pokemon__list .pokemon .pokemon__sprite {
+  width: 100px;
+}
+.pokemon__list .pokemon .pokemon__sprite canvas.sprite {
+  /* max-height: 75px;
+  max-width: 75px; */
+  height: 120%;
+  top: 50%;
+  position: relative;
+  transform: translateX(-16px) translateY(-46%);
+}
+
+.pokemon__details {
+  position: relative;
+  margin-left: auto;
+  width: -webkit-fill-available;
+}
+
+.pokemon__details > div{
+  text-align: right;
+  width: inherit;
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  color: #fff;
+  text-shadow: 1px 1px black;
+  font-size: 1.4em;
+  padding-right: 15px;
+  line-height: 75px;
+}
+
+.pokemon__details > .pokemon__hp {
+  line-height: 34px;
+}
+
+.loaded .pokemon__details > div {
+  animation: rotateWord 15s linear infinite 0s;
+}
+
+.loaded .pokemon__details > div:nth-child(2) {
+    -webkit-animation-delay: 5s;
+    -ms-animation-delay: 5s;
+    animation-delay: 5s;
+}
+.loaded .pokemon__details > div:nth-child(3) {
+    -webkit-animation-delay: 10s;
+    -ms-animation-delay: 10s;
+    animation-delay: 10s;
+}
+.loaded .pokemon__details > div:nth-child(4) {
+    -webkit-animation-delay: 15s;
+    -ms-animation-delay: 15s;
+    animation-delay: 15s;
+}
+@keyframes rotateWord {
+    0%, 2% { opacity: 0; transform: translateY(-30px); }
+	  5% { opacity: 1; transform: translateY(0px);}
+    17%, 33% { opacity: 1; transform: translateY(0px); }
+	  36% { opacity: 0; transform: translateY(30px); }
+	  100% { opacity: 0; }
+}
+
+.browser-connected {
+    display: block !important;
+}
+
+    /* transitions stuffs */
+    .switchSlow-move {
+        transition: transform 2s;
+    }
+
+    .switchMedium-move {
+        transition: transform 1s;
+    }
+
+    .switchFast-move {
+        transition: transform 0.5s;
+    }
