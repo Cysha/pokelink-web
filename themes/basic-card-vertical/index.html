@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pkmn</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139026483-5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139026483-5');
+    </script>
+</head>
+
+<body>
+<div id="party" :data-user="settings.currentUser">
+    <transition-group :name="switchSpeed" tag="div" class="pokemon" :class="{ 'vertical-column': settings.pokeImg.verticalPokemon }" v-if="loaded">
+        <pokemon-card v-for="poke in pokemonToShow" v-if="typeof poke == 'object'" :key="poke.pid" :pokemon="poke" :settings="settings"></pokemon-card>
+        <pokemon-card v-for="index in 6-party_count" v-if="loaded && showEmptySlots" :key="index"></pokemon-card>
+    </transition-group>
+    <div class="no-connection" v-if="!connected">
+        <p>Waiting for successful connection to Pokélink...</p>
+        <p>Attempting to connect on port {{settings.port}}</p>
+    </div>
+</div>
+
+<script src="../../assets/js/events.js"></script>
+<script src="../../assets/libs/collect.min.js"></script>
+<script src="../../assets/libs/deepmerge.js"></script>
+<script src="../../assets/libs/color-hash.js"></script>
+
+<script src="../../assets/data/pokedex.js"></script>
+<script src="../../assets/data/moves.js"></script>
+<script src="../../assets/data/gen3_items.js"></script>
+<script src="../../assets/data/gen4_items.js"></script>
+<script src="../../assets/data/gen5_items.js"></script>
+<script src="../../assets/data/gen6_items.js"></script>
+<script src="../../assets/data/gen7_items.js"></script>
+
+<script src="../../clientSettings.js"></script>
+<script src="../../assets/js/defaultSettings.js"></script>
+<script src="./assets/js/themeSettings.js"></script>
+
+<script src="./assets/js/components/pokemon-card.js"></script>
+<script src="./assets/js/components/male.js"></script>
+<script src="./assets/js/components/female.js"></script>
+
+
+<script src="../../assets/js/helpers.js"></script>
+<script src="../../assets/js/client.js"></script>
+<script src="./assets/js/party.js"></script>
+
+</body>
+</html>
