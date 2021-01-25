@@ -9,21 +9,22 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139026483-5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139026483-5"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'UA-139026483-5');
-</script>
+    gtag('config', 'UA-139026483-5');
+    </script>
 </head>
 
 <body>
 <div id="party" :data-user="settings.currentUser">
     <List></List>
 </div>
+<script src="../../assets/data/exp-groups.js"></script>
 
 <script src="../../assets/js/events.js"></script>
 <script src="../../assets/libs/collect.min.js"></script>
@@ -32,6 +33,7 @@
 
 <script src="../../assets/data/pokedex.js"></script>
 <script src="../../assets/data/moves.js"></script>
+<script src="../../assets/data/experience.js"></script>
 
 <!-- These are for the items-->
 <script src="../../assets/data/gen3_items.js"></script>
@@ -43,8 +45,9 @@
 <script src="../../clientSettings.js"></script>
 <script src="../../assets/js/defaultSettings.js"></script>
 <script src="./assets/js/themeSettings.js"></script>
+<script src="../../assets/components/trim.js"></script>
+<script src="../../assets/components/TrimmedSprite.js"></script>
 
-<script src="./assets/js/components/pokeball.js"></script>
 <script src="./assets/js/components/pokemon.js"></script>
 <script src="./assets/js/components/list.js"></script>
 
