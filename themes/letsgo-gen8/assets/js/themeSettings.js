@@ -23,9 +23,9 @@ var themeSettings = {
     },
 
     imgPaths: {
-        // normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/animated/',
-        normal: !params.get('animated') ? 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/' : 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/animated/',
-        shiny: !params.get('animated') ? 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/' : 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/animated-shiny/',
+        // normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/animated/',
+        normal: !params.get('animated') ? 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/' : 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/animated/',
+        shiny: !params.get('animated') ? 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/' : 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/animated-shiny/',
     },
 
     letsgo: {
