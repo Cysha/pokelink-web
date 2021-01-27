@@ -29,7 +29,7 @@ To create a vertical Layout, just invert these values between width and height.
 
 > No matter if you're going for horizontal or vertical, after the source is configured in OBS, you can resize the visual widget in the stream editor.
 ### Pokemon Gen 7 Art
-This theme relies on Gen 7 Art provided by PokeLink. However the sprites can be updated to other PokeLink supported sprites by updating the `imgPahts` in `./assets/js/themeSettings.js`
+This theme relies on Gen 7 Art provided by PokeLink. However the sprites can be updated to other PokeLink supported sprites by updating the `imgPaths` in `./assets/js/themeSettings.js`
 
 ### Badge Ace Pokémon Limit numbers
 
