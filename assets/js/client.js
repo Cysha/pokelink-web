@@ -19,19 +19,29 @@ if (typeof itemdex !== 'undefined') {
   itemdex = collect(itemdex);
 }
 
-fetch('./../../assets/sprites/spritesets.json')
-  .then(response => response.json())
-  .then(data => {
-    window.settings.spritesets = data.spritesets
-    if (params.has('spriteset')) {
-      let customSpriteSet = data.spritesets.pokemon
-        .find(set => set.name.toLowerCase() === params.get('spriteset').toLowerCase())
+let loadCustomSprites = (socket, payload, cb) => {
+  return fetch('./../../assets/sprites/spritesets.json')
+    .then(response => response.json())
+    .then(data => {
+      window.settings.spritesets = data.spritesets
+      if (params.has('spriteset')) {
+        let customSpriteSet = data.spritesets.pokemon
+          .find(set => set.name.toLowerCase() === params.get('spriteset').toLowerCase())
 
-      if (customSpriteSet) {
-        window.settings = deepmerge(window.settings, customSpriteSet.settings)
+        if (customSpriteSet) {
+          window.settings = deepmerge(window.settings, customSpriteSet.settings)
+          client.handleRemotePlayerSettings(null, {
+            ...payload,
+            updatedSettings: {
+              settings: {
+                ...customSpriteSet
+              }
+            }
+          }, cb)
+        }
       }
-    }
-  })
+    })
+}
 
 var events = [];
 
@@ -57,6 +67,10 @@ var client = {
     this.connection.on('connect', socket => {
       this.log('Client Connected');
       this.connected = true;
+
+      loadCustomSprites(null, {
+        username: this.currentUser
+      }, cb)
 
       this.connection
         .on('client:party:updated', (data) => {
