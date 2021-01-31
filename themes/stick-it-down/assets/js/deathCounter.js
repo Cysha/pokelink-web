@@ -20,6 +20,11 @@ new Vue({
     var vm = this;
     let deathsClient = client.setup(settings.port, 'deaths-'+settings.currentUser+'-browser', settings.server, (data) => {
       vm.connected = true;
+
+      this.deaths = this.deaths.map(pokemon => {
+        delete pokemon.transformed
+        return transformPokemon(pokemon)
+      })
     })
       .on('client:players:list', (users) => {
         users.forEach(user => {
