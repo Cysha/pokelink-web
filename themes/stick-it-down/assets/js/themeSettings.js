@@ -1,7 +1,6 @@
 var themeSettings = {
     theme: {
-        name: 'clean',
-        darkMode: !!params.get('darkMode')
+        name: 'stick-it-down'
     },
 
     pokeImg: {

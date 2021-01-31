@@ -10,7 +10,7 @@ new Vue({
       loaded: false,
       deaths: [],
       // types: VIEW_TYPES,
-      type: !!params.get('counter') ? true : false
+      type: !!params.get('counter') === 'true' ? true : false
     };
   },
   created: function () {
@@ -43,7 +43,7 @@ new Vue({
 
       if (this.deaths.map(pokemon => pokemon.pid).includes(payload.update.death.pid)) return
 
-      this.deaths = [...this.deaths, payload.update.death]
+      this.deaths = [...this.deaths, transformPokemon(payload.update.death)]
     },
     updateDeaths (payload) {
       if (window.settings.debug) {
@@ -54,16 +54,28 @@ new Vue({
 
       this.deaths = payload.pokedex.dead.map(pokemon => transformPokemon(pokemon))
     },
-    revivePokemon (payload) {
+    revivePokemon ({payload}) {
       if (window.settings.debug) {
-        console.log(`Pokemon Revive recieved for ${payload.payload.username}`)
-        console.log(payload.payload)
+        console.log(`Pokemon Revive recieved for ${payload.username}`)
+        console.log(payload)
       }
 
-      this.deaths = this.deaths.filter(pokemon => pokemon.pid !== payload.payload.pokemon.pid)
+      this.deaths = this.deaths.filter(pokemon => pokemon.pid !== payload.update.pokemon.pid)
     },
   },
   computed: {
+    deathsToShow () {
+      let graveyardSize = parseInt(params.get('limit'))
+      if (isNaN(graveyardSize) || graveyardSize <= 0) return this.deaths
+
+      return this.deaths.reverse().slice(0, graveyardSize)
+      // return this.type === VIEW_TYPE_COUNTER
+    },
+    addCountOffset () {
+      let offset = parseInt(params.get('counterOffset'))
+      if (isNaN(offset)) return 0
+      return offset
+    },
     showCounter () {
       return !!params.get('counter')
       // return this.type === VIEW_TYPE_COUNTER

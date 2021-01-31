@@ -19,6 +19,11 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+.deaths__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
 .darkMode {
   color: #fff !important;

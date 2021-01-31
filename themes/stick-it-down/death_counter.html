@@ -23,15 +23,14 @@
 <body>
 <div id="deaths" style="display: none" :class="{ 'browser-connected' : true }">
     <div class="deaths" v-if="showCounter">
-        <strong>{{deaths.length}}</strong>
+        <strong>{{deaths.length + addCountOffset}}</strong>
     </div>
-    <div class="deaths" v-if="false">
-        <div class="deaths__title">Deaths: {{deaths.length}} </div>
-        <div class="deaths__list">
-            <div class="deaths__pokemon" v-for="pokemon in deaths" :key="pokemon.pid">
+    <div class="deaths" v-if="!showCounter">
+        <transition-group name="switchMedium" tag="div" :class="['deaths__list', {'flipped': flipped === true}]" v-if="loaded">
+            <div class="deaths__pokemon" v-for="pokemon in deathsToShow" :key="pokemon.pid">
                 <img :src="pokemon.img" alt="">
             </div>
-        </div>
+        </transition-group>
     </div>
 </div>
 
