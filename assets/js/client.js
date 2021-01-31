@@ -19,6 +19,20 @@ if (typeof itemdex !== 'undefined') {
   itemdex = collect(itemdex);
 }
 
+fetch('./../../assets/sprites/spritesets.json')
+  .then(response => response.json())
+  .then(data => {
+    window.settings.spritesets = data.spritesets
+    if (params.has('spriteset')) {
+      let customSpriteSet = data.spritesets.pokemon
+        .find(set => set.name.toLowerCase() === params.get('spriteset').toLowerCase())
+
+      if (customSpriteSet) {
+        window.settings = deepmerge(window.settings, customSpriteSet.settings)
+      }
+    }
+  })
+
 var events = [];
 
 var client = {
