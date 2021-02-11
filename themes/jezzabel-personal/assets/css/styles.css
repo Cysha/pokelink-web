@@ -5,6 +5,20 @@
 /* margin-top: 110px; */
 }
 
+ .no-connection {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: table-cell;
+  text-align: center;
+  font-size: 5rem;
+  color: #fff;
+  vertical-align: middle;
+  text-shadow: 3px 3px 0px black;
+  top: 0;
+  font-family: monospace;
+}
 .pokes.browser-connected {
   display: block !important;
 }
@@ -84,6 +98,10 @@
   right: 0px;
   position: absolute;
   width: 138px;
+}
+
+.pokemon__list .pokemon .pokemon__image .sprite.sprite--gif {
+  height: unset;
 }
 
 .pokemon__list.flipped .pokemon .pokemon__image {
@@ -207,7 +225,7 @@
     filter: none;
   }
   50% {
-    
+
     filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
   }
   100% {
