@@ -13,6 +13,6 @@ var themeSettings = {
     	useDexNumbers: true,
     },
     imgPaths:{
-    	normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/trozei/'
+    	normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/trozei/'
     }
 };
