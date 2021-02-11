@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 /* @font-face{font-family:RifficFree;src:local("RifficFree"),url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap")} */
-/* @font-face{font-family:RifficFree;src:local("RifficFree"),url("../RifficFree-Bold.ttf")} */
+@font-face{font-family:RifficFree;src:local("RifficFree"),url("../RifficFree-Bold.ttf")}
 
 * {
   /* font-family: "Riffic Free"; */
@@ -23,6 +23,73 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+}
+.deaths__list .deaths__pokemon .pokemon__name{
+  color: #000;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-family: RifficFree;
+  text-shadow: 1px 1px 2px #fff;
+}
+.deaths__list .deaths__pokemon .pokemon__image{
+  display: flex;
+  justify-content: center;
+}
+.deaths__list .deaths__pokemon .pokemon__image img{
+  width: -webkit-fill-available;
+}
+.deaths__list .deaths__pokemon {
+  max-width: 100px;
+  margin-right: 20px;
+}
+
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.deaths:has(.marquee) {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding-left: 100%;
+}
+.deaths .deaths__list.marquee  {
+  flex-wrap: nowrap;
+  flex-direction: row;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
 }
 
 .darkMode {

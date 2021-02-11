@@ -26,9 +26,15 @@
         <strong>{{deaths.length + addCountOffset}}</strong>
     </div>
     <div class="deaths" v-if="!showCounter">
-        <transition-group name="switchMedium" tag="div" :class="['deaths__list', {'flipped': flipped === true}]" v-if="loaded">
+        <transition-group
+            name="switchMedium"
+            tag="div"
+            :class="['deaths__list', {'flipped': flipped === true, 'marquee': scroll}]"
+            v-if="loaded"
+        >
             <div class="deaths__pokemon" v-for="pokemon in deathsToShow" :key="pokemon.pid">
-                <img :src="pokemon.img" alt="">
+                <div class="pokemon__image"><img :src="pokemon.img" alt=""></div>
+                <div class="pokemon__name" v-if="showNames">{{pokemon.nickname || pokemon.speciesName}}</div>
             </div>
         </transition-group>
     </div>

@@ -16,7 +16,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/artwork/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/artwork/"
                     }
                 }
             },
@@ -36,8 +36,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/black-white/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/black-white/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/black-white/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/black-white/shiny/"
                     }
                 }
             },
@@ -57,8 +57,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/crystal/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/crystal/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/shiny/"
                     }
                 }
             },
@@ -78,8 +78,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/crystal/animated-normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/crystal/animated-shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/animated-normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/animated-shiny/"
                     }
                 }
             },
@@ -99,8 +99,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/diamond-pearl/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/diamond-pearl/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/diamond-pearl/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/diamond-pearl/shiny/"
                     }
                 }
             },
@@ -120,8 +120,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/firered-leafgreen/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/firered-leafgreen/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/firered-leafgreen/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/firered-leafgreen/shiny/"
                     }
                 }
             },
@@ -141,7 +141,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen5/normal/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen5/normal/"
                     }
                 }
             },
@@ -161,7 +161,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen5/animated/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen5/animated/"
                     }
                 }
             },
@@ -181,7 +181,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/normal/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/normal/"
                     }
                 }
             },
@@ -201,8 +201,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen6/animated-shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/animated-shiny/"
                     }
                 }
             },
@@ -222,7 +222,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/normal/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/normal/"
                     }
                 }
             },
@@ -242,8 +242,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen7/animated/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated/"
                     }
                 }
             },
@@ -263,7 +263,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/galar/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/galar/"
                     }
                 }
             },
@@ -283,7 +283,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/"
                     }
                 }
             },
@@ -303,8 +303,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/green/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/green/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/green/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/green/"
                     }
                 }
             },
@@ -324,8 +324,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/heartgold-soulsilver/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/heartgold-soulsilver/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/shiny/"
                     }
                 }
             },
@@ -345,8 +345,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/home/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/home/shiny/"
                     }
                 }
             },
@@ -366,8 +366,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/moemon/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/moemon/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/moemon/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/moemon/"
                     }
                 }
             },
@@ -387,8 +387,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/national/animated-shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/animated-shiny/"
                     }
                 }
             },
@@ -408,7 +408,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/national/party/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/party/"
                     }
                 }
             },
@@ -428,8 +428,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/platinum/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/platinum/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/shiny/"
                     }
                 }
             },
@@ -449,7 +449,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/red-blue/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/red-blue/"
                     }
                 }
             },
@@ -469,7 +469,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/platinum/rescue-team-dx/normal/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/rescue-team-dx/normal/"
                     }
                 }
             },
@@ -489,7 +489,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/s-m/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/s-m/"
                     }
                 }
             },
@@ -509,8 +509,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/silver/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/silver/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/silver/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/silver/shiny/"
                     }
                 }
             },
@@ -530,7 +530,7 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/sugimori/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/sugimori/"
                     }
                 }
             },
@@ -550,7 +550,7 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/trozei/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/trozei/"
                     }
                 }
             },
@@ -570,8 +570,8 @@
                         "ignoreForms": false
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/x-y/normal/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/x-y/shiny/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/x-y/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/x-y/shiny/"
                     }
                 }
             },
@@ -591,8 +591,8 @@
                         "ignoreForms": true
                     },
                     "imgPaths": {
-                        "normal": "https://pokelink.cybershade.org/assets/sprites/pokemon/yellow/",
-                        "shiny": "https://pokelink.cybershade.org/assets/sprites/pokemon/yellow/"
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/yellow/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/yellow/"
                     }
                 }
             }

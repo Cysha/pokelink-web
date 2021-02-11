@@ -1,7 +1,7 @@
 // const VIEW_TYPE_COUNTER = 'VIEW_TYPE_COUNTER'
 // const VIEW_TYPE_GRAVEYARD = 'VIEW_TYPE_GRAVEYARD'
 // const VIEW_TYPES = [VIEW_TYPE_COUNTER]
-
+// window.settings.pokeImg.usePath = 'party'
 new Vue({
   el: '#deaths',
   data: function () {
@@ -81,12 +81,24 @@ new Vue({
       if (isNaN(offset)) return 0
       return offset
     },
+    flipped () {
+      return !!params.get('flipped')
+      // return this.type === VIEW_TYPE_COUNTER
+    },
     showCounter () {
       return !!params.get('counter')
       // return this.type === VIEW_TYPE_COUNTER
     },
     showGraveyard () {
       return !!params.get('graveyard')
+      // return this.type === VIEW_TYPE_COUNTER
+    },
+    showNames () {
+      return params.has('showNames')
+      // return this.type === VIEW_TYPE_COUNTER
+    },
+    scroll () {
+      return params.has('scroll')
       // return this.type === VIEW_TYPE_COUNTER
     },
   }
