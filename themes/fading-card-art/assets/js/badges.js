@@ -5,7 +5,8 @@ new Vue({
       connected: false,
       loaded: false,
       settings: {},
-      badges: []
+      badges: [],
+      game: {}
     };
   },
   created: function () {
@@ -14,7 +15,7 @@ new Vue({
   },
   mounted: function () {
     var vm = this;
-    client.setup(settings.port, 'badges-' + settings.currentUser+'-browser', settings.server, (username, party) => {
+    let badgesClient = client.setup(settings.port, 'badges-'+settings.currentUser+'-browser', settings.server, (data) => {
       vm.connected = true;
     })
       .on('player:trainer:updated', (payload) => { this.updateBadges(payload)})
@@ -30,16 +31,20 @@ new Vue({
   },
   methods: {
     updateBadges (payload) {
-      if (window.settings.debug) {
-        console.log(`Trainer Update recieved for ${payload.username}`)
-        console.log(payload, window.settings)
-      }
+      //console.log(`Trainer Update recieved for ${payload.username}`)
+      //console.log(payload.username, window.settings)
       if (payload.username !== settings.currentUser) return;
 
+      badgeFolder = collect(badges).filter((badgeCollection) => {
+        return badgeCollection.id === settings.game.id
+          || badgeCollection.id === payload.trainer.game.id
+      }).first().folder;
+
+      this.game = payload.trainer.game
       this.badges = payload.trainer.badges
         .map(function(badge) {
           var badgeObj = {};
-          badgeObj.img = window.settings.imgPaths.badges+badge.name.toLowerCase()+'.png';
+          badgeObj.img = window.settings.imgPaths.badges+badgeFolder+'/'+badge.name.toLowerCase()+'.png';
           badgeObj.label = badge.name+' Badge';
           badgeObj.active = badge.value
           return badgeObj;

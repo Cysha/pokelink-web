@@ -11,6 +11,15 @@ var themeSettings = {
             }
 
             return [
+                'hgss1',
+                'hgss2',
+                'hgss3',
+                'hgss4',
+                'hgss5',
+                'bw4',
+                'bw5',
+                'bw6',
+                'bw7',
                 'base1',
                 'base2',
                 'basep',
@@ -20,11 +29,14 @@ var themeSettings = {
                 'pop3',
                 'xyp',
                 'xy12',
+                'xy7',
                 'col1',
                 'dp1',
                 'dp2',
                 'dp3',
                 'dp4',
+                'dp5',
+                'dp6',
                 'swsh1',
                 'swsh2',
                 'swsh3',
@@ -44,6 +56,7 @@ var themeSettings = {
                 'sm12',
                 'sma',
                 'smp',
+                'xy3',
             ]
         }
     },

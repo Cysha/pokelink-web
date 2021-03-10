@@ -56,15 +56,22 @@ Vue.component( "List", {
 
                 let transformed = transformPokemon(mon);
 
+                if (transformed.isEgg) {
+                  transformed.img = 'https://images.pokemontcg.io/pl4/88_hires.png'
+                  return transformed
+                }
+
                 try {
-                  cardImages = cards
-                    .cards
+                  cardImages = cards.flat()
+                    .reduce((flat, item) => {
+                      return [...flat, ...item.cards]
+                    }, [])
                     .find(card => card.nationalPokedexNumber === transformed.species)
 
                   transformed.img = cardImages.imageUrl
                 } catch (e) {
                   // console.log(e, transformed)
-                  console.log(`unknown image for ${mon.speciesName}`, cardImages)
+                  console.log(`unknown image for ${mon.speciesName}`, e)
                   console.info(cards.cards)
                 }
 
@@ -96,7 +103,7 @@ Vue.component( "List", {
           .filter(mon => typeof mon.pokemon !== 'undefined' && mon.pokemon !== null)
 
       let promises = collect(listOfIds)
-        .chunk(20)
+        .chunk(15)
         .map(pokemonList => {
           let idList = pokemonList.map(mon => mon.pokemon.species).join('|')
           return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${this.sets.join('|')}&supertype=pokemon&nationalPokedexNumber=${idList}`)

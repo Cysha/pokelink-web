@@ -106,6 +106,7 @@ Vue.component( "Pokemon", {
       return '';
     },
     experienceRemaining () {
+      if (typeof this.pokemon === "undefined") { return ''; }
       const expGroup = exp_groups_table.find(group => this.pokemon.species === group.id)
       const levelExp = experience_table.filter((expRange) => {
         return expRange.level === this.pokemon.level+1
