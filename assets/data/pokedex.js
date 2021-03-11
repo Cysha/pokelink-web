@@ -17458,18 +17458,19 @@ var pokedex = [
     ],
     "color": "purple"
   },
+
   {
-    "id": "???",
+    "id": 891,
     "name": {
       "english": "Kubfu"
     },
     "type": [
       "Fighting"
     ],
-    "color": ""
+    "color": "gray"
   },
   {
-    "id": "???",
+    "id": 892,
     "name": {
       "english": "Urshifu"
     },
@@ -17477,21 +17478,61 @@ var pokedex = [
       "Fighting",
       "Dark"
     ],
-    "color": ""
+    "color": "gray"
   },
   {
-    "id": "???",
+    "id": 893,
     "name": {
-      "english": "Urshifu"
+      "english": "Zarude"
     },
     "type": [
-      "Fighting",
-      "Water"
+      "Dark",
+      "Grass"
+    ],
+    "color": "green"
+  },
+  {
+    "id": 894,
+    "name": {
+      "english": "Regieleki"
+    },
+    "type": [
+      "Electric"
     ],
     "color": ""
   },
   {
-    "id": "???",
+    "id": 895,
+    "name": {
+      "english": "Regidrago"
+    },
+    "type": [
+      "Psychic"
+    ],
+    "color": ""
+  },
+  {
+    "id": 896,
+    "name": {
+      "english": "Glastrier"
+    },
+    "type": [
+      "Ice"
+    ],
+    "color": ""
+  },
+  {
+    "id": 897,
+    "name": {
+      "english": "Spectrier"
+    },
+    "type": [
+      "Ghost"
+    ],
+    "color": ""
+  },
+  {
+    "id": 898,
     "name": {
       "english": "Calyrex"
     },
@@ -17502,14 +17543,31 @@ var pokedex = [
     "color": ""
   },
   {
-    "id": "???",
+    "id": 898,
     "name": {
-      "english": "Zarude"
+      "english": "Calyrex"
     },
     "type": [
-      "Dark",
-      "Grass"
+      "Psychic",
+      "Ice"
     ],
+    "form": {
+      "key": "ice-rider"
+    },
+    "color": ""
+  },
+  {
+    "id": 898,
+    "name": {
+      "english": "Calyrex"
+    },
+    "type": [
+      "Psychic",
+      "Ghost"
+    ],
+    "form": {
+      "key": "ghost-rider"
+    },
     "color": ""
   }
 ]

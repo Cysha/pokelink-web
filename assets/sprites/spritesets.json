@@ -1,0 +1,601 @@
+{
+    "spritesets": {
+        "pokemon": [
+            {
+                "name": "Artwork",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/artwork/"
+                    }
+                }
+            },
+            {
+                "name": "Black & White",
+                "path": "black-white",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/black-white/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/black-white/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Crystal",
+                "path": "crystal",
+                "gens": [1,2],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Crystal (Animated)",
+                "path": "crystal",
+                "gens": [1,2],
+                "animated": true,
+                "supportsForms": false,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "gif",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/animated-normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/crystal/animated-shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Diamond & Pearl",
+                "path": "diamond-pearl",
+                "gens": [1,2,4,5],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/diamond-pearl/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/diamond-pearl/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Fire Red & Leaf Green",
+                "path": "firered-leafgreen",
+                "gens": [1,2,3],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/firered-leafgreen/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/firered-leafgreen/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 5",
+                "path": "gen5",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen5/normal/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 5 (animated)",
+                "path": "gen5",
+                "gens": [1,2,3,4,5],
+                "animated": true,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "gif",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen5/animated/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 6",
+                "path": "gen6",
+                "gens": [1,2,3,4,5,6],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/normal/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 6 (animated)",
+                "path": "gen6",
+                "gens": [1,2,3,4,5,6],
+                "animated": true,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "gif",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/animated-shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 7",
+                "path": "gen7",
+                "gens": [1,2,3,4,5,6,7],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/normal/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 7 (animated)",
+                "path": "gen7",
+                "gens": [1,2,3,4,5,6,7],
+                "animated": true,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "gif",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen7/animated/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 8",
+                "path": "gen8",
+                "gens": [1,2,3,4,5,6,7,8],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/galar/"
+                    }
+                }
+            },
+            {
+                "name": "Generation 8 (Party)",
+                "path": "gen8",
+                "gens": [1,2,3,4,5,6,7,8],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/"
+                    }
+                }
+            },
+            {
+                "name": "Green",
+                "path": "green",
+                "gens": [1],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/green/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/green/"
+                    }
+                }
+            },
+            {
+                "name": "Heart Gold & Soul Silver",
+                "path": "heartgold-soulsilver",
+                "gens": [1,2,3],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Home",
+                "path": "home",
+                "gens": [1,2,3,4,5,6,7,8],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/home/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Moemon",
+                "path": "moemon",
+                "gens": [1,2,3],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/moemon/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/moemon/"
+                    }
+                }
+            },
+            {
+                "name": "National - Animated",
+                "path": "national",
+                "gens": [1,2,3,4,5,6,7,8],
+                "animated": true,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "gif",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/animated/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/animated-shiny/"
+                    }
+                }
+            },
+            {
+                "name": "National - Party",
+                "path": "national",
+                "gens": [1,2,3,4,5,6,7,8],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/national/party/"
+                    }
+                }
+            },
+            {
+                "name": "Platinum",
+                "path": "platinum",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Red & Blue",
+                "path": "red-blue",
+                "gens": [1],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/red-blue/"
+                    }
+                }
+            },
+            {
+                "name": "Rescue Team DX",
+                "path": "rescue-team-dx",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": true,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/platinum/rescue-team-dx/normal/"
+                    }
+                }
+            },
+            {
+                "name": "Sun & Moon",
+                "path": "s-m",
+                "gens": [1,2,3,4,5,6],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/s-m/"
+                    }
+                }
+            },
+            {
+                "name": "Silver",
+                "path": "silver",
+                "gens": [1,2],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/silver/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/silver/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Sugimori",
+                "path": "sugimori",
+                "gens": [1,2,3,4,5,6,7],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/sugimori/"
+                    }
+                }
+            },
+            {
+                "name": "Trozei",
+                "path": "trozei",
+                "gens": [1,2,3,4,5,6,7],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": true,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/trozei/"
+                    }
+                }
+            },
+            {
+                "name": "X & Y",
+                "path": "x-y",
+                "gens": [1,2,3,4,5,6],
+                "animated": false,
+                "supportsForms": true,
+                "supportsShinies": true,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": false,
+                        "ignoreForms": false
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/x-y/normal/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/x-y/shiny/"
+                    }
+                }
+            },
+            {
+                "name": "Yellow",
+                "path": "yellow",
+                "gens": [1,2,3,4,5],
+                "animated": false,
+                "supportsForms": false,
+                "supportsShinies": false,
+                "settings": {
+                    "pokeImg": {
+                        "usePath": "normal",
+                        "fileType": "png",
+                        "useDexNumbers": false,
+                        "ignoreShinies": true,
+                        "ignoreForms": true
+                    },
+                    "imgPaths": {
+                        "normal": "https://assets.pokelink.xyz/assets/sprites/pokemon/yellow/",
+                        "shiny": "https://assets.pokelink.xyz/assets/sprites/pokemon/yellow/"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pokélink Themes</title>
+  <style>
+
+.vc-chrome {
+	position: absolute;
+	top: 35px;
+	right: 0;
+	z-index: 9;
+}
+.current-color {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-color: #000;
+	cursor: pointer;
+}
+
+.input-group-addon.color-picker-container {
+  height: 0px;
+  width: 0px;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.5/tailwind.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+
+</head>
+
+<body class="h-screen w-screen">
+  <div id="app" class="flex h-screen w-screen">
+    <aside class="w-1/4 bg-gray-500 h-screen">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Username
+          </label>
+          <input v-model="settings.username" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="username" type="text" placeholder="Username">
+        </div>
+
+        <div class="mb-6">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+            Theme
+          </label>
+          <div class="relative">
+            <select v-model="theme" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+              <option v-for="iteratedTheme in themes" :value="iteratedTheme">{{ iteratedTheme.name }}</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="theme" class="mb-4" v-for="param in themeParams" :key="param.name">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+            {{param.name}}
+          </label>
+          <div class="relative" v-if="typeof param.value === 'boolean'">
+            <input type="checkbox" :name="param.name" id="" :checked="param.value" @change="changeCheckboxParamValue">
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="">
+            Background Color (Temporary, just for visual purposes)
+          </label>
+          <div class="relative">
+            <colorpicker :color="bgcolor" v-model="bgcolor" class="" />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="teamURL">
+            Team Web Source URL
+          </label>
+          <input :value="previewUrl" readonly="readonly" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="username" type="text" placeholder="Username">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="badgesURL">
+            Bages Web Source URL
+          </label>
+          <input :value="badgesPreviewURL" readonly="readonly" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500" id="username" type="text" placeholder="Username">
+        </div>
+      </form>
+      <p class="text-center text-gray-500 text-xs">
+        &copy;2020 Acme Corp. All rights reserved.
+      </p>
+    </aside>
+    <section class="w-3/4 h-screen gray-gray-200" :style="{'background-color': bgcolor}">
+      <iframe v-if="theme.path" id="foo" :src="previewUrl" class="h-screen w-full"></iframe>
+    </section>
+  </div>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+  <script src="https://unpkg.com/vue-color/dist/vue-color.min.js"></script>
+  <script>
+    settings = {
+      debug: false,
+
+    }
+  </script>
+  <script src="./assets/themes.js"></script>
+  <script>
+
+    new Vue ({
+      el: '#app',
+      data () {
+        return {
+          themes: [],
+          theme: {},
+          bgcolor: '#ffffff',
+          settings: {
+            port: 3000,
+            username: 'Jez',
+            server: '//localhost'
+          }
+        }
+      },
+      methods: {
+        changeCheckboxParamValue (e, value) {
+          this.theme.params = {...this.theme.params, [e.target.name]: e.target.checked}
+        }
+      },
+      mounted () {
+
+
+        setTimeout(() => {
+          let host = this.settings.server || '//127.0.0.1';
+          let address = host + ':' + this.settings.port;
+
+          const connection = io(address, {
+            secure: true,
+            reconnection: true,
+            rejectUnauthorized: false
+          });
+          console.log(address)
+
+          connection.on('connect', (socket) => {
+            // connection.emit
+            connection.emit('player:settings:updated', {
+              imgPaths: {
+                normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/yellow/',
+              }
+            })
+          })
+        }, 2000)
+
+        let vm = this
+        var UrlWithoutQueryParams = window.location.href
+          .substring(0, window.location.href.length - window.location.search.length)
+
+        var cleanUrl = UrlWithoutQueryParams
+          .substring(0, UrlWithoutQueryParams.length - (window.location.pathname.length - window.location.pathname.lastIndexOf('/')))
+
+        fetch('./themes.json')
+          .then(response => response.json())
+          .then(data => {
+            this.themes = data.themes.map(theme => {
+              return {
+                name: theme.name,
+                path: `http://assets.pokelink.xyz/themes/${theme.path}/index.html`,
+                badgesPath: `${cleanUrl}/${theme.path}/badges.html`,
+                selected: false,
+                params: theme.hasOwnProperty('params') ? theme.params : {}
+              }
+            })
+            vm.theme = this.themes[0]
+          });
+      },
+      computed: {
+        urlParams () {
+          if (!this.theme.params) return ''
+          return Object.entries(this.theme.params).map(([key, val]) => {
+            if (val === false) return null;
+            return `${key}=${val}`
+          })
+          .filter(query => query !== null)
+          .join('&')
+        },
+        themeParams () {
+          if (!this.theme.params) return []
+          return Object.keys(this.theme.params).map(key => {
+            return {name: key, value: this.theme.params[key]}
+          })
+        },
+        previewUrl () {
+          return this.theme.path + '?user=' + this.settings.username + '&' + this.urlParams
+        },
+        badgesPreviewURL () {
+          return this.theme.badgesPath + '?user=' + this.settings.username + '&' + this.urlParams
+        }
+      }
+    });
+  </script>
+</body>
+</html>

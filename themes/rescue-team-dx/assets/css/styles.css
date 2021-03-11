@@ -2,7 +2,21 @@
   margin-top: 110px;
   }
 
-  .pokes.browser-connected {
+   .no-connection {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: table-cell;
+  text-align: center;
+  font-size: 5rem;
+  color: #fff;
+  vertical-align: middle;
+  text-shadow: 3px 3px 0px black;
+  top: 0;
+  font-family: monospace;
+}
+.pokes.browser-connected {
     display: block !important;
   }
 

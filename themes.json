@@ -1,0 +1,30 @@
+{
+  "themes": [
+    {"name": "Basic Card", "path": "basic-card"},
+    {"name": "Basic Card (Vertical)", "path": "basic-card-vertical"},
+    {"name": "Default", "path": "default"},
+    {"name": "Big Numbers", "path": "big-numbers"},
+    {"name": "Big Numbers (with TCG art as a background)", "path": "big-numbers", "params": {"horizontal": false, "flipped": false, "useCardArtBackground": true}},
+    {"name": "Big Numbers  (with a background gradient derived from typings)", "path": "big-numbers", "params": {"horizontal": false, "flipped": false, "useTypesGradient": true}},
+    {"name": "Big Numbers (with TCG art, and the gradient overlayed)", "path": "big-numbers", "params": {"horizontal": false, "flipped": false, "useCardArtBackground": true, "useTypesGradient": true}},
+    {"name": "Digital Hex", "path": "digital-hex", "params": {"hide_hp": false, "flat": false}},
+    {"name": "Fading Card Art", "path": "fading-card-art", "params": {"flipped": false, "flat": false}},
+    {"name": "Friday", "path": "friday"},
+    {"name": "Friday - DarkMode", "path": "friday", "params": {"darkMode": true}},
+    {"name": "Gameboy - Retro", "path": "gameboy"},
+    {"name": "Jezzabel's Personal", "path": "jezzabel-personal"},
+    {"name": "LetsGo (Plain)", "path": "letsgo"},
+    {"name": "LetsGo (With type colours)", "path": "letsgo-pretty"},
+    {"name": "LetsGo manual vertical (For manual sessions)", "path": "letsgo-gen8", "params": {"vertical": true}},
+    {"name": "LetsGo manual (For manual sessions - works with gen-8)", "path": "letsgo-gen8", "params": {"vertical": false}},
+    {"name": "LetsGo manual (Animated)  (For manual sessions - works with gen-8)", "path": "letsgo-gen8", "params": {"vertical": false, "animated": true}},
+    {"name": "Pokeball", "path": "pokeball"},
+    {"name": "Rescue Team DX (Supports up to Sinnoh)", "path": "rescue-team-dx"},
+    {"name": "Simple Circles", "path": "simple-circles"},
+    {"name": "Sports Ticker", "path": "sports-game-scores"},
+    {"name": "Stick it down", "path": "stick-it-down"},
+    {"name": "Sword and Shield-style team", "path": "sword-shield-team"},
+    {"name": "Trozei", "path": "trozei"},
+    {"name": "Twitch Plays Pokemon", "path": "twitch-plays-pokemon"}
+  ]
+}

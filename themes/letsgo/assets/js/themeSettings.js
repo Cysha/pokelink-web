@@ -29,7 +29,7 @@ var themeSettings = {
     },
 
     imgPaths: {
-        normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
-        party: 'http://pokelink.cybershade.org/assets/sprites/pokemon/national/animated/',
+        normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/national/animated/',
+        party: 'http://assets.pokelink.xyz/assets/sprites/pokemon/national/animated/',
     }
 };

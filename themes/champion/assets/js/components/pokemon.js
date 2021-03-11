@@ -3,8 +3,11 @@ Vue.component( "Pokemon", {
     <div :class="{ 'pokemon': true }" :style="{'opacity': opacity }">
       <Pokeball :topColor="getPokeballTopColor()" :bottomColor="getPokeballBottomColor()" :ident="ident"></Pokeball>
       <label v-if="typeof pokemon == 'object'">
-        <h2 class="name">{{ pokemon.nickname }}</h2>
         <img class="sprite" :src="pokemon.img" />
+        <div class="details">
+          <h2 class="name">{{ pokemon.nickname }}</h2>
+        </div>
+
       </label>
       <label v-else></label>
     </div>
@@ -31,7 +34,7 @@ Vue.component( "Pokemon", {
       return this.pokemon.species;
     },
     opacity() {
-      if (typeof this.pokemon === "undefined") { return '1'; }
+      if (typeof this.pokemon === "undefined") { return '0.4'; }
       return '1';
     },
     hasItem() {

@@ -13,16 +13,16 @@ var themeSettings = {
     // Change these to thwwwwwwwwe image paths
 
     imgPaths: {
-      normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
-    //   normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
-      shiny: 'https://pokelink.cybershade.org/assets/sprites/pokemon/home/shiny/',
-      party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
-      animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
+      normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/',
+    //   normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/normal/',
+      shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/shiny/',
+      party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/',
+      animatedEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.gif',
       staticEgg: 'https://www.cpokemon.com/pokes/home/0.png',
-      unknown: 'https://pokelink.cybershade.org/assets/sprites/',
-      badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
-      status: 'https://pokelink.cybershade.org/assets/sprites/status/',
-      types: 'https://pokelink.cybershade.org/assets/sprites/types/',
-      items: 'https://pokelink.cybershade.org/assets/sprites/items/',
+      unknown: 'https://assets.pokelink.xyz/assets/sprites/',
+      badges: 'https://assets.pokelink.xyz/assets/sprites/badges/',
+      status: 'https://assets.pokelink.xyz/assets/sprites/status/',
+      types: 'https://assets.pokelink.xyz/assets/sprites/types/',
+      items: 'https://assets.pokelink.xyz/assets/sprites/items/',
     },
 };

@@ -1,11 +1,12 @@
 var themeSettings = {
     theme: {
-        name: 'before',
+        name: 'gameboy',
     },
 
     pokeImg: {
         fileType: 'png',
         usePath: 'party',
         ignoreShinies: true,
+        ignoreForms: true,
     }
 };

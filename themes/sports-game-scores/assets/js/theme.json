@@ -1,0 +1,82 @@
+{
+    "name": "Sports Game Scores",
+    "path": "sports-game-scores",
+    "type": "THEME_TYPE_SINGLE",
+    "features": [
+        {"name": "Clean design", "description": "" },
+        {"name": "Slot granularity", "description": "Using a combination of `&slots=1` and `&fromSlot=1` in the url, you can specify to only show specific pokemon" },
+        {"name": "Live HP tracking", "description": "Shows a Pokémons HP on the layout which updates live as you play" },
+        {"name": "Automatic Sprite Trimming", "description": "Removes surrounding transparent space from around each pokemon sprite so all pokemon images fit nicely into the layout." },
+        {"name": "Nickname", "description": "Displays Pokémon's given nickname" },
+        {"name": "Gender", "description": "Displays Pokémon Gender" },
+        {"name": "Level", "description": "Displays Pokémon Level" },
+        {"name": "Animated slot switching", "description": "Animates the changing around of Pokémon in your team" }
+    ],
+    "description": "",
+    "themeQueryParams": [],
+    "usesSprites": "national",
+    "supportedGens": [1,2,4,5,6,7,8],
+    "customisation": [
+        {
+            "name": "Horizontal view",
+            "type": "bool",
+            "add": [
+                {
+                    "selector": ".pokemon",
+                    "styles": [
+                        "display: inline-flex;",
+                        "margin-right: 30px;"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Slot background",
+            "type": "custom",
+            "add": [
+                {
+                    "selector": ".pokemon",
+                    "styles": [
+                        {"type": "color", "property": "background"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "HP Text Size",
+            "type": "custom",
+            "add": [
+                {
+                    "selector": ".pokemon .details .hp .text",
+                    "styles": [
+                        {"type": "dimension",  "property": "font-size", "default": "1.4em"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Level Text Size",
+            "type": "custom",
+            "add": [
+                {
+                    "selector": ".pokemon .details span.lvl",
+                    "styles": [
+                        {"type": "dimension",  "property": "font-size", "default": "1.4em"}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Nickname Text Size",
+            "type": "custom",
+            "add": [
+                {
+                    "selector": ".pokemon .details .name",
+                    "styles": [
+                        {"type": "dimension",  "property": "font-size", "default": "1.5em"}
+                    ]
+                }
+            ]
+        }
+    ]
+}

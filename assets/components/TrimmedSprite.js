@@ -1,8 +1,16 @@
 Vue.component( 'TrimmedSprite', {
   template: `<div class="pokemon__image" ref="container">
-        <img v-if="pokemon.isEgg && !fixedSprite" @load="trim" class="sprite" :src="pokemon.img" style="transform: scale(0.8); bottom: 0px; visibility: hidden" />
-        <img v-if="!pokemon.isEgg && !fixedSprite" class="sprite" @load="trim" :src="pokemon.img" style="visibility: hidden" />
-        <canvas ref="canvas" width="2000" height="2000" :class="{sprite: fixedSprite}" :style="{'opacity': (fixedSprite ? '1' : '0')}"></canvas>
+        <img v-if="!isGif && pokemon.isEgg && !fixedSprite" @load="trim" class="sprite" :src="pokemon.img" style="transform: scale(0.8); bottom: 0px; visibility: hidden" />
+        <img v-if="!isGif && !pokemon.isEgg && !fixedSprite" class="sprite" @load="trim" :src="pokemon.img" style="visibility: hidden" />
+        <canvas v-if="!isGif" ref="canvas" width="2000" height="2000" :class="{sprite: fixedSprite}" :style="{'opacity': (fixedSprite ? '1' : '0')}"></canvas>
+        <img
+            v-if="isGif"
+            :class="['sprite', {'sprite--gif': isGif}]"
+            :src="pokemon.img"
+            @load="fixedSprite = true"
+            :style="{'opacity': (fixedSprite ? '1' : '0')}"
+        >
+
     </div>`,
     props: {
         pokemon: {
@@ -16,8 +24,14 @@ Vue.component( 'TrimmedSprite', {
             defaultWidth: 2000
         }
     },
+    computed: {
+        isGif () {
+            return this.pokemon.img.split('.').pop().toLowerCase() === 'gif'
+        }
+    },
     methods: {
         trim () {
+            if (this.oldImage === this.pokemon.img) return false
             this.oldImage = this.pokemon.img
             let vm = this
             var img = new Image();

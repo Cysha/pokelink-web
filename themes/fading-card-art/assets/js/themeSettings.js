@@ -11,6 +11,15 @@ var themeSettings = {
             }
 
             return [
+                'hgss1',
+                'hgss2',
+                'hgss3',
+                'hgss4',
+                'hgss5',
+                'bw4',
+                'bw5',
+                'bw6',
+                'bw7',
                 'base1',
                 'base2',
                 'basep',
@@ -20,11 +29,14 @@ var themeSettings = {
                 'pop3',
                 'xyp',
                 'xy12',
+                'xy7',
                 'col1',
                 'dp1',
                 'dp2',
                 'dp3',
                 'dp4',
+                'dp5',
+                'dp6',
                 'swsh1',
                 'swsh2',
                 'swsh3',
@@ -44,6 +56,7 @@ var themeSettings = {
                 'sm12',
                 'sma',
                 'smp',
+                'xy3',
             ]
         }
     },
@@ -59,17 +72,14 @@ var themeSettings = {
     // Change these to thwwwwwwwwe image paths
 
     imgPaths: {
-      normal: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/animated/',
-      shiny: 'https://www.cpokemon.com/pokes/home/shiny/',
-      /*normal: 'http://pokelink.cybershade.org/assets/sprites/pokemon/home/normal/',
-      shiny: 'http://pokelink.cybershade.org/assets/sprites/pokemon/home/shiny/',*/
-      party: 'https://pokelink.cybershade.org/assets/sprites/pokemon/gen8/party/',
-      animatedEgg: 'https://pokelink.cybershade.org/assets/sprites/egg.gif',
+      normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/animated/',
+      party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/',
+      animatedEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.gif',
       staticEgg: 'https://www.cpokemon.com/pokes/home/0.png',
-      unknown: 'https://pokelink.cybershade.org/assets/sprites/',
-      badges: 'https://pokelink.cybershade.org/assets/sprites/badges/',
-      status: 'https://pokelink.cybershade.org/assets/sprites/status/',
-      types: 'https://pokelink.cybershade.org/assets/sprites/types/',
-      items: 'https://pokelink.cybershade.org/assets/sprites/items/',
+      unknown: 'https://assets.pokelink.xyz/assets/sprites/',
+      badges: 'https://assets.pokelink.xyz/assets/sprites/badges/',
+      status: 'https://assets.pokelink.xyz/assets/sprites/status/',
+      types: 'https://assets.pokelink.xyz/assets/sprites/types/',
+      items: 'https://assets.pokelink.xyz/assets/sprites/items/',
     },
 };

@@ -6,7 +6,7 @@ new Vue({
     settings: {},
     party: [],
     players: {},
-    party_count: 6,
+    party_count: 0,
     switchSpeed: 'switchMedium',
   }},
   created: function () {
