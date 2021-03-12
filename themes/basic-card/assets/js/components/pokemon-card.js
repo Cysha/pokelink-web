@@ -58,6 +58,10 @@ Vue.component( "pokemon-card", {
       }
 
       let imageTag = name + '-' + this.pokemon.normalizeName;
+      if (this.pokemon.normalizeName == 'nidoran-f') {
+        imageTag = name + '-nidoran_F';
+      }
+
       return 'http://static.pokemonpets.com/images/monsters-images-300-300/'+imageTag+'.png';
     },
     healthPercent() {
