@@ -18,7 +18,7 @@ var themeSettings = {
       shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/home/shiny/',
       party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/',
       animatedEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.gif',
-      staticEgg: 'https://www.cpokemon.com/pokes/home/0.png',
+      staticEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.png',
       unknown: 'https://assets.pokelink.xyz/assets/sprites/',
       badges: 'https://assets.pokelink.xyz/assets/sprites/badges/',
       status: 'https://assets.pokelink.xyz/assets/sprites/status/',
