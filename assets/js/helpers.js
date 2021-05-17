@@ -1,9 +1,9 @@
 
 function transformPokemon(pokemon) {
-  if (typeof pokemon.transformed != 'undefined') {
+  if (pokemon.hasOwnProperty('transformed') || typeof pokemon.transformed != 'undefined') {
     return pokemon;
   }
-  if (window.settings.debug) {
+  if (window.settings.hasOwnProperty('debug')) {
     console.info(pokemon);
   }
   // try and get pokedex info
@@ -15,7 +15,10 @@ function transformPokemon(pokemon) {
   }
   pokemon.transformed = true;
 
+  if (pokemon.ability && Number.isInteger(pokemon.ability) === false) {
     pokemon.ability.replace('--', '')
+  }
+
   // handle shinies
   var url = settings.imgPaths[settings.pokeImg.usePath];
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
