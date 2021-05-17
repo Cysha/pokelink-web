@@ -15,6 +15,7 @@ function transformPokemon(pokemon) {
   }
   pokemon.transformed = true;
 
+    pokemon.ability.replace('--', '')
   // handle shinies
   var url = settings.imgPaths[settings.pokeImg.usePath];
   if (settings.pokeImg.ignoreShinies === false && pokemon.isShiny == 1) {
