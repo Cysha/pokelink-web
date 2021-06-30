@@ -1,3 +1,5 @@
+@font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("./../../../../assets/fonts/Pokemon%20GB.ttf")}
+
 .pokes {
 margin-top: 110px;
 }
@@ -109,7 +111,7 @@ margin-top: 110px;
   top: 142px;
   background: white;
   padding: 10px 5px;
-  font-family: "Pokemon GB";
+  font-family: PokemonGB;
   font-weight: bold;
   font-size: larger;
   width: 266px;
