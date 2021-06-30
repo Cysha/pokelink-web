@@ -128,9 +128,36 @@ const createParty = () => {
   })
 }
 
+const normalizeAndParseHost = (serverHost) => {
+  try {
+    let URLParts = new URL(serverHost)
+    URLParts.protocol = 'http:'
 
+    return URLParts.href
+  } catch (e) {
+    return `http://${serverHost}/`
+  }
+}
+
+const loadExternalSocketIO = (baseUrl, callback) => {
+  const existingScript = document.getElementById('socketIOClient');
+
+  if (!existingScript) {
+    const script = document.createElement('script');
+    script.src = `${baseUrl}socket.io/socket.io.js`; // URL for the third-party library being loaded.
+    script.id = 'socketIOClient'; // e.g., googleMaps or stripe
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (callback) callback();
+    };
+  }
+
+  if (existingScript && callback) callback();
+}
 
 var events = [];
+var rootSocket = null;
 
 var client = {
   connection: null,
@@ -141,107 +168,125 @@ var client = {
   events: new EventEmitter(),
 
   setup (serverPort, username, host, cb) {
+    if (host === 'localhost') host = 'http://localhost'
     host = host || 'http://127.0.0.1';
     this.username = username;
-    let address = host + ':' + serverPort;
+    let address = normalizeAndParseHost(host + ':' + serverPort);
 
-    this.connection = io.connect(address, {
-      // secure: true,
-      reconnection: true,
-      rejectUnauthorized: false
-    });
-
-
-    this.connection.on('connect', socket => {
-      this.log('Client Connected');
-      this.connected = true;
-
-      if (params.has('test')) {
-        let event = {
-          event: 'client:party:updated',
-          payload: {
-            username: settings.currentUser,
-            update: {
-              party: createParty()
-            }
+    loadExternalSocketIO(address, () => {
+      try {
+        rootSocket = this.connection = io(address, {
+          transports: ['websocket'],
+          extraHeaders: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Request-Private-Network': true
           }
-        };
-        events.push(event)
-        this.handleRemotePlayerParty(socket, event.payload, cb)
+        })
+      } catch (e) {
+        rootSocket = this.connection = io(address, {
+          transports: ['websocket'],
+          extraHeaders: {
+            'Access-Control-Allow-Origin': '*'
+          }
+        })
       }
 
-      if (params.has('spriteset')) {
-        loadCustomSprites(null, {
-          username: this.currentUser
-        }, cb)
-      }
 
-      if (params.has('test')) return
+      rootSocket.on('connect', socket => {
+        this.log('Client Connected');
+        this.connected = true;
 
-      this.connection
-        .on('client:party:updated', (data) => {
+        if (params.has('test')) {
           let event = {
             event: 'client:party:updated',
-            payload: data
+            payload: {
+              username: settings.currentUser,
+              update: {
+                party: createParty()
+              }
+            }
           };
           events.push(event)
-          this.handleRemotePlayerParty(socket, data, cb)
+          this.handleRemotePlayerParty(socket, event.payload, cb)
+        }
+
+        if (params.has('spriteset')) {
+          loadCustomSprites(null, {
+            username: this.currentUser
+          }, cb)
+        }
+
+        if (params.has('test')) return
+
+        rootSocket
+          .on('client:party:updated', (data) => {
+            let event = {
+              event: 'client:party:updated',
+              payload: data
+            };
+            events.push(event)
+            this.handleRemotePlayerParty(socket, data, cb)
+          })
+          .on('client:badges:updated', (data) => {
+            let event = {
+              event: 'client:badges:updated',
+              payload: data
+            };
+            events.push(event)
+            this.handleRemotePlayerTrainer(socket, data, cb)
+          })
+          .on('client:players:list', (players) => {
+            let event = {
+              event: 'client:players:list',
+              payload: players
+            };
+            events.push(event)
+            console.log(event)
+            this.addPlayersInBulk(socket, players, cb)
+          })
+          .on('player:trainer:updated', (data) => {
+            let event = {
+              event: 'player:trainer:updated',
+              payload: data
+            };
+            events.push(event)
+            console.log(event)
+            this.handleRemotePlayerTrainer(socket, data, cb)
+          })
+          .on('player:settings:updated', (data) => {
+            let event = {
+              event: 'player:settings:updated',
+              payload: data
+            };
+            events.push(event)
+            console.log(event)
+            this.handleRemotePlayerSettings(socket, data, cb)
+          })
+          .on('player:party:death', (data) => {
+            let event = {
+              event: 'player:party:death',
+              payload: data
+            };
+            events.push(event)
+            console.log(event)
+            this.events.emit('player:party:death', event)
+          })
+          .on('player:party:revive', (data) => {
+            let event = {
+              event: 'player:party:revive',
+              payload: data
+            };
+            events.push(event)
+            console.log(event)
+            this.events.emit('player:party:revive', event)
+          })
         })
-        .on('client:badges:updated', (data) => {
-          let event = {
-            event: 'client:badges:updated',
-            payload: data
-          };
-          events.push(event)
-          this.handleRemotePlayerTrainer(socket, data, cb)
-        })
-        .on('client:players:list', (players) => {
-          let event = {
-            event: 'client:players:list',
-            payload: players
-          };
-          events.push(event)
-          console.log(event)
-          this.addPlayersInBulk(socket, players, cb)
-        })
-        .on('player:trainer:updated', (data) => {
-          let event = {
-            event: 'player:trainer:updated',
-            payload: data
-          };
-          events.push(event)
-          console.log(event)
-          this.handleRemotePlayerTrainer(socket, data, cb)
-        })
-        .on('player:settings:updated', (data) => {
-          let event = {
-            event: 'player:settings:updated',
-            payload: data
-          };
-          events.push(event)
-          console.log(event)
-          this.handleRemotePlayerSettings(socket, data, cb)
-        })
-        .on('player:party:death', (data => {
-          let event = {
-            event: 'player:party:death',
-            payload: data
-          };
-          events.push(event)
-          console.log(event)
-          this.events.emit('player:party:death', event)
-        }))
-        .on('player:party:revive', (data => {
-          let event = {
-            event: 'player:party:revive',
-            payload: data
-          };
-          events.push(event)
-          console.log(event)
-          this.events.emit('player:party:revive', event)
-        }))
-      ;
-    })
+      // this.connection = io.connect(address, {
+      //   // secure: true,
+      //   reconnection: true,
+      //   rejectUnauthorized: false
+      // });
+  })
 
     return this;
   },
