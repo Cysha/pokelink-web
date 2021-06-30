@@ -3,7 +3,7 @@ Vue.component( "pokemon-card", {
   <div class="pokemon__slot" :class="{ 'pokemon__empty': pokemon === null }">
     <div v-if="pokemon !== null">
       <div class="pokemon__level" v-if="!getHideSetting('level')">{{pokemon.level}}</div>
-      <div><img :src="pokemon.img"></div>
+      <div :class="['pokemon__image', {'pokemon__egg': pokemon.isEgg}]"><img :src="pokemon.img"></div>
       <div class="pokemon__nick" v-if="!getHideSetting('nickname')">
         <span class="pokemon__nick-shiny" v-if="pokemon.isShiny == 1">★</span>
         {{ this.pokemon.nickname || this.pokemon.speciesName }}

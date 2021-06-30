@@ -12,7 +12,7 @@ var themeSettings = {
         ignoreForms: true,
     },
 
-    // Change these to thwwwwwwwwe image paths
+    // Change these to the image paths
 
     imgPaths: {
       normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/rescue-team-dx/normal/',

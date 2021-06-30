@@ -55,6 +55,9 @@
         letter-spacing: 0px;
         text-align: center;
         -webkit-text-stroke: .5px white;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .pokemon__level {

@@ -10,7 +10,7 @@ var themeSettings = {
     // Change these to the image paths
     imgPaths: {
       normal: 'https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/normal/',
-      shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen6/animated-shiny/',
+      shiny: 'https://assets.pokelink.xyz/assets/sprites/pokemon/heartgold-soulsilver/shiny/',
       party: 'https://assets.pokelink.xyz/assets/sprites/pokemon/gen8/party/',
       animatedEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.gif',
       staticEgg: 'https://assets.pokelink.xyz/assets/sprites/egg.png',
