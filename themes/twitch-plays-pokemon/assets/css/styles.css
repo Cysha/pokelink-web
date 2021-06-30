@@ -1,4 +1,4 @@
-@font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("./../../assets/fonts/Pokemon%20GB.ttf")}
+@font-face{font-family:PokemonGB;src:local("Pokemon GB"),url("../../../../assets/fonts/Pokemon\ GB.ttf")}
 
 .pokes {
 
@@ -84,7 +84,7 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  font-family: "Pokemon GB";
+  font-family: "PokemonGB";
   color: #fff;
   z-index: 10;
 }
@@ -122,7 +122,7 @@ img.sprite {
   color: #fff;
   left: 200px;
   z-index: 10;
-  font-family: "Pokemon GB";
+  font-family: "PokemonGB";
   font-size: 27px;
 }
 
@@ -133,7 +133,7 @@ img.sprite {
   color: #fff;
   position: absolute;
   left: 228px;
-  font-family: "Pokemon GB";
+  font-family: "PokemonGB";
   transform: skewX(-23deg);
   background-color: #b3b3b3;
   padding: 3px 10px;
@@ -146,7 +146,7 @@ img.sprite {
   bottom: 0px;
   width: 100%;
   text-align: center;
-  font-family: "Pokemon GB";
+  font-family: "PokemonGB";
   color: #fff;
   z-index: 5;
   text-indent: 251px;
@@ -199,7 +199,7 @@ img.sprite {
 
 .move__icon, .move__name, .move__pp {
   display: inline-block;
-  font-family: "Pokemon GB";
+  font-family: "PokemonGB";
 }
 
 .move__icon {
@@ -208,11 +208,13 @@ img.sprite {
 }
 
 .move__name {
-  width: 129px;
+  width: -webkit-fill-available;
+  height:-webkit-fill-available;
 }
 
 .move__name svg {
-  width: 100%;
+  width: -webkit-fill-available;
+  height:-webkit-fill-available;
   color: #fff;
 }
 
@@ -222,4 +224,5 @@ img.sprite {
 
 .move__pp {
   width: 43px;
+  display: none;
 }

@@ -247,6 +247,13 @@
     top: 422px;
 }
 
+.badge__slot.badge__slot--gen8.badge__slot--ghost img {
+    display: block;
+    left: 14px;
+    position: absolute;
+    top: 422px;
+}
+
 .badge__slot.badge__slot--gen8.badge__slot--fairy img {
     width: 690px;
     left: 454px;
