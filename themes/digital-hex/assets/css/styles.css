@@ -28,12 +28,20 @@
         filter: grayscale(100%) brightness(0);
         opacity: 0.6;
     }
-
+#party {
+  width: 1000px;
+  height: 100%;
+  overflow: visible;
+}
 .pokemon__list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin-left:25px;
+  height: 1000px;
+  width: 1000px;
+  position: relative;
+  /* overflow: hidden; */
 }
 
 .darkMode {
@@ -142,6 +150,10 @@ svg.slot__border-wrapper {
   top: 0;
   left: -22px;
   z-index: 20;
+}
+
+svg > path {
+  stroke-linecap: square;
 }
 
 .pokemon .pokemon__image .sprite {

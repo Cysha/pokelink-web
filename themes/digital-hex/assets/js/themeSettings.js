@@ -10,6 +10,8 @@ var themeSettings = {
         useDexNumbers: false,
         // valid image types include: gif, jpg, jpeg, png etc
         fileType: 'png',
+        ignoreForms: false,
+        ignoresShinies: false
     },
 
     // Change these to thwwwwwwwwe image paths

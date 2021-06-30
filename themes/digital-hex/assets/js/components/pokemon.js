@@ -70,7 +70,7 @@ Vue.component( "Pokemon", {
     <path
       fill="transparent"
       :stroke="borderColor"
-      stroke-dasharray="600 600"
+      stroke-dasharray="576.5182495117188 576.5182495117188"
       stroke-width="10px"
       stroke-linecap="butt"
       :stroke-dashoffset="dashOffset"
@@ -108,7 +108,7 @@ Vue.component( "Pokemon", {
     dashOffset () {
       if (this.pokemonExists === false ) { return false; }
       if (this.settings.theme.hideHPBar) return 0;
-      return 600 - (this.healthPercent / 100 * 600)
+      return 576.5182495117188 - (this.healthPercent / 100 * 576.5182495117188)
     },
     healthPercent() {
       if (this.pokemonExists === false ) { return null; }
