@@ -2,7 +2,7 @@
 This is a theme built by [Jezzabel](https://twitter.com/ThatStreamerJez)
 
 ## Preview
-![Preview of the Jezzabel's Personal theme](assets/preview.png)
+![Preview of the Jezzabel's Personal theme](assets/preview.PNG)
 
 ## Features
  - **Experience Bars** are shown on the bottom of the pokemon, to the right of the Pokémon's name
