@@ -9,8 +9,10 @@ new Vue({
       connected: false,
       loaded: false,
       deaths: [],
+      deathCount: 0,
       // types: VIEW_TYPES,
-      type: !!params.get('counter') === 'true' ? true : false
+      type: !!params.get('counter') === 'true' ? true : false,
+      prefixText: params.get('prefixText') || ''
     };
   },
   created: function () {
@@ -46,7 +48,7 @@ new Vue({
       }
       if (payload.update.username !== settings.currentUser) return;
 
-      if (this.deaths.map(pokemon => pokemon.pid).includes(payload.update.death.pid)) return
+      // if (this.deaths.map(pokemon => pokemon.pid).includes(payload.update.death.pid)) return
 
       this.deaths = [...this.deaths, transformPokemon(payload.update.death)]
     },
@@ -58,6 +60,9 @@ new Vue({
       if (payload.username !== settings.currentUser) return;
 
       this.deaths = payload.pokedex.dead.map(pokemon => transformPokemon(pokemon))
+      try {
+        this.deathCount = payload.pokedex.stats.dead
+      } catch (e) {}
     },
     revivePokemon ({payload}) {
       if (window.settings.debug) {
@@ -65,8 +70,14 @@ new Vue({
         console.log(payload)
       }
 
-      this.deaths = this.deaths.filter(pokemon => pokemon.pid !== payload.update.pokemon.pid)
-    },
+      this.deaths = this.deaths.filter(pokemon => {
+        return !(
+          pokemon.pid === payload.update.pokemon.pid
+          && pokemon.metadata.timeOfDeath === payload.update.pokemon.metadata.timeOfDeath
+        )
+      })
+      this.deathCount = this.deaths.length
+    }
   },
   computed: {
     deathsToShow () {
@@ -86,7 +97,7 @@ new Vue({
       // return this.type === VIEW_TYPE_COUNTER
     },
     showCounter () {
-      return !!params.get('counter')
+      return params.has('counter') && params.get('counter') === 'true'
       // return this.type === VIEW_TYPE_COUNTER
     },
     showGraveyard () {
@@ -100,6 +111,6 @@ new Vue({
     scroll () {
       return params.has('scroll')
       // return this.type === VIEW_TYPE_COUNTER
-    },
+    }
   }
 });

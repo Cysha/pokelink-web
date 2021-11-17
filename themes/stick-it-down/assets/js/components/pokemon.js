@@ -7,11 +7,16 @@ Vue.component( "Pokemon", {
             v-if="pokemonExists"
             :key="ident"
             :pokemon="pokemon"
-            @done="fixedSprite = true"
           ></TrimmedSprite>
         </div>
 
         <div class="pokemon__details">
+          <div class="exp" v-if="pokemonExists && !pokemon.isEgg">
+            <div
+              :style="{width:experienceRemaining}"
+              :class="{ exp__inner: true}"
+            ></div>
+          </div>
           <div class="pokemon__name" v-if="pokemonExists">
             {{pokemon.nickname}}
           </div>
@@ -26,7 +31,6 @@ Vue.component( "Pokemon", {
           </div>
         </div>
       </div>
-      <div v-else></div>
     </div>
   `,
   props: {
