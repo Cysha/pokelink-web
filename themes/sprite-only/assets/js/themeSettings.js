@@ -1,6 +1,6 @@
 var themeSettings = {
     theme: {
-        name: 'pokeball',
+        name: 'sprite-only',
     },
 
     pokeImg: {
